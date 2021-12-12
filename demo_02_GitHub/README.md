@@ -12,6 +12,7 @@ It is also useful to collaborate on software because multiple
 software developers will be able to modify the same online repository.
 
 The repository for this course can be viewed in a browser. 
+A folder in the repository for the course ECP3004 is shown here:
 
 <img src="Images/GitHubBeforeRefresh.png" width="750"/>
 
@@ -22,6 +23,9 @@ To complete and submit your assignments, you will want to
 ```commit``` and ```push``` changes to the repository, 
 after making those changes in the corresponding files 
 on your local computer.
+This pushes your most recent updates to the online repository, 
+where the changes are permanently and accessible to others
+who have access to the repository. 
 
 ### Open GitHub Desktop
 
@@ -60,13 +64,13 @@ repository, e.g. ```ECP3004S21```, in a folder called ```GitHub```.
 ### Making Changes
 
 Making changes is fairly straightforward. 
-You simply create or delete files or make changes to them, 
-within the local folder. 
-Basically, you do the work you set out to do, 
-as if there were no repository. 
+You simply create or delete entire files, or make changes to existing files, 
+within your local folder, as you would for any other work. 
+Basically, you do the work you set out to do on your computer, 
+as if there were no repository linked to that folder. 
 That's the beauty of GitHub: you just do your work
-and your work gets archived periodically with a few clicks 
-of a button. 
+and your work gets archived periodically with the clicks 
+of a few buttons. 
 
 In this example, I have added a file. 
 As an example, it is an image of the course banner
@@ -112,7 +116,7 @@ repository, the version online.
 
 It is often a good idea to verify that the changes have been made
 according to your expectations. 
-Open your browser to the repository on ```github.com``` 
+Open your browser and navigate to the repository on ```github.com``` 
 to see the folder you updated. 
 
 <img src="Images/GitHubBeforeRefresh.png" width="750"/>
@@ -149,4 +153,7 @@ After pressing the "Pull" button,
 you should see that the updates have been made to your local folder.
 You can check for the new files or updated "Last Modified" dates
 in an application such as "File Explorer" in Windows. 
+
+Throughout this course, you will need to pull any changes
+in the course repository or after assignments have been graded. 
 
