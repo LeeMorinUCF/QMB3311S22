@@ -2,7 +2,7 @@
 """
 ##################################################
 #
-# ECP 3004: Python for Business Analytics
+# QMB 3311: Python for Business Analytics
 #
 # Lealand Morin, Ph.D.
 # Assistant Professor
