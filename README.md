@@ -67,8 +67,7 @@ distribution of Python.
 <img src="Images/Octocat.png" width="200"/>
 
 
-*Version control software:* We will use  
-[GitHub](https://github.com/) 
+*Version control software:* We will use [GitHub](https://github.com/) 
 repositories to share course materials. This will be the primary medium for distributing materials for course demonstrations and it offers a convenient way to obtain feedback on coding assignments. 
 [GitHub Desktop](https://desktop.github.com/) 
 provides a user-friendly
