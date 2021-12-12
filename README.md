@@ -49,7 +49,7 @@ The true requirement, however, is a quantitative mindset. Computer programming i
 
 The primary tool for this course is software of the following kinds. 
 
-<img src="Images/python_logo.png" width="500"/>
+<img src="Images/python_logo.png" width="400"/>
 
 *A Python distribution:*  All programming in this course will be carried out in the 
 [Python](https://www.python.org/) 
@@ -73,7 +73,7 @@ repositories to share course materials. This will be the primary medium for dist
 [GitHub Desktop](https://desktop.github.com/) 
 provides a user-friendly
 graphical interface for updating code repositories
-and downloading updates posted by others, including your instructor. 
+and downloading updates pushed by others, including your instructor. 
 
 
 ## After This Course
