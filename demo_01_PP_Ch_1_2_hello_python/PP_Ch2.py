@@ -92,7 +92,8 @@
 53 % 24
   
 
-# Python doesn't round with integer division; it takes the  floor 
+# Note that Python doesn't round with integer division; 
+# it takes the  floor 
 
 17 // 10
   
@@ -196,7 +197,7 @@
 (212 - 32) * 5 / 9
   
 
-# Oerators with hiher precedence are evaluated before those with lower precedence. 
+# Operators with higher precedence are evaluated before those with lower precedence. 
   
 -2 ** 4
 
@@ -362,7 +363,7 @@ number
 2 + \
 3
   
-# Sometimes, you can use rewrite the expression, so that it is clear
+# Sometimes, you can rewrite the expression, so that it is clear
 # that the expression extends to the next line. 
   
 (2 +
@@ -434,7 +435,7 @@ oven_heating_time
 # Python ignores this sentence because of the # symbol.
 
   
-# A future user that understands what is going on will be happier
+# A future user who understands what is going on will be happier
 # to use your program. 
 # Sometimes the future user is *future you*.
 
