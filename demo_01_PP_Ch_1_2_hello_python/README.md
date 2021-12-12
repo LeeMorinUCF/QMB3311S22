@@ -12,7 +12,7 @@ We define all of these terms in what follows.
 ## What is a computer?
 
 At a basic level, a *computer* is a list of *information stored in memory*, combined with some *operations* that can be performed on the information in memory.
-At any time, a computer has a state that is defined by the set of values at each of the locations in memory.
+The *state* of a computer is defined by the set of values at each of the locations in memory at a particular point in time.
 
 
 ## What is a program?
@@ -24,7 +24,7 @@ A program alters the state of the computer.
 ## How do computers run programs?
 
 The human-readable computer program that you write is *interpreted*, or translated into another set of instructions, by another program called the interpreter.
-This interpreter translates the program into something that will run on the operating system.
+This interpreter translates the program into a secondary form of instructions that will run on the operating system.
 The operating system, such as Windows, Linux or Mac OS, is another set of programs that then translate your instructions into a more primitive set of instructions that are finally executed on the computer.
 
 <img src="Images/Interpreter.png" width="500"/>
@@ -35,8 +35,8 @@ With this separation, you need only write the instructions in standardized synta
 
 To say that python is a *high-level language* is to say that there are several levels of interpretation between the python script that you type and the operations that are actually run on the computer. 
 This form of computing is often slower to run but faster to code. 
-In comparison, languages such as C++ or Fortran are low-level languages that are slower to code, must be compiled before running, instead of interpreted as they run, but run much faster. 
-Python is known to have a flatter learning curve that these low-level languages but, as a general-purpose language, the learning curve is steeper than that for languages such as R, which are designed for specific purposes. 
+In comparison, languages such as C++ or Fortran are low-level languages that are slower to code and must be compiled before running, instead of interpreted as the program runs, but these run much faster. 
+Python is known to have a flatter learning curve than these low-level languages but, as a general-purpose language, the learning curve is steeper than that for languages such as R, which are designed for specific purposes. 
 
 
 ## How do *you* run programs on computers?
@@ -44,7 +44,7 @@ Python is known to have a flatter learning curve that these low-level languages 
 ### Programming *Languages*
 
 Computer programming languages are, literally, languages. 
-It is not a metaphor to call tem languages.
+It is not a metaphor to call these "languages".
 In Google, a language is defined as "the method of human communication, either spoken or written, consisting of the use of words in a structured and conventional way."
 A computer programming language is a written method of communication to communicate instructions to a computer. 
 Like other languages, programming languages have parts of speech, syntax and punctuation. 
@@ -64,7 +64,7 @@ Examples of *types* of data are as follows:
 <img src="Images/Rvariablesdata.jpg" width="500"/>
 
 A variable can have a single element (i.e. atomic) or be a vector or array of values. 
-Typically, vectors and arrays comprise elements of the same data type. 
+Typically, vectors, matrices and arrays comprise elements of the same data type. 
 For statistical programming, languages such as ```R``` and ```Python``` also allow for the collection of data into data frames, in which each column can be of a separate data type. 
 
 
@@ -75,15 +75,15 @@ Now, what can we do with them?
 ### Verbs: The Actions You Can Perform
 
 The action words of programming are sorted into several categories. 
-The first we will consider should be familiar to you. 
 
 
 ### Arithmetic operators
 
 These are the operators that are most familiar to you. 
+In each case, the *operator* is a symbol between two numeric objects
+that represents an arithmetic operation. 
 
-
-In ```python``` these operators are used
+In ```python``` these operators are used:
 
 <img src="Images/ArithmeticOperatorsPython.jpg" width="500"/>
 
@@ -191,7 +191,7 @@ The remainder is calculated with the *modulo* operator.
 
 ``` 
 
-Python doesn't round with integer division; it takes the ```floor```
+Note that Python doesn't round with integer division; it takes the ```floor```
 
 ```python 
 >>> 17 // 10
@@ -320,7 +320,7 @@ Use parentheses to force the priority of operations over *subexpressions*.
 100.0
 ``` 
 
-Oerators with hiher precedence are evaluated before those with lower precedence. 
+Operators with higher precedence are evaluated before those with lower precedence. 
 
 
 ```python 
@@ -356,15 +356,6 @@ Once it is assigned, it can be used in subsequent calculations.
 >>> degrees_celsius = 26.0
 >>> degrees_celsius
 26.0
->>> 9 / 5 * degrees_celsius + 32
-78.80000000000001
->>> degrees_celsius / degrees_celsius
-1.0
-
-``` 
-
-```python 
->>> degrees_celsius = 26.0
 >>> 9 / 5 * degrees_celsius + 32
 78.80000000000001
 >>> degrees_celsius = 0.0
@@ -449,6 +440,9 @@ It works similarly for multiplication.
 14
 
 ``` 
+Notice that Python evaluates the expression ```3 + 4``` on the 
+right before the reassignment. 
+
 These two operations produce the same output:
 
 ```python 
@@ -532,7 +526,7 @@ The backslash operator will allow a single command to extend to the next line.
 ... 3
 5
 ``` 
-Sometimes, you can use rewrite the expression, so that it is clear
+Sometimes, you can rewrite the expression, so that it is clear
 that the expression extends to the next line. 
 
 ```python 
@@ -541,7 +535,12 @@ that the expression extends to the next line.
 5
 ```
 
-How to translate pre-heating time from Fahrenheit (in the cookbook)
+In this case, the trailing ```+``` operator
+indicates that the second operand of this binary operator
+must follow, so the command must continue. 
+
+Now consider an example of 
+how to translate pre-heating time from Fahrenheit (in the cookbook)
 to Celsius (on the oven controls):
 
 ```python 
@@ -612,7 +611,7 @@ Python ignores anything in a line after the ```#``` character
 >>> # Python ignores this sentence because of the # symbol.
 
 ``` 
-A future user that understands what is going on will be happier
+A future user who understands what is going on will be happier
 to use your program. 
 Sometimes the future user is *future you*.
 
