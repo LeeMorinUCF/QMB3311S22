@@ -113,7 +113,7 @@ b2 = True
 #-------------------------------------------------
 
 # Relational operators compare operands to produce a Boolean variable.
-# Inequality signs are a primary example.
+# Inequality signs are primary examples of relational operators.
 
 45 > 34
 
@@ -177,7 +177,7 @@ is_positive(-4.6)
 is_positive(0)
 
 
-# Now we can revisit the example with exclusive or operator, 
+# Now we can revisit the example with the exclusive or operator, 
 # applied to two variables of type bool. 
 
 b1 != b2
@@ -204,7 +204,7 @@ b1 != b2
 # 1. Arithmetic operators are evaluated first: 
 # you have to know the values you are comparing first. 
 # 2. Relational operators all have the same precedence, after arithmetic operators. 
-# 3. Boolean opearators like and, or and not are evaluated last: 
+# 3. Boolean operators like and, or and not are evaluated last: 
 # again, you have to know the values you are comparing first. 
 
 # Once you know these rules, you can avoid typing parentheses. 
@@ -246,6 +246,8 @@ x = 3
 
 # Recall the order of operations: the relational operator
 # is evaluated first and 5 is neither True nor False. 
+# When in doubt, a good practice is to use parentheses "()" to 
+# specify the order of evaluation. 
 
 
 #-------------------------------------------------
