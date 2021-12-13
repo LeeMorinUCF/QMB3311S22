@@ -547,10 +547,10 @@ Avinash Navlani on a training site called Datacamp:
 
 [Text Analytics for Beginners using NLTK](https://medium.com/towards-artificial-intelligence/text-mining-in-python-steps-and-examples-78b3f8fd913b)
 
-There are many other examples, as this the capabilities have expanded significantly over the last several years. 
+There are many other examples, as these capabilities have expanded significantly over the last several years. 
 
 This form of analysis goes well beyond the toolkit we have so far. 
-We will have to learn more about list of data and reading and writing files containing the data.
-We will have to learn to use Python modules, such as the ```nltk``` module used here. 
-Then we will have to learn to use modules that conduct statistical analysis of the form you would do in a course on econometrics. 
+We will have to learn more about lists of data and about reading and writing files containing the data.
+We will have to learn to use Python modules, such as the ```nltk``` module used in the example script above. 
+Then we will have to learn to use modules that conduct statistical analysis of the form you would learn in a course on econometrics. 
 
