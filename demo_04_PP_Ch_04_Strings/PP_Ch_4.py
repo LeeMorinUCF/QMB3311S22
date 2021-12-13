@@ -114,7 +114,7 @@ len('')
 # function first. 
  
 'Four score and ' + str(7) + ' years ago'
-'Four score and 7 years ago'
+# 'Four score and 7 years ago'
 
  
 # Some strings can be converted to numbers:
@@ -262,6 +262,7 @@ Use matched triple quotes.'''
 
 
 
+
 ##################################################
 ## Printing Information
 ##################################################
@@ -310,8 +311,8 @@ numbers
 # 'one\ntwo\nthree'
 
 
-# but the print function executes the instruction, 
-# rather than printing the escape sequence.
+# but the print function executes the "newline" instruction, 
+# rather than printing the escape sequence "/n".
 
 
 print(numbers)
@@ -325,6 +326,14 @@ print(numbers)
  
 print(1, 2, 3)
 # 1 2 3
+
+print(1,2,3)
+
+print(1   ,     2   ,   3   
+      )
+
+
+
 
  
 # If there are no arguments passed to print, 

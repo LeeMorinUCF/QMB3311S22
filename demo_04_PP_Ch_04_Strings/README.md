@@ -297,8 +297,8 @@ the newline characters are automatically added,
 'one\ntwo\nthree'
 ```
 
-but the ```print``` function executes the instruction, 
-rather than printing the escape sequence.
+but the ```print``` function executes the "newline" instruction, 
+rather than printing the escape sequence ```\n```.
 
 ```python
 >>> print(numbers)
@@ -518,8 +518,7 @@ and
 A deeper analysis is conducted by 
 Avinash Navlani on a training site called Datacamp: 
 
-[Text Analytics for Beginners using NLTK]
-(https://medium.com/towards-artificial-intelligence/text-mining-in-python-steps-and-examples-78b3f8fd913b)
+[Text Analytics for Beginners using NLTK](https://medium.com/towards-artificial-intelligence/text-mining-in-python-steps-and-examples-78b3f8fd913b)
 
 There are many other examples, as this the capabilities have expanded significantly over the last several years. 
 
