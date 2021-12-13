@@ -24,7 +24,7 @@ as objects of interest in their own right.
 
 ### Boolean Operators
 
-The negation ```not``` is a unary operator on type ```bool```
+The negation ```not``` is a *unary* operator on type ```bool```
 
 ```python 
 >>> not True
@@ -34,8 +34,12 @@ True
 ``` 
 It negates, or reverses, the Boolean variable, 
 from ```False``` to ```True``` or vice versa. 
-
-The binary operator ```and``` returns ```True``` only if both
+It is called a *unary* operator because it has only one operand, 
+which is specified after the operator.
+The *binary* operator ```and``` tests two logical expressions together.
+An expression made up of two logical operands
+separated by ```and``` 
+returns ```True``` only if both
 operands are ```True```.
 
 ```python 
@@ -117,7 +121,7 @@ Some of the most common relational operators are shown in the following table.
 <img src="Images/RelationalOpsTrimmed.jpg" width="500"/>
 
 
-Inequality signs are a primary example of a relational operator.
+Inequality signs are primary examples of relational operators.
 
 ```python 
 >>> 45 > 34
@@ -190,7 +194,7 @@ False
 
 ``` 
 
-Now we can revisit the example with exclusive ```or``` operator, 
+Now we can revisit the example with the exclusive ```or``` operator, 
 applied to two variables of type ```bool```. 
 
 ```python
@@ -208,7 +212,7 @@ Just as with numbers, there is an order of operations with type ```bool```.
 1. Arithmetic operators are evaluated first: 
 you have to know the values you are comparing first. 
 1. Relational operators all have the same precedence, after arithmetic operators. 
-1. Boolean opearators like ```and```, ```or``` and ```not``` are evaluated last: again, you have to know the values you are comparing first. 
+1. Boolean operators like ```and```, ```or``` and ```not``` are evaluated last: again, you have to know the values you are comparing first. 
 
 Once you know these rules, you can avoid typing parentheses. 
 
@@ -263,6 +267,8 @@ True
 
 Recall the order of operations: the relational operator
 is evaluated first and ```5``` is neither ```True``` nor ```False```. 
+When in doubt, a good practice is to use parentheses ```()``` to 
+specify the order of evaluation. 
 
 
 #### Using Numbers and Strings with Boolean Operators
@@ -668,6 +674,8 @@ else:
 
 ### Exercise 9
 
+Consider the following block of code.
+
 ```python 
 >>> ph = 2
 >>> if ph < 7.0:
@@ -687,6 +695,8 @@ Is this the intended result? If not, how could you fix it?
 
 
 ### Exercise 10
+
+Consider the following block of code.
 
 ```python 
 ph = float(input("Enter the ph level: "))

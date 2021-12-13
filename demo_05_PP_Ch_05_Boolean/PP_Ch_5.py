@@ -163,9 +163,9 @@ b2 = True
 def is_positive(x: float) -> bool:
     """Return True iff x is positive.
 
-    is_positive(3)
+    >>> is_positive(3)
     True
-    is_positive(-4.6)
+    >>> is_positive(-4.6)
     False
     """
     return x > 0
@@ -203,7 +203,9 @@ b1 != b2
 
 # 1. Arithmetic operators are evaluated first: 
 # you have to know the values you are comparing first. 
-# 1. Relational operators all have the same precedence, after arithmetic operators. 1. Boolean opearators like and, or and not are evaluated last: again, you have to know the values you are comparing first. 
+# 2. Relational operators all have the same precedence, after arithmetic operators. 
+# 3. Boolean opearators like and, or and not are evaluated last: 
+# again, you have to know the values you are comparing first. 
 
 # Once you know these rules, you can avoid typing parentheses. 
 
@@ -261,7 +263,7 @@ not 34.2
 not -87
 
  
-# Similarly for strings, the empty string'' returns False
+# Similarly for strings, the empty string '' returns False
 # and all other strings return True. 
  
 not ''
@@ -294,6 +296,14 @@ not 'bad'
 # What happened? Python didn't bother evaluating the second operator, 
 # avoiding the error. 
 
+# The other way around:
+(1 / 0) or (2 < 3)
+# Throws an error.
+
+# Sometimes you should add an extra condition:
+x = 0
+(x != 0) and (1 / x) > 0.25
+
 
 #-------------------------------------------------
 ### Comparing Strings
@@ -313,6 +323,11 @@ not 'bad'
 'abc' < 'abd'
 
 'abc' < 'abcd'
+
+# This is the same as:
+'abc' + '' < 'abcd'
+# or:
+'' < 'd'
  
 
 # The in operator checks whether a string is contained within another string. 
@@ -334,6 +349,7 @@ date = input('Enter a date in the format DD MTH YYYY: ')
 'A' in 'abc'
 
 '' in 'abc'
+'' in 'abc' + ''
 
 '' in ''
 
@@ -547,6 +563,8 @@ else:
 
 
 ### Exercise 9
+
+# Consider the following block of code.
  
 ph = 2
 if ph < 7.0:
@@ -560,11 +578,15 @@ elif ph < 3.0:
 
 # What happens when ph = 3.6?
 
+# What happens when ph = 2.4?
+
 # Is this the intended result? If not, how could you fix it? 
 
 
 
 ### Exercise 10
+
+# Consider the following block of code.
  
 ph = float(input("Enter the ph level: "))
 if ph < 7.0:
