@@ -27,7 +27,10 @@
 # Import Modules.
 ##################################################
 
-
+# Soon we will import modules, which are
+# collections of predefined functions. 
+# The os module helps us interact with the 
+# operating system.
 import os # To set working directory
 
 
@@ -36,6 +39,8 @@ import os # To set working directory
 # Set Working Directory.
 ##################################################
 
+# Next, we can use the os module to direct the Python interpreter
+# to work in a particular folder, often called a directory.
 
 # Find out the current directory.
 os.getcwd()
@@ -45,6 +50,11 @@ os.chdir('C:\\Users\\le279259\\Documents\\Teaching\\ECP3004_Spring_2021\\GitRepo
 # Check that the change was successful.
 os.getcwd()
 
+# This preliminary step is often problematic because
+# paths to directories often use special characters. 
+# To execute a change in directory, you should
+# understand how to define a string that represents
+# your path. 
 
 
 ##################################################
@@ -91,7 +101,8 @@ print("These\nare\nseparate\nlines")
 # "This is two "strings" instead of one string"
 # because Python prematurely ends the string at the second quote.
 
-# These tricks will be useful for the section on File IO.
+# These tricks will be useful for the sections on File IO
+# and for loading data from spreadsheets.
 # You use strings for the path to the file
 # and the contents of many files are represented as strings. 
 

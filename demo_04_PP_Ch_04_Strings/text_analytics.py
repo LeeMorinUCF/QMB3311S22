@@ -234,7 +234,7 @@ print(result)
 
 
 # These examples illustrate only the pieces of the puzzle.
-# We need to lewarn a good deal more to make full use of these tools. 
+# We need to learn a good deal more to make full use of these tools. 
 
 
 ##################################################

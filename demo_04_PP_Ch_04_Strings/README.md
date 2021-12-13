@@ -446,7 +446,33 @@ Please enter a species: Python curtus
 Python curtus
 ``` 
 
+## Telling the Computer Where to Go
 
+Soon we will import modules, which are
+collections of predefined functions.
+The ```os``` module helps us interact with the
+operating system.
+```python
+# Set working directory
+import os 
+```
+
+
+Next, we can use the os module to direct the Python interpreter
+to work in a particular folder, often called a directory.
+
+```python
+# Change to a new directory.
+os.chdir('C:\\Users\\le279259\\Documents\\Teaching\\ECP3004_Spring_2021\\GitRepo\\ECP3004S21\\demo_04_PP_Ch_04_Strings')
+```
+
+
+This preliminary step is often problematic because
+paths to directories often use special characters.
+To execute a change in directory, you should
+understand how to define a string that represents
+your path.
+See the script ```string_examples.py``` for more examples. 
 
 
 ## Exercises
@@ -513,6 +539,7 @@ Dhilip Subramanian, a Data Scientist and AI Enthusiast:
 and 
 [Text Mining in Python: Steps and Examples on Medium.com](https://www.medium.com/towards-artificial-intelligence/text-mining-in-python-steps-and-examples-78b3f8fd913b). 
 
+See the introductory examples in ```text_analytics.py```.
 
 
 A deeper analysis is conducted by 
