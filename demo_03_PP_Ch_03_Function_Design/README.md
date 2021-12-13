@@ -161,9 +161,11 @@ might have a type contract such as
 ...
 ```
 
-Notice that you would not enter Greek letters such as &alpha or &beta 
+Notice that you would not enter Greek letters such as &alpha; or &beta; 
 in your script because that would require a larger set of characters
 and cause bugs in some platforms. 
+You might, however, elect to define variable names that spell
+out these symbols if it matches the related terminology. 
 For maximum functionality, keep your code within the Roman alphabet, 
 possibly using underscores for spaces and numbers to differentiate variables. 
 
