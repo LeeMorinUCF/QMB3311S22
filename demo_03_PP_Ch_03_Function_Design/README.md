@@ -7,16 +7,16 @@
 
 
 In this demo, we will study the process of designing functions. 
-We will follow the 5-step process in our textbook *Practical Programming*, 
-Chapter 3, called the **Function Design Recipe**. 
+We will follow the 5-step process in the textbook *Practical Programming*, 
+Chapter 3, called the *Function Design Recipe*. 
 It is called a recipe because it guides you to follow a systematic approach to designing your function. 
 Every time you write a function, you need to answer the following questions:
 
 * What do you name the function? 
 * What are the arguments, and what types of information do they represent?
-* What calculations are you doing with that information?
+* What calculations does the function do with that information?
 * What does the function return?
-* Does it work as expected?
+* Does the function work as expected?
 
 You will address these questions by following the recipe shown next. 
 
@@ -24,11 +24,11 @@ You will address these questions by following the recipe shown next.
 
 The five steps are as follows:
 
-1. **Examples** Type a few example calls and determine what it should return for those values. 
-The name of your function should indicate what is being calculated in your examples. 
-1. **Description** Write a few sentences to describe what your function does. 
+1. **Examples** Type a few example calls and determine what the function should return for those values. 
+The examples define a name of your function that should indicate what is being calculated in your examples. 
+1. **Description** Write one or more sentences to describe what your function does. 
 1. **Header** Type some documentation relating to your function. 
-It should be clear to the reader what arguments it takes as input and what value is returned and the types of each variable. 
+It should be clear to the reader what arguments it takes as input, what value is returned and the type of each variable. 
 1. **Body** By now, you should be clear about how your function will work. 
 Now type the code to perform the calculations. 
 1. **Test** Run the examples from step 1 to verify that your function works as expected. 
@@ -59,8 +59,8 @@ Guessing is only reasonable if the function is simple.
 ```
 
 That makes sense and it appears to work. 
-If your user wants to know for sure, they can
-search for documentation, as you would for any other function.
+If your users want to know for sure, they can
+search for documentation, as they would for any other function.
 
 ```python
 >>> help(add_two_numbers)
@@ -77,7 +77,9 @@ is not very convenient for long and complex functions.
 <function __main__.add_two_numbers(first_number, second_number)>
 ```
 
-Instead, add documentation to the function in a docstring.
+Instead, add documentation to the function in a docstring, 
+which is a string of text enclosed in triple quotes
+at the top of the function.
 
 
 ```python
@@ -117,7 +119,7 @@ Now apply the function design recipe to the ```add_two_numbers``` example.
 
 ### Examples
 
-Try to think of some examples that will test the limit of your function.
+Try to think of some examples that will test the limits of your function.
 Note that we can run the tests only because we have already defined the
 function in the examples above.
 
@@ -142,12 +144,35 @@ Now you know that your function will have a form like this.
 ...
 ...
 ```
+In mathematics, it is common to use Roman and Greek letters of the
+alphabet to define the arguments to your function. 
+In contrast, in computer programming it is customary to define names that
+are more descriptive. 
+For example, a function that estimates a linear regression model
+might have a type contract such as 
+
+```python
+>>> def linear_reg(y, x):
+...    
+...    # Calculate beta_hat.
+...    
+...    return beta_hat
+...
+...
+```
+
+Notice that you would not enter Greek letters such as &alpha or &beta 
+in your script because that would require a larger set of characters
+and cause bugs in some platforms. 
+For maximum functionality, keep your code within the Roman alphabet, 
+possibly using underscores for spaces and numbers to differentiate variables. 
 
 
 ### Header
 
 Write a header to contain information about the
 the types of variables in your function.
+
 
 ```python
 >>> def add_two_numbers(first_number: float, second_number: float) -> float:
@@ -158,6 +183,10 @@ the types of variables in your function.
 ...
 ...
 ```
+The header contains a *type contract* that not only defines 
+the names of the variables but also the types of the variables
+passed as arguments and returned by the function. 
+
 
 ### Description
 
@@ -920,8 +949,13 @@ The user should have read the manual (RTM).
 ## Exercises
 
 
-### Exercise 8
+### Exercise 1
 
+For the following function, 
+complete the last two examples
+and create the body of the function. 
+Then test your function to verify that 
+your function correctly evaluates the examples. 
 
 ```python 
 def weeks_elapsed(day1, day2):
@@ -944,8 +978,13 @@ def weeks_elapsed(day1, day2):
 
 
 
-### Exercise 9
+### Exercise 2
 
+For the following function, 
+create two more examples
+and create the body of the function. 
+Then test your function to verify that 
+your function correctly evaluates the examples. 
 
 ```python 
 def square(num):

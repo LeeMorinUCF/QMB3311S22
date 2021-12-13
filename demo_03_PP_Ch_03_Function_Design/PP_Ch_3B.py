@@ -26,15 +26,15 @@
 
 # The five steps to function design are as follows:
 
-# 1. **Examples** Type a few example calls and determine what it 
-#     should return for those values. 
+# 1. **Examples** Type a few example calls and determine what  
+#     the function should return for those values. 
 #     The name of your function should indicate what is being 
 #     calculated in your examples. 
 # 2. **Description** Write a few sentences to describe what 
 #     your function does. 
 # 3. **Header** Type some documentation relating to your function. 
 #     It should be clear to the reader what arguments it takes 
-#     as input and what value is returned and the types of each variable. 
+#     as input, what value is returned and the type of each variable. 
 # 4. **Body** By now, you should be clear about how your function 
 #     will work. 
 #     Now type the code to perform the calculations. 
@@ -66,8 +66,8 @@ add_two_numbers(3,4)
 
 
 # That makes sense and it appears to work. 
-# If your user wants to know for sure, they can
-# search for documentation, as you would for any other function.
+# If your users want to know for sure, they can
+# search for documentation, as they would for any other function.
 
 help(add_two_numbers)
 
@@ -756,7 +756,6 @@ get_birthday_weekday(6, 116, 3)
 def convert_to_celsius(fahrenheit: float) -> float:
     """Return the number of Celsius degrees equivalent to fahrenheit
     degrees.
-
     >>> convert_to_celsius(75)
     23.88888888888889
     """
@@ -774,6 +773,7 @@ print(convert_to_celsius(10.4))
 
 # Run the script to run examples in temperature.py.
 exec(open("temperature.py").read())
+# Note that you need to tell Python where the file is.
 
 
 # 26.666666666666668
@@ -837,7 +837,6 @@ print(f(3))
 def pie_percent(n: int) -> int:
     """Assuming there are n people who want to eat a pie, return the
     percentage of the pie that each person gets to eat.
-
     >>> pie_percent(5)
     20
     >>> pie_percent(2)
@@ -853,16 +852,14 @@ pie_percent(5)
 
 # ...but there is nothing to stop someone from entering a negative
 # number of people. 
-
+pie_percent(-5)
 
 # One way to avoid problems is to add a precondition:
 
 def pie_percent(n: int) -> int:
     """Precondition: n > 0
-
     Assuming there are n people who want to eat a pie, return the percentage
     of the pie that each person gets to eat.
-
     >>> pie_percent(5)
     20
     >>> pie_percent(2)
@@ -886,4 +883,3 @@ def pie_percent(n: int) -> int:
 ##################################################
 ## End
 ##################################################
-
