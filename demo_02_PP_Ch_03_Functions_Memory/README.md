@@ -41,7 +41,7 @@ arithmetic operators:
 5.5
 
 ``` 
-or as arguments in other operators
+or as arguments in other functions
 
 ```python 
 >>> pow(abs(-2), round(4.3))
@@ -170,7 +170,8 @@ Other variables that you create are immediately assiggned to locations in memory
 4298223064
 
 ``` 
-Even functions are objects in memory and are assiggned to locations in memory. 
+Even functions are classified as objects in memory and 
+are assigned to locations in memory. 
 ```python 
 >>> id(abs)
 4297868712
@@ -387,6 +388,7 @@ NameError: name 'first' is not defined
 ```
 
 Even the arguments are only defined within the function. 
+Try calling a value that was defined within the quadratic function. 
 ```python
 >>> a
 Traceback (most recent call last):
@@ -423,7 +425,10 @@ What do you think this function does?
 Python keeps track of all the intermediate calculations
 in separate places in memory, one for each of the different ```x```'s above.
 
-See the explanation in *Practical Programming* on pages 40-46.
+See the explanation in *Practical Programming* on pages 40-46. 
+To gain some intuition about how the state of the computer
+is altered as the computer performs calculations, 
+we can analyze a type of computer called a *register machine*.
 
 
 
@@ -456,7 +461,7 @@ These commands are listed in a program in which each line has up to four paramet
 * The third is needed only in the case of the ```INC``` or ```DEB``` commands. After changing the register, it instructs the computer to *go to* a particular *step* in the program and execute the instruction at that step next. 
 * The fourth column is ony needed for the ```DEB``` command. It indicates the *branch-to step* in the program to be executed next in the case that the register has a value of zero and cannot be decreased. 
 
-Here are some examples that follow from the discussion of the [RodRego](http://sites.tufts.edu/rodrego/) program on the website of the philosopher Dan Dennet at Tufts University. 
+Here are some examples that follow from the discussion of a program called [RodRego](http://sites.tufts.edu/rodrego/) on the Website of the philosopher Dan Dennet at Tufts University. 
 RodRego is a program for running programs in a language called ```RAP```, which stands for *Register Assembly Programming*. 
 A version that will run in your browser is available [here](http://proto.atech.tufts.edu/RodRego/).
 The following examples are found in Dan Dennet's book *Intuition Pumps and Other Tools for Thinking*. 
@@ -485,6 +490,8 @@ Now run this program to see it in action.
 Open RodRego and it is initialized with ten registers, 
 with *addresses* numbered zero to nine, each initialized with 
 the *value* equal to the *address* of the register. 
+You can use the plus and minus buttons to set the registers
+1 and 2 to any non-negative values you want to add. 
 
 <img src="Images/RodRegoStart.png" width="500"/>
 
@@ -516,6 +523,8 @@ The flow graph is shown here:
 
 
 Notice the first step is to remove the contents of register 5 so that the value does not get counted with the value moved from register 4.
+The next steps alternate between removing one from register 4
+and adding one to register 5, until the value in register 4 is depleted to zero, at which point the program ends.
 
 ### Program 4: ```COPY[1,3]```
 
@@ -536,7 +545,7 @@ This program copies the value in register 1 and records it in register 3.
 <img src="Images/FlowGraphCOPY13.png" width="500"/>
 
 
-As above, thie first steps are to clear spaces in memory to store the result (in register 3) and store the values of intermediate calculations (in register 4). 
+As above, the first steps are to clear spaces in memory to store the result (in register 3) and store the values of intermediate calculations (in register 4). 
 Steps 3, 4 and 5 cycle through the subtraction of values from register 1 and the addition of each value to both registers 3 and 4. 
 Moving to register 3 is the goal but the movement to register 4 is to store the original value of register 1.
 When register 1 is empty, the program then alternates between steps 6 and 7 to move the values in register 4 back to register 1, leaving the value that was copied in its original location. 
@@ -564,6 +573,11 @@ This program now adds the values in registers 1 and 2 and stores the result in r
 
 <img src="Images/FlowGraphNonDestrADD123.png" width="500"/>
 
+Initialize the register with some values to add in registers 1 and 2 
+(along with some dummy values in register 3 and 4, 
+if you want to observe the initialization steps),
+and watch the program run to observe all the intermediate steps in the calculation. 
+
 
 Other programs can be written to multiply two values, with repeated addition. 
 Subtraction can also be performed similarly, except that there is the potential for negative values, in which an extra register must be used to store a minus sign. 
@@ -571,6 +585,6 @@ Division can be completed by repeated subtraction, with an extra register for th
 Once these programs are written, one can create a program to emulate a pocket calculator by including a register with a value to indicate the desired operation. 
 For example, zero for ```ADD```, one for ```SUBTRACT```, two for ```MULTIPLY``` and three for ```DIVIDE```. 
 
-The extension to more advanced computers is described in this note: [Secrets to Computer Power Revealed](http://sites.tufts.edu/rodrego/files/2011/03/Secrets-of-Computer-Power-Revealed-2008.pdf) and an updated version is available in [this note from a Royal Institution Masterclass](http://brainmindforum.com/docs/convergence-booklet-reprint.pdf) called *CONERGENCE of Biogenetics, Cognitive Neuroscience and Computing*.
+The extension to more advanced computers is described in this note: [Secrets to Computer Power Revealed](http://sites.tufts.edu/rodrego/files/2011/03/Secrets-of-Computer-Power-Revealed-2008.pdf) and an updated version is available in [this note from a Royal Institution Masterclass](http://brainmindforum.com/docs/convergence-booklet-reprint.pdf) called *CONVERGENCE of Biogenetics, Cognitive Neuroscience and Computing*.
 
 

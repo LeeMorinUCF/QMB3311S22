@@ -169,7 +169,8 @@ id(fahrenheit)
 
 
  
-# Even functions are objects in memory and are assiggned to locations in memory. 
+# Even functions are classified as objects in memory 
+# and are assigned to locations in memory. 
 
 id(abs)
 
@@ -300,7 +301,6 @@ help(convert_to_celsius)
 def convert_to_celsius(fahrenheit: float) -> float:
     """Return the number of Celsius degrees equivalent to fahrenheit
     degrees.
-
     convert_to_celsius(75)
     23.88888888888889
     """
@@ -315,7 +315,7 @@ convert_to_celsius(10.4)
  
 
 # Now try the help function again. 
-
+help(convert_to_celsius)
 
 #-------------------------------------------------
 ### Keywords Are Words That Are Special to Python
@@ -378,7 +378,7 @@ first
 
 # Even the arguments are only defined within the function. 
 
-
+# Try calling a value that was defined within the quadratic function. 
 a
 
  
@@ -418,4 +418,3 @@ x = f(x + 1) + f(x + 2)
 ##################################################
 ## End
 ##################################################
-
