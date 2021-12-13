@@ -246,8 +246,8 @@ add_two_numbers(-3,3)
 
 # Let's run through the function design recipe with a few examples
 # to practice the 5 steps:
-# 1. **Examples** Type example calls and what you expect it to return.
-# Choose appropriate names for your function and it's arguments. 
+# 1. **Examples** Type example calls and what you expect your function to return.
+#    Choose appropriate names for your function and it's arguments. 
 # 2. **Description** Write a short description to describe what your function does. 
 # 3. **Header** Type some documentation to describe the arguments and return value. 
 # 4. **Body** Type the code to perform the calculations. 
@@ -458,7 +458,7 @@ help(days_difference)
 #### 4. **Body**: Write the code to perform the calculations. 
 
 # Next, we fill in the body of the function. 
-# We use the modulud % to evaluate the day number as 
+# We use the modulus % to evaluate the day number as 
 # the remainder after division by 7. 
 
  
@@ -498,7 +498,7 @@ get_weekday(7, 1)
 # 8
 
 # Wait a minute! Day 8 is one day out of range. 
-# This should be a 1, instead, to represent Sunday. 
+# Instead, this should be a 1 to represent Sunday. 
 
 # Let's look back at the function to make some changes. 
 
@@ -782,7 +782,7 @@ exec(open("temperature.py").read())
 
 
 # Basically, the Python shell executes all of the commands in the script, 
-# including function definitions, but also any other calculations that apear. 
+# including function definitions, but also any other calculations that appear. 
 # In Chapter 6, we will use the birthday example in a similar way,
 # except that we will exert more control over which statements are evaluated. 
 
@@ -816,7 +816,7 @@ type(res)
 
 
 # Now add a return statement.
-# At least that makes the function design more transparent. 
+# At least, that makes the function design more transparent. 
 def f(x):
     x = 2 * x
     return None
@@ -871,9 +871,10 @@ def pie_percent(n: int) -> int:
     return int(100 / n)
 
 
-# At least when you warn the user, 
+# When something goes wrong, if you warned the user,
 # it is not your fault:
-# The user should have read the manual (RTM). 
+# the user should have read the manual (RTM).
+
  
 
 

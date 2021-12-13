@@ -163,7 +163,7 @@ might have a type contract such as
 
 Notice that you would not enter Greek letters such as &alpha; or &beta; 
 in your script because that would require a larger set of characters
-and cause bugs in some platforms. 
+and cause bugs on some platforms. 
 You might, however, elect to define variable names that spell
 out these symbols if it matches the related terminology. 
 For maximum functionality, keep your code within the Roman alphabet, 
@@ -212,9 +212,23 @@ Include the list of your examples.
 ...
 ```
 
+Note the particular format of the examples:
+the function call is preceded by the string 
+```>>> ``` (with a trailing space)
+and the next line contains the output expected.
+Although following convention is important 
+for the convenience of you users, 
+this format allows for automated testing of your function
+using the examples you provide. 
+
 ### Body
 
-In this case, the body is simple but this is often the most work. 
+In this case, the body is simple; however, this is often the most work
+in designing a function. 
+For more complex functions, 
+following the previous steps will clarify your understanding 
+of the function before you write the body that performs the calculation. 
+
 
 ```python
 >>> def add_two_numbers(first_number: float, second_number: float) -> float:
@@ -234,11 +248,14 @@ In this case, the body is simple but this is often the most work.
 ...
 ```
 
-It seems like a lot of work to do to prepare to write one line of code.
+This may seems like a lot of work to do to prepare to write one line of code.
 With more elaborate functions, having clearly stated the 
 examples, header and description, 
 you should be clear about what it is you will compute and the planning will pay off. 
-
+Think of these steps as you would when you write an outline for an essay:
+even very talented writers rarely write a passage from beginning to end.
+Instead, most writers start with a plan for what they want to write
+before they write it. 
 
 
 ### Test
@@ -259,7 +276,8 @@ If all goes well, these examples should all return
 the values you expect.
 If not, be sure that your examples are correct
 or modify your function definition.
-Most of the work in coding is correcting your mistakes.
+Most of the work in coding is detecting your mistakes
+and correcting them.
 
 
 ## Tips
@@ -271,7 +289,8 @@ You will get better at writing functions as you gain more experience but the fol
   * You can adjust the code for faster computation once it is working. 
 * Type the comments first.
   * Describe to the first user (you!) how the calculations will be performed. 
-  * Split the calculation into checkpoints where you can determine the format 
+  * For lengthier calculations, 
+  split the calculation into checkpoints where you can determine the format 
   of intermediate calculations.
   * Type in the code one block at a time. 
   * Assign values to the arguments (but hide them in comments, so as not to interfere) 
@@ -279,6 +298,7 @@ You will get better at writing functions as you gain more experience but the fol
 * If you find it is getting too complicated, consider breaking up the calculation 
 into separate parts.  
   * Is there a natural checkpoint where you can test with examples? 
+  * Should you consider splitting up the function into separate functions?
 * Choose examples that provide good testing cases. 
   * Does your function work with negative values? 
   * Does it work with missing values? 
@@ -300,12 +320,12 @@ re-run all of your test cases to make sure they are still correct.
 
 Let's run through the function design recipe with a few examples
 to practice the 5 steps:
-1. **Examples** Type example calls and what you expect it to return.
-Choose appropriate names for your function and it's arguments. 
-1. **Description** Write a short description to describe what your function does. 
-1. **Header** Type some documentation to describe the arguments and return value. 
-1. **Body** Type the code to perform the calculations. 
-1. **Test** Run the examples to verify that your function works as expected. 
+1. **Examples:** Type example calls and what you expect your function to return.
+Choose appropriate names for your function and its arguments. 
+1. **Description:** Write a short description to describe what your function does. 
+1. **Header:** Type some documentation to describe the arguments and return value. 
+1. **Body:** Type the code to perform the calculations. 
+1. **Test:** Run the examples to verify that your function works as expected. 
 
 
 ## Designing Three Birthday-Related Functions
@@ -508,7 +528,7 @@ Now we can put this into words.
 #### 4. **Body**: Write the code to perform the calculations. 
 
 Next, we fill in the body of the function. 
-We use the modulud ```%``` to evaluate the day number as 
+We use the modulus ```%``` to evaluate the day number as 
 the remainder after division by 7. 
 
 ```python 
@@ -552,7 +572,7 @@ Now run the tests.
 8
 ```
 Wait a minute! Day 8 is one day out of range. 
-This should be a 1, instead, to represent Sunday. 
+Instead, this should be a 1 to represent Sunday. 
 
 Let's look back at the function to make some changes. 
 
@@ -838,7 +858,7 @@ When you run it, Python will evaluate the three examples and print out those val
 ```
 
 Basically, the Python shell executes all of the commands in the script, 
-including function definitions, but also any other calculations that apear. 
+including function definitions, but also any other calculations that appear. 
 In Chapter 6, we will use the birthday example in a similar way,
 except that we will exert more control over which statements are evaluated. 
 
@@ -870,11 +890,11 @@ None
 ```
 
 This value still has a location in memory. 
-It has a special type for the empty variable None, called 'NoneType'.
+It has a special type for the empty variable ```None```, called 'NoneType'.
 
 
 Now add a return statement.
-At least that makes the function design more transparent.
+At least, that makes the function design more transparent.
 
 
 ```python
@@ -940,9 +960,9 @@ def pie_percent(n: int) -> int:
     return int(100 / n)
 
 ``` 
-At least when you warn the user,
+When something goes wrong, if you warned the user,
 it is not your fault:
-The user should have read the manual (RTM).
+the user should have read the manual (RTM).
  
 
 
