@@ -573,7 +573,7 @@ colors
 ## Exercises
 ##################################################
 
-# For the following exercises, 
+# For the following two exercises, 
 # complete the remaining examples in the docstring
 # and write the body of the function. 
 # Test your function to verify that the 
