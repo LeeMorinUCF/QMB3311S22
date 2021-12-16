@@ -232,7 +232,7 @@ Traceback (most recent call last):
 TypeError: can only concatenate list (not "str") to list
 
 ``` 
-The ```*``` operator works similar to way it works for strings. 
+The ```*``` operator works similar to the way it works for strings. 
 
 ```python 
 >>> metals = ['Fe', 'Ni']
@@ -422,7 +422,7 @@ of removing the item from the list in the location in memory.
 If we want to restrict the type of the list, we could use the 
 ```typing``` module to specify the type as, say, ```float```. 
 Since this function will work the same for lists of any type, 
-we can explicity state that it applies to lists of ```Any``` type.
+we can explicitly state that it applies to lists of ```Any``` type.
 
 ```python 
 >>> from typing import List, Any
@@ -462,7 +462,7 @@ Here are some examples of methods that operate on lists.
 ['red', 'orange', 'yellow', 'green', 'blue', 'purple']
 
 ``` 
-notice that these methods modify the list, 
+Notice that these methods modify the list, 
 instead of creating a new list, 
 as a function would. 
 See the list on page 142 of *Practical Programming* for a menu of methods to choose from. 
@@ -564,21 +564,14 @@ on which the method is applied.
 
 ## Exercises
 
-
-
-
-
-
-
-
-
-### Exercise 7
-
-For the following function, 
-complete the remaining examples
+For the following exercises, 
+complete the remaining examples in the docstring
 and write the body of the function. 
 Test your function to verify that the 
 function returns the value in the examples. 
+
+### Exercise 7
+
 
 ```python 
 def same_first_last(L: list) -> bool:
@@ -599,12 +592,6 @@ def same_first_last(L: list) -> bool:
 
 ### Exercise 8
 
-For the following function, 
-complete the remaining examples
-and write the body of the function. 
-Test your function to verify that the 
-function returns the value in the examples. 
-
 
 ```python 
 def is_longer(L1: list, L2: list) -> bool:
@@ -621,4 +608,25 @@ def is_longer(L1: list, L2: list) -> bool:
 
 ``` 
 
+### Exercise 10
+
+The variable ```units``` is defined as the following nested list.
+
+```python
+units = [['km', 'miles', 'league'], ['kg', 'pound', 'stone']]
+```
+
+Using ```units``` and either slicing or indexing with positive indices, 
+write expressions that produce the following. 
+
+a. The first item of ```units``` (the first inner list)
+a. The last item of ```units``` (the last inner list)
+a. The string ```'km'```
+a. The string ```'kg'```
+a. The list ```['miles', 'league']```
+a. The list ```['kg', 'pound']```
+
+### Exercise 11
+
+Repeat the previous exercise using negative indices. 
 

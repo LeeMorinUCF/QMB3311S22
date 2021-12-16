@@ -131,7 +131,7 @@ average([1.4, 1.6, 1.8, 2.0])
 
 
 # You can also explicitly state that the argument is a list *of floats*, 
-# using the *capital-L* List from the typing module.
+# using the *capital-L* List from the *typing* module.
  
 from typing import List
 def average(L: List[float]) -> float:
@@ -192,7 +192,7 @@ print(capitalized)
 print(name)
 
  
-# Methods are similar to functions but are related to a cetain data type. 
+# Methods are similar to functions but are related to a certain data type. 
 # We will loop back to them in Chapter 7. 
 
 
@@ -233,7 +233,7 @@ final
 ['H', 'He', 'Li'] + 'Be'   
 
  
-# The * operator works similarly, when compared to strings. 
+# The * operator works similar to the way it works for strings. 
  
 metals = ['Fe', 'Ni']
 metals * 3
@@ -284,7 +284,7 @@ if gas in nobles:
 ## Slicing Lists
 ##################################################
 
-# Some geneticists study types of worm, C. elegans, and refer to 
+# Some geneticists study types of worms, C. elegans, and refer to 
 # them with 3-letter abbreviations. 
 
  
@@ -323,10 +323,9 @@ celegans_copy
 
  
 # Notice that the command celegans_phenotypes[5] = 'Lvl' command
-# did not change celegans_copy, which is a *clone* of the list. 
-# Since there is a copy, Python changes the location in memory 
-# for celegans_phenotypes[5] once it is changed. 
-# Meanwhile, celegans_phenotypes[5] still refers to the original location in memory. 
+# did not change celegans_copy, which is a *clone* of the list celegans_phenotypes. 
+# Python changes only the location in memory for celegans_phenotypes[5]
+# as this still refers to the original location in memory. 
 
 
 
@@ -409,11 +408,14 @@ celegans_markers = ['Emb', 'Him', 'Unc', 'Lon', 'Dpy', 'Lvl']
 remove_last_item(celegans_markers)
 celegans_markers
 
+# Notice that the call to remove_last_item(celegans_markers)
+# did not return any output; it only completed the operation
+# of removing the item from the list in the location in memory.
 
 # If we want to restrict the type of the list, we could use the 
 # typing module to specify the type as, say, float. 
 # Since this function will work the same for lists of any type, 
-# we can explicity state that it applies to lists of Any type.
+# we can explicitly state that it applies to lists of Any type.
  
 from typing import List, Any
 def remove_last_item(L: List[Any]) -> None:
@@ -437,9 +439,9 @@ help(remove_last_item)
 ## List Methods
 ##################################################
 
-# Methods are like functions that operate on 
-# specific kinds of objects (see Chapter 6). 
-# Here are some examples.
+# *Methods* are like functions that operate on specific kinds of objects (see Chapter 6). 
+# The syntax for methods takes the form name_of_object.name_of_method(arguments_if_any). 
+# Here are some examples of methods that operate on lists.
  
 colors = ['red', 'orange', 'green']                 
 colors.extend(['black', 'blue'])
@@ -472,9 +474,11 @@ colors.remove('black')
 colors
 
 
-# notice that these methods modify the list, instead of creating new lists. 
-# See the list on page 142 for a menu of methods to choose from. 
- 
+# Notice that these methods modify the list, 
+# instead of creating a new list, as a function would. 
+# See the list on page 142 of *Practical Programming* 
+# for a menu of methods to choose from. 
+
 
 ##################################################
 ## Working in a List of Lists
@@ -492,6 +496,11 @@ life[0]
 life[1]
 
 life[2]
+
+# The call to life[1] refers to the list ['United States', 75.5] 
+# and the slice [0] of that list refers to the string 'United States', 
+# which is the element in position zero. 
+# This type of operation is referred to as *chaining*. 
 
 
 # To select elements of the individual lists within the full list, 
@@ -564,6 +573,12 @@ colors
 ## Exercises
 ##################################################
 
+# For the following exercises, 
+# complete the remaining examples in the docstring
+# and write the body of the function. 
+# Test your function to verify that the 
+# function returns the value in the examples. 
+
 
 #-------------------------------------------------
 ### Exercise 7
@@ -606,9 +621,26 @@ def is_longer(L1: list, L2: list) -> bool:
 ### Exercise 10
 #-------------------------------------------------
 
+# The variable units is defined as the following nested list.
 
 units = [['km', 'miles', 'league'], ['kg', 'pound', 'stone']]
 
+# Using units and either slicing or indexing with positive indices, 
+# write expressions that produce the following. 
+
+# a. The first item of units (the first inner list)
+# b. The last item of units (the last inner list)
+# c. The string 'km'
+# d. The string 'kg'
+# e. The list ['miles', 'league']
+# f. The list ['kg', 'pound']
+
+
+#-------------------------------------------------
+### Exercise 11
+#-------------------------------------------------
+
+# Repeat the previous exercise using negative indices. 
 
 
 
