@@ -122,9 +122,13 @@ krypton[2]
 def average(L: list) -> float:
     """Return the average of the values in L.
 ...
-    average([1.4, 1.6, 1.8, 2.0])
+    >>> average([1.4, 1.6, 1.8, 2.0])
     1.7
     """
+    return sum(L)/len(L)
+
+average([1.4, 1.6, 1.8, 2.0])
+
 
 # You can also explicitly state that the argument is a list *of floats*, 
 # using the *capital-L* List from the typing module.
@@ -133,18 +137,31 @@ from typing import List
 def average(L: List[float]) -> float:
     """Return the average of the values in L.
 ...
-    average([1.4, 1.6, 1.8, 2.0])
+    >>> average([1.4, 1.6, 1.8, 2.0])
     1.7
     """
+    return sum(L)/len(L)
 
- 
+
+
+
+average([1.4, 1.6, 1.8, 2.0])
+
+average(['1.4', 1.6, 1.8, 2.0])
+
+
+
+sum(['1.4', 1.6, 1.8, 2.0])
+help(sum)
+
+
 
 
 ##################################################
 ## Modifying Lists
 ##################################################
 
-# You cange the values of lists. That is, lists are *mutable*. 
+# You change the values of lists. That is, lists are *mutable*. 
 
 nobles = ['helium', 'none', 'argon', 'krypton', 'xenon', 'radon']
 
@@ -279,6 +296,8 @@ celegans_phenotypes
  
 celegans_phenotypes = ['Emb', 'Him', 'Unc', 'Lon', 'Dpy', 'Sma']
 useful_markers = celegans_phenotypes[0:4]
+useful_markers
+
  
 # If you leave out the leading or trailing index number, 
 # it will slice either from the beginning or to the end of the list. 
@@ -286,8 +305,11 @@ useful_markers = celegans_phenotypes[0:4]
  
 celegans_phenotypes = ['Emb', 'Him', 'Unc', 'Lon', 'Dpy', 'Sma']
 celegans_phenotypes[:4]
+# Same as:
+celegans_phenotypes[0:4]
 
 celegans_phenotypes[4:]
+celegans_phenotypes[4:len(celegans_phenotypes)]
 
  
 # Leaving both limits blank slices the entire list. 
@@ -345,14 +367,14 @@ def remove_last_item(L: list) -> list:
 ...
     Precondition: len(L) >= 0
 ...
-    remove_last_item([1, 3, 2, 4])
+    >>> remove_last_item([1, 3, 2, 4])
     [1, 3, 2]
     """
     del L[-1]
     return L
 
 
-
+remove_last_item([1, 3, 2, 4])
 
 
 # Now use it with the following list. 
@@ -377,7 +399,7 @@ def remove_last_item(L: list) -> None:
 ...
     Precondition: len(L) >= 0
 ...
-    remove_last_item([1, 3, 2, 4])
+    >>> remove_last_item([1, 3, 2, 4])
     """
     del L[-1]
 
@@ -399,11 +421,16 @@ def remove_last_item(L: List[Any]) -> None:
 ...
     Precondition: len(L) >= 0
 ...
-    remove_last_item([1, 3, 2, 4])
+    >>> remove_last_item([1, 3, 2, 4])
     """
     del L[-1]
 
 
+celegans_markers = ['Emb', 'Him', 'Unc', 'Lon', 'Dpy', 'Lvl']
+remove_last_item(celegans_markers)
+celegans_markers
+
+help(remove_last_item)
 
 
 ##################################################
@@ -416,13 +443,30 @@ def remove_last_item(L: List[Any]) -> None:
  
 colors = ['red', 'orange', 'green']                 
 colors.extend(['black', 'blue'])
-colors                             
+colors
+
+# Same as:
+colors = ['red', 'orange', 'green']                 
+colors = colors + ['black', 'blue']
+colors
+# but that is more work for the computer.
+          
 
 colors.append('purple')            
 colors
 
+# Not the same as:
+# colors.append(['black', 'blue'])     
+# colors
+
+
+
 colors.insert(2, 'yellow')         
 colors
+
+# Same as:
+# colors = colors[0:2] + ['yellow'] + colors[2:]
+
 
 colors.remove('black')                              
 colors
@@ -483,7 +527,15 @@ canada
 life
 
 
+# Take a slice instead, if you want them them to be different.
  
+life = [['Canada', 76.5], ['United States', 75.5], ['Mexico', 72.0]]
+canada = life[0][:]
+canada[1] = 80.0
+canada
+
+life
+
 
 #-------------------------------------------------
 ### Where Did My List Go?

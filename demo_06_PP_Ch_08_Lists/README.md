@@ -127,7 +127,7 @@ In type contracts for functions, you can specify that the argument is a ```list`
 ``` 
 
 You can also explicitly state that the argument is a list *of floats*, 
-using the *capital-L* ```List from the ```typing``` module.
+using the *capital-L* ```List``` from the ```typing``` module.
 
 ```python 
 >>> from typing import List
@@ -187,8 +187,8 @@ DARWIN
 Darwin
 
 ``` 
-Methods are similar to functions but are related to a cetain data type. 
-We will loop back to them in Chapter 7. 
+Methods are similar to functions but are related to a certain data type. 
+We will loop back to those in Chapter 7. 
 
 
 ## Operations on Lists
@@ -232,7 +232,7 @@ Traceback (most recent call last):
 TypeError: can only concatenate list (not "str") to list
 
 ``` 
-The ```*``` operator works similarly, when compared to strings. 
+The ```*``` operator works similar to way it works for strings. 
 
 ```python 
 >>> metals = ['Fe', 'Ni']
@@ -292,7 +292,7 @@ in which the smaller list ```[1, 2]``` is an element of the full list.
 
 ## Slicing Lists
 
-Some geneticists study types of worm, C. elegans, and refer to 
+Some geneticists study types of worms, *C. elegans*, and refer to 
 them with 3-letter abbreviations. 
 
 ```python 
@@ -331,10 +331,11 @@ Leaving both limits blank slices the entire list.
 
 ``` 
 Notice that the command ```celegans_phenotypes[5] = 'Lvl'``` command
-did not change ```celegans_copy```, which is a *clone* of the list. 
-Since there is a copy, Python changes the location in memory 
-for ```celegans_phenotypes[5] once it is changed. 
-Meanwhile, ```celegans_phenotypes[5]``` still refers to the original location in memory. 
+did not change ```celegans_copy```, 
+which is a *clone* of the list ```celegans_phenotypes```. 
+Python changes only the location in memory 
+for ```celegans_phenotypes[5]```
+as this still refers to the original location in memory. 
 
 
 
@@ -413,6 +414,11 @@ The function will change the list by accessing the memory locations directly.
 ['Emb', 'Him', 'Unc', 'Lon', 'Dpy']
 
 ``` 
+
+Notice that the call to ```remove_last_item(celegans_markers)```
+did not return any output; it only completed the operation
+of removing the item from the list in the location in memory.
+
 If we want to restrict the type of the list, we could use the 
 ```typing``` module to specify the type as, say, ```float```. 
 Since this function will work the same for lists of any type, 
@@ -435,8 +441,10 @@ we can explicity state that it applies to lists of ```Any``` type.
 ## List Methods
 
 
-Methods are like functions that operate on specific kinds of objects (see Chapter 6). 
-Here are some examples.
+*Methods* are like functions that operate on specific kinds of objects (see Chapter 6). 
+The syntax for methods takes the form 
+```name_of_object.name_of_method(arguments_if_any)```. 
+Here are some examples of methods that operate on lists.
 
 ```python 
 >>> colors = ['red', 'orange', 'green']                 
@@ -454,8 +462,10 @@ Here are some examples.
 ['red', 'orange', 'yellow', 'green', 'blue', 'purple']
 
 ``` 
-notice that these methods modify the list, instead of creating new lists. 
-See the list on page 142 for a menu of methods to choose from. 
+notice that these methods modify the list, 
+instead of creating a new list, 
+as a function would. 
+See the list on page 142 of *Practical Programming* for a menu of methods to choose from. 
 
 
 ## Working in a List of Lists
@@ -493,6 +503,13 @@ use a second pair of square brackets.
 >>> life[1][1]
 75.5
 ``` 
+The call to ```life[1]``` refers to the list 
+```['United States', 75.5]``` 
+and the slice ```[0]``` of that list refers to the 
+string ```'United States'```, 
+which is the element in position zero. 
+This type of operation is referred to as *chaining*. 
+
 
 Each of the sublists can be assigned to new variables. 
 
@@ -557,6 +574,12 @@ on which the method is applied.
 
 ### Exercise 7
 
+For the following function, 
+complete the remaining examples
+and write the body of the function. 
+Test your function to verify that the 
+function returns the value in the examples. 
+
 ```python 
 def same_first_last(L: list) -> bool:
     """Precondition: len(L) >= 2
@@ -576,6 +599,13 @@ def same_first_last(L: list) -> bool:
 
 ### Exercise 8
 
+For the following function, 
+complete the remaining examples
+and write the body of the function. 
+Test your function to verify that the 
+function returns the value in the examples. 
+
+
 ```python 
 def is_longer(L1: list, L2: list) -> bool:
     """Return True if and only if the length of L1 is longer than the length
@@ -592,67 +622,3 @@ def is_longer(L1: list, L2: list) -> bool:
 ``` 
 
 
-
-
-## Additional Code Snippets
-
-
-
-```python 
->>> from multiplication_table import *
->>> print_table()
-        1       2       3       4       5
-1       1       2       3       4       5
-2       2       4       6       8       10
-3       3       6       9       12      15
-4       4       8       12      16      20
-5       5       10      15      20      25
-
-``` 
-
-
-
-
-
-```python 
->>> x = None
->>> x
->>> print(x)
-None
-
-``` 
-
-
-
-```python 
->>> file = open("planets.txt", "w")
-
-``` 
-
-```python 
->>> half_lives = [87.74, 24110.0, 6537.0, 14.4, 376000.0]
->>> i = 2
->>> i < len(half_lives)
-True
-
->>> half_lives[i]
-6537.0
->>> j = 5
->>> j < len(half_lives)
-False
->>> half_lives[j]
-Traceback (most recent call last):
-  File "<stdin>", line 1, in ?
-IndexError: list index out of range
-
-``` 
-
-
-
-```python 
->>> sum(['a', 'b', 'c'])
-Traceback (most recent call last):
-  File "<stdin>", line 1, in <module>
-TypeError: unsupported operand type(s) for +: 'int' and 'str'
-
-``` 
