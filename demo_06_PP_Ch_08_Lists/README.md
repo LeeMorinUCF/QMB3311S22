@@ -620,10 +620,15 @@ Using ```units``` and either slicing or indexing with positive indices,
 write expressions that produce the following. 
 
 a. The first item of ```units``` (the first inner list)
+
 a. The last item of ```units``` (the last inner list)
+
 a. The string ```'km'```
+
 a. The string ```'kg'```
+
 a. The list ```['miles', 'league']```
+
 a. The list ```['kg', 'pound']```
 
 ### Exercise 11
