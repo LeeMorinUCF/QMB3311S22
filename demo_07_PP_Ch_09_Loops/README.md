@@ -138,8 +138,8 @@ range(0, 10)
 ``` 
 
 
-In a for loop, you can perform operations on each element of the range.
-print out the elements one at a time. 
+In a for loop, you can perform operations on each element of the range,
+such as printing out the elements one at a time. 
 
 ```python 
 >>> for num in range(10):
@@ -640,7 +640,7 @@ which works in some languages, such as Python.
 0.21
 ```
 
-Different coders will disagree on whether this good form
+Some coders disagree on whether this good form
 or simply showing off with *code golf* by minimizing lines of code. 
 You might want to keep each assignment on one line, 
 for the benefit of the reader. 

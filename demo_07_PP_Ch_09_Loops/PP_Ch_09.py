@@ -382,7 +382,7 @@ for day in drinking_times_by_day:
 
 # With a for loop, you need to know the list of iterators beforehand. 
 # Sometimes, you know only a condition under which the calculation should be stopped. 
-# The while loop executes the block of code until the condition is no longer satisfied. 
+# A while loop executes the block of code until the condition is no longer satisfied. 
 
  
 rabbits = 3
@@ -640,6 +640,7 @@ count
 
 ### Exercise 12:
 
+# Consider this code:
  
 from typing import List
 
@@ -657,6 +658,9 @@ def remove_neg(num_list: List[float]) -> None:
             num_list.remove(item)
 
  
+# Test the examples to see whether the code is correct.
+# If not, where is the error?
+# If necessary, revise the code to correct any problems. 
 
 
 ##################################################
