@@ -2,6 +2,13 @@
 
 A *method* is kind of function that is attached to a particular type
 of object called a ```class```. 
+You have been using classes in the previous chapters without knowing it:
+objects of type ```int```, ```bool```, and ```str``` 
+are all represented by classes, 
+and each one associated with a set of methods. 
+A class is like a module for objects of a particular type, 
+except that classes contain methods 
+and modules contain functions.
 
 ## Modules, Classes, and Methods
 
@@ -80,7 +87,7 @@ The "```str```" ```class``` includes the ```method``` "```capitalize```".
 'Browning'
 
 ``` 
-Other methods can center a string within a string of a certain length. 
+Other methods can center a string within a string of a certain length...
 
 ```python 
 >>> str.center('Sonnet 43', 26)
@@ -89,7 +96,7 @@ Other methods can center a string within a string of a certain length.
 2
 
 ``` 
-or ```count``` the number of times that the string ```'the'``` appears in
+...or ```count``` the number of times that the string ```'the'``` appears in
 the first string. 
 
 
@@ -98,7 +105,7 @@ the first string.
 Every method in class ```str``` takes a string as the first argument. 
 Another way to use these methods is to list the object first, then call the string method after a dot, in the form
 ```name_of_string.name_of_string_method(arguments)```.
-Instead of assigning the string to a variable, you can place 
+In other words, instead of assigning the string to a variable, you can place 
 the actual string before the method. 
 
 ```python 
@@ -111,7 +118,7 @@ the actual string before the method.
 
 ``` 
 
-The help documentation for methods uses this form. 
+The help documentation for methods uses this form: 
 
 ```python 
 >>> help(str.lower)
@@ -142,7 +149,7 @@ Notice that there is no prefix before the function name ```sqrt```,
 where the ```S.lower``` function has the prefix ```S.```, 
 to represent the particular string. 
 
-A string method can be called with an expression that evaluates to a string:
+A string method can be called with any expression that evaluates to a string:
 
 ```python 
 >>> ('TTA' + 'G' * 3).count('T')
@@ -172,7 +179,7 @@ True
 
 ``` 
 Those methods are self explanatory. 
-The method ```lstrip``` strips the whiespace on the left of a string. 
+The method ```lstrip``` strips the whitespace on the left of a string. 
 
 ```python 
 >>> compound = '     \n  Methyl \n butanol   \n'
@@ -228,8 +235,20 @@ also return strings.
 ```python 
 >>> 'Computer Science'.swapcase().endswith('ENCE')
 True
-
 ``` 
+
+Note that the strings in the chain are evaluated from left to right.
+The previous chain is equivalent to the following:
+
+```python 
+>>> str1 = 'Computer Science'
+>>> str2 = str1.swapcase()
+>>> str3 = str2.endswith('ENCE')
+>>> print(str3)
+True
+``` 
+except that it avoids all the intermediate assignments of variables. 
+
 
 The numeric types ```int``` and ```float``` are also classes. 
 You can access the help by calling help on the name of the type, 
@@ -286,6 +305,8 @@ anything is added to a string.
 
 Python programmers almost *never* call these special methods directly
 but it helps to understand how Python works.
+Behind every operator for a class of objects is an equivalent
+method that gets evaluated in the background. 
 
 Here are some methods for class ```int```:
 
@@ -307,8 +328,8 @@ class int(object)
 
 ``` 
 
-Here are several versions of calculating the absolute value of a number, 
-along with a number of other calcualtions. 
+Here are several ways to calculate the absolute value of a number, 
+along with a number of other calculations. 
 
 ```python 
 >>> abs(-3)
@@ -339,7 +360,8 @@ True
 Notice the space after 3 between the dot in ```3 .``` when we want to call
 an ```int``` method on the integer 3. 
 If the dot were immediately after the 3, Python would mistakenly
-identify ```3.``` as the ```float ```3.0```, instead of the ```int``` 3.  
+identify ```3.``` as the ```float ``` ```3.0```, 
+instead of the ```int``` ```3```.  
 
 ```python 
 >>> import math
@@ -347,7 +369,7 @@ identify ```3.``` as the ```float ```3.0```, instead of the ```int``` 3.
 'sqrt(x)\n\nReturn the square root of x.'
 ```
 
-The documentation for functions is stored in a variable called ```__doc```. 
+The documentation for functions is stored in a variable called ```__doc__```. 
 
 ```python
 >>> print(math.sqrt.__doc__)
@@ -374,6 +396,9 @@ sqrt(...)
 
 
 ### Exercise 12
+
+Complete the examples in the docstring and 
+write the body of the following function:
 
 ```python 
 def total_occurrences(s1: str, s2: str, ch: str) -> int:

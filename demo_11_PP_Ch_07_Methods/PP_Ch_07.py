@@ -10,7 +10,7 @@
 # College of Business 
 # University of Central Florida
 #
-# January, 9, 2021
+# January 9, 2021
 # 
 ##################################################
 #
@@ -98,6 +98,9 @@ help(str)
 # The "str" class includes the method "capitalize".
 
  
+# This looks exactly like the way you would use a function
+# if you had run, say, "import str" first.
+
 str.capitalize('browning')
 # 'Browning'
 
@@ -110,9 +113,23 @@ str.center('Sonnet 43', 26)
 str.count('How do I love thee?  Let me count the ways.', 'the')
 # 2
 
+# Do you care about the difference between "the" and "thee"?
+# If so, run this instead:
+str.count('How do I love thee?  Let me count the ways.', ' the ')
+
  
 # or count the number of times that the string 'the' appears in
 # the first string. 
+
+
+# Let's make this more compact:
+my_string = 'How do I love thee?  Let me count the ways.'
+string_to_find = ' the '    
+str.count(my_string, string_to_find)
+
+# Instead, you can write:
+my_string.count(string_to_find)
+
 
 
 ##################################################
@@ -150,6 +167,16 @@ help(str.lower)
 
 # Compare this with the doumentation for the sqrt function
 # in the math module. 
+
+# Example
+'Browning'.lower()
+
+# You can chain these method calls:
+'browning'.capitalize().lower().center(26)
+
+# Compare to functions:
+str.center(str.lower(str.capitalize('browning')), 26)
+
 
  
 import math
@@ -202,6 +229,9 @@ help(math.sqrt)
 
  
 compound = '     \n  Methyl \n butanol   \n'
+
+print(compound)
+
 compound.lstrip()
 # 'Methyl \n butanol   \n'
 compound.rstrip()
@@ -209,6 +239,8 @@ compound.rstrip()
 compound.strip()
 # 'Methyl \n butanol'
 
+
+print(compound.strip())
  
 
 # The swapcase method exchanges upper case for lower case
@@ -217,6 +249,12 @@ compound.strip()
  
 'Computer Science'.swapcase()
 # 'cOMPUTER sCIENCE'
+
+# Chain some method calls:
+'Computer Science'.lower().swapcase()
+
+# In one step:
+'Computer Science'.upper()
 
  
 # The format method substitutes a series of strings into another string. 
@@ -254,6 +292,16 @@ my_pi = 3.14159
  
 'Computer Science'.swapcase().endswith('ENCE')
 # True
+
+# Note that the strings in the chain are evaluated from left to right.
+# The previous chain is equivalent to the following:
+
+str1 = 'Computer Science'
+str2 = str1.swapcase()
+str3 = str2.endswith('ENCE')
+print(str3)
+
+# except that it avoids all the intermediate assignments of variables. 
 
  
 
@@ -336,7 +384,7 @@ help(0)
  
 
 # Here are several versions of calculating the absolute value of a number, 
-# along with a number of other calcualtions. 
+# along with a number of other calculations. 
 
  
 abs(-3)
