@@ -467,7 +467,7 @@ if __name__ == '__main__':
 
 ``` 
 
-Maybe now you are convinced that the first one is simple. 
+Maybe now you are convinced that the first version is simple. 
 
 
 ### Multiline Records
@@ -720,7 +720,7 @@ def read_all_molecules(reader: TextIO) -> list:
 This new version of ```read_all_molecules``` begins by 
 reading the first line of the file. 
 If the string is not empty (that is, if the file is not empty)
-it passes both the file and the4 line into ```read_molecule```. 
+it passes both the file and the line into ```read_molecule```. 
 The new version of ```read_molecule``` then has to return two things:
 the next molecule in the file and 
 the first line immediately after the end of that molecule
@@ -732,7 +732,7 @@ First, it has to check that ```line``` is actually the start of a molecule.
 Then, it reads lines from ```reader``` one at a time, 
 looking for one of three situations:
   - The end of the file, which signals the end of both the molecule and the file.
-  - Another ```CMPND``` line, which signals the end of this molecule 
+  - Another ```COMPND``` line, which signals the end of this molecule 
   and the start of the next one. 
   - An ```ATOM```, which is to be added to the current molecule. 
   
@@ -766,8 +766,13 @@ def read_molecule(reader: TextIO, line: str) -> list:
 
 ``` 
 
-
-
+The result is probably the most complicated function we have seen so far.
+The extra effort is worth it because the ability to work with 
+unstructured data is highly valued in the field of business analytics:
+any analyst can use data that are already organized
+but those who can create organized data from an arbitrary 
+unstructured source
+can create something that does not yet exist. 
 
 
 

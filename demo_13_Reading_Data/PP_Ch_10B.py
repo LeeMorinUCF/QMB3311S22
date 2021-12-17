@@ -210,6 +210,16 @@ with open('hebron.txt', 'r') as input_file:
 
 
 
+# This program still works on the original
+# dataset with no missing values.
+
+
+with open('hopedale.txt', 'r') as input_file:
+    print(read_smallest_w_missing.smallest_value_skip(input_file))
+
+
+
+
 
 ##################################################
 ### Processing Whitepace-Delimited Data
