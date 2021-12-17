@@ -406,7 +406,7 @@ The above examples assume the file is located on our computer system.
 You can read file located on any computer that is available on the Internet.
 
 The ```urllib``` module has tools for reading files with a given URL.
-Note that the file can be encoded in a number of format. 
+Note that the file can be encoded in one of several formats. 
 This example shows how to read a file encoded in a format called UTF-8. 
 This uses a function called ```decode``` to decode the file content 
 in the form of bytes to obtain legible characters using UTF-8 encoding. 

@@ -268,11 +268,11 @@ with open('planets.txt', 'r') as data_file:
 # Notice that the first line is a description:
 # it is a record of the number of fur pelts harvested 
 # in a region of Canada over a period of several years during the 1800's. 
-# The next two are preceeded by a # character
+# The next two are preceded by a # character
 # and the data begin on the fourth line.
-# The following code block reads in the data
-# and skips over the description in the header. 
-# The following script calculates the total number of fur pelts. 
+# The following code block reads in the data,
+# skips over the description in the header, 
+# and calculates the total number of fur pelts. 
 
 
 with open('hopedale.txt', 'r') as hopedale_file:
@@ -342,8 +342,8 @@ with open('hopedale.txt', 'r') as hopedale_file:
 # You can read file located on any computer that is available on the Internet.
 
 # The urllibmodule has tools for reading files with a given URL.
-# Note that the file can be encoded in a number of ways. 
-# This example shows how to read a file encoded in UTF-8. 
+# Note that the file can be encoded in one of several formats. 
+# This example shows how to read a file encoded in a format called UTF-8. 
 # This uses a function called decodeto decode the file content 
 # in the form of bytes to obtain legible characters using UTF-8 encoding. 
 
@@ -416,7 +416,7 @@ with open('topics.txt', 'a') as output_file:
 
 # The next example is more complex: it both reads from and writes to a file.
 # It also uses the typing.TextIO type annotation for the file. 
-# The acronym "IO" is short for "Input/Output"
+# The acronym "IO" is short for "Input/Output".
 
 # This script defines a function that reads two numbers from an input_file
 # and writes those numbers, with their sum, in output_file. 
@@ -449,9 +449,11 @@ if __name__ == '__main__':
 
 
 
+
 # Notice that the files are already open in the main program. 
-# This way, the open files are passed to the function 
-# sum_number_pairs and are ready to read and write. 
+# The open procedure creates a function handles 
+# that are then passed as arguments in the function 
+# sum_number_pairs and are ready to read and write to those files. 
 
 # Also note that the first "line" of the __main__ program
 # wraps into the second line, with two with statements.
@@ -480,7 +482,7 @@ if __name__ == '__main__':
 
 # So far, we have used the function design recipe to test our files as we write them.
 # This can be problematic for functions that read and write files
-# because the exampple files must be passed along with the scripts, 
+# because the example files must be passed along with the scripts, 
 # in order for your user to be able to learn from the examples. 
 
 # Python provides a class called StringIO in module io that 
@@ -553,7 +555,7 @@ if __name__ == '__main__':
         sum_number_pairs(input_file, output_file)
 
 
-
+# Now test the function to make sure the example functions as expected. 
 
 ##################################################
 # End
