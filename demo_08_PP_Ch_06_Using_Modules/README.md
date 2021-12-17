@@ -3,7 +3,7 @@
 You can often solve problems by using programs 
 and functions designed by others, rather than solving these 
 problems on your own. 
-A great advantage of Python is that there is a large community 
+A great advantage of Python is that there exists a large community 
 of programmers who contribute their own functions.
 The typical unit for a set of functions and programs is a *module*. 
 
@@ -104,7 +104,7 @@ area is 75
 ``` 
 You don't need to import the entire module. 
 You could import only the particular functions and constants that you need. 
-When you use the ```from``` statement, it pulls certain elements
+When you use the ```from``` keyword, it pulls certain elements
 by name. 
 
 ```python 
@@ -427,9 +427,9 @@ we can use it to solve for the unknown vector or matrix
 
 ### The solution
 
-An inefficient way to solve this problem is to find the *inverse* of the matrix ```A``` and multipy it against ```b```. 
+An inefficient way to solve this problem is to find the *inverse* of the matrix ```A``` and multiply it against ```b```. 
 This works but it takes many more computational steps. 
-A better approach is to use row oprations to perform a form of Gaussian elimination. 
+A better approach is to use row operations to perform a form of Gaussian elimination. 
 Although this may be the approach taken for hand calculations, there are other, more efficient algorithms for finding the solution to a set of equations.
 This is a specialized area within mathematics that uses advanced theories in linear algebra to calculate solutions. 
 Fortunately, for the practitioner, most computational packages have built-in functions for solving systems of linear equations. 
@@ -511,7 +511,7 @@ array([1., 1.])
 ```
 which returns the value of ```b```.
 In matrix notation, 
-since ```A.dot(soln)``` equals ```b```, ```soln``` is the solution. 
+since ```A.dot(soln)``` equals ```b```, ```soln``` is truly the solution. 
 
 
 In the linear regression model, for example, 
@@ -525,7 +525,7 @@ To get there, we need a few more tools.
 ## Functions for creating arrays 
 
 
-There exist a number of convenient functions
+There exist several convenient functions
 for generating matrices of specific forms.
 
 The ```zeros``` method creates an array of zeros.

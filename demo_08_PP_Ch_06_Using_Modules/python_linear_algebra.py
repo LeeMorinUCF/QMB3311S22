@@ -59,11 +59,11 @@ os.getcwd()
 # Examples Using Numpy.
 ##################################################
 
-# Some languages are designed for matrix algebra. 
+# Some programming languages are designed for matrix algebra. 
 # For example, when you use the statistical programming language ```R```,
 # the matrix multiplication operator is the symbol ```%*%```. 
 
-# Python operates vectors and matrices differently. 
+# Python operates on vectors and matrices differently. 
 # It thinks of them as parameters in a function, 
 # such as the dot function in the numpy module. 
 
@@ -123,7 +123,7 @@ A.dot(A_inv)
 
 A_inv.dot(A)
 
-# Since both of these products equal the identity matrix, 
+# Since both of these products (approximately) equal the identity matrix, 
 # A_inv is the inverse of A. 
 
 # Notice that the off-diagonal elements are not exactly zero.
@@ -152,7 +152,7 @@ soln
 
 # Check the solution
 A.dot(soln)
-# equals b, so it's the solution. 
+# equals b, so soln is truly the solution. 
 
 
 
@@ -161,7 +161,7 @@ A.dot(soln)
 # Functions for creating arrays 
 #--------------------------------------------------
 
-# There are a number of convenient functions 
+# There exist several convenient functions 
 # for generating matrices of a specific form. 
 
 # Create an array of zeros.
@@ -193,6 +193,10 @@ print(e)
 #--------------------------------------------------
 # Writing an array to a file. 
 #--------------------------------------------------
+
+# As an aside, it may be more convenient to define matrices
+# from numbers stored in flies.
+# Consider the following example. 
 
 # Produce an array from the range function. 
 x_out = (np.array(range(7)) + 1)*0.1
@@ -259,8 +263,8 @@ linalg.inv(A)
 A.dot(linalg.inv(A)) 
 # Note that the off-diagonals are very small numbers
 # but not quite zero.
-# Recall that computers store numbers up to finite precision.
-# There are rounding errors. 
+# Recall that computers store numbers up to finite precision:
+# rounding errors occur. 
 
 
 
@@ -279,7 +283,7 @@ print(soln)
 
 # Check the solution. 
 A.dot(soln)
-# Again, it equals b, so it's the solution. 
+# Again, it equals b, so the solution is correct. 
 
 
 

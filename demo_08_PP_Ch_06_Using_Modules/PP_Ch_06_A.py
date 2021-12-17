@@ -25,7 +25,7 @@
 # You can often solve problems by using programs 
 # and functions designed by others, rather than solving these 
 # problems on your own. 
-# A great advantage of Python is that there is a large community 
+# A great advantage of Python is that there exists a large community 
 # of programmers who contribute their own functions.
 # The typical unit for a set of functions and programs is a *module*. 
 
@@ -127,7 +127,7 @@ print('area is', math.pi * radius ** 2)
  
 # You don't need to import the entire module. 
 # You could import only the particular functions and constants that you need. 
-# When you use the from statement, it pulls certain elements
+# When you use the from keyword, it pulls certain elements
 # by name. 
 
  
