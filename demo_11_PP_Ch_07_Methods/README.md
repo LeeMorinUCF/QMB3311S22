@@ -118,7 +118,7 @@ the actual string before the method.
 
 ``` 
 
-The help documentation for methods uses this form: 
+The help documentation for methods follows this form: 
 
 ```python 
 >>> help(str.lower)

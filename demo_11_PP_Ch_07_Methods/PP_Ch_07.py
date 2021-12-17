@@ -105,7 +105,7 @@ str.capitalize('browning')
 # 'Browning'
 
  
-# Other methods can center a string within a string of a certain length. 
+# Other methods can center a string within a string of a certain length: 
 
  
 str.center('Sonnet 43', 26)
@@ -113,14 +113,15 @@ str.center('Sonnet 43', 26)
 str.count('How do I love thee?  Let me count the ways.', 'the')
 # 2
 
+
+# Methods can also count the number of times that the string 'the' appears in
+# the first string. 
+
 # Do you care about the difference between "the" and "thee"?
 # If so, run this instead:
 str.count('How do I love thee?  Let me count the ways.', ' the ')
 
  
-# or count the number of times that the string 'the' appears in
-# the first string. 
-
 
 # Let's make this more compact:
 my_string = 'How do I love thee?  Let me count the ways.'
@@ -137,10 +138,11 @@ my_string.count(string_to_find)
 ##################################################
 
 # Every method in class str takes a string as the first argument. 
-# Another way to use these methods is to list the object first, then call the string method after a dot, in the form
+# Another way to use these methods is to list the object first, 
+# then call the string method after a dot, in the form
 # name_of_string.name_of_string_method(arguments).
-# Instead of assigning the string to a variable, you can place 
-# the actual string before the method. 
+# In other words, instead of assigning the string to a variable, 
+# you can place the actual string before the method. 
 
  
 'browning'.capitalize()
@@ -152,7 +154,7 @@ my_string.count(string_to_find)
 
  
 
-# The help documentation for methods uses this form. 
+# The help documentation for methods follows this form:
 
  
 help(str.lower)
@@ -193,7 +195,7 @@ help(math.sqrt)
 # where the S.lower function has the prefix S., 
 # to represent the particular string. 
 
-# A string method can be called with an expression that evaluates to a string:
+# A string method can be called with any expression that evaluates to a string:
 
  
 ('TTA' + 'G' * 3).count('T')
@@ -225,7 +227,7 @@ help(math.sqrt)
 
  
 # Those methods are self explanatory. 
-# The method lstrip strips the whiespace on the left of a string. 
+# The method lstrip strips the whitespace on the left of a string. 
 
  
 compound = '     \n  Methyl \n butanol   \n'
@@ -383,7 +385,7 @@ help(0)
 
  
 
-# Here are several versions of calculating the absolute value of a number, 
+# Here are several ways to calculate the absolute value of a number, 
 # along with a number of other calculations. 
 
  
@@ -423,7 +425,7 @@ math.sqrt.__doc__
 # 'sqrt(x)\n\nReturn the square root of x.'
 
 
-# The documentation for functions is stored in a variable called __doc. 
+# The documentation for functions is stored in a variable called __doc__. 
 
 
 print(math.sqrt.__doc__)
@@ -454,6 +456,9 @@ help(math.sqrt)
 #-------------------------------------------------
 
  
+# Complete the examples in the docstring and 
+# write the body of the following function:
+    
 def total_occurrences(s1: str, s2: str, ch: str) -> int:
     """Precondition: len(ch) == 1
 
