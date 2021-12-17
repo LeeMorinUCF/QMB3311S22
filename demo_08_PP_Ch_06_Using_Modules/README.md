@@ -22,7 +22,7 @@ A module has type ```module```.
 >>> type(math)
 <class 'module'>
 ``` 
-You can acces the help for all the functions in a module just as you
+You can access the help for all the functions in a module just as you
 would for a single function, with the ```help``` function. 
 
 ```python 
@@ -135,7 +135,8 @@ NameError: name 'math' is not defined
 A good practice is to select only the functions you need. 
 Otherwise, if you select all the functions (using the *wildcard* ```*```)
 many functions will be imported into the namespace, 
-which could cause conflicts with other variables. 
+which could cause conflicts with other variables
+that may already have the same names. 
 
 
 ```python 
@@ -262,11 +263,18 @@ SyntaxError: (unicode error) 'unicodeescape' codec can't decode bytes in positio
 'C:\\Users\\user_name\\path\\to\\other\\files'
 ```
 
+In the case above, Python confuses the characters ```\U```
+for an escape sequence, much like ```\t``` represents a tab,
+```\n``` represents a new line
+and ```\'``` represents a single quote. 
+The double backslash ```"\\"``` represents a single backslash
+```"\"``` to avoid this confusion. 
+
 
 ## Application: Linear Algebra
 
 
-When using computers to solve a problem, one approach is to fully understand the solution before attempting to write a program to solve the problem.
+When using computers to solve a problem, one approach is to fully understand the solution before attempting to write a program that solves the problem.
 It is often very useful to conceptualize the calculation first and then use a concise specification from which to write the program.
 This approach takes advantage of the fast and reliable computation of modern computers: computers can perform calculations more quickly and reliably than humans can by hand.
 
@@ -282,8 +290,43 @@ modules to solve a *system of linear equations* for a vector of unknown paramete
 ### The problem
 
 First, consider solving a *system of linear equations* for a vector of unknown parameters. 
-The objective is to find a *vector* ```x``` that, when multiplied by the *matrix* ```A``` produces the *vector* ```b```: ```x``` satisfies ```A %*% x == b```.
-It is necessary to first understand how this calculation is performed. 
+The objective when
+solving a *system of linear equations*
+is to find a list of ```n``` values ```[x_1, x_2, ..., x_n]``` 
+such that, 
+when multiplied and added within an equation like 
+```[x_1*A_11, x_2*A_12, ..., x_n*A_1n]```
+to get a value ```b_1```. 
+Simultaneously, the 
+values ```[x_1, x_2, ..., x_n]``` 
+also combine within a set of equations of the form 
+```[x_1*A_i1, x_2*A_i2, ..., x_n*A_in]```
+to get values such as ```b_i```. 
+
+
+A branch of mathematics called *Matrix Algebra*
+provides compact and powerful tools for specifying and solving this problem. 
+A *vector* is an array of numbers. 
+A *matrix* a two-dimensional array of numbers
+that can be thought of 
+as a list of horizontal vectors in each row,
+from top to bottom,
+or as a list of vertical vectors in each column, 
+from left to right. 
+Contrary to lists, all elements must be numbers
+and all row vectors in the matrix have the same number of columns, 
+and, conversely, 
+all column vectors have the same number of rows.
+
+
+Stated in matrix notation, 
+the objective when
+solving a *system of linear equations*
+is to find a *vector* ```x``` that, when multiplied by the *matrix* ```A``` produces the *vector* ```b```: 
+```x``` satisfies the equation
+"```A``` times ```x``` equals ```b```".
+It is necessary to first understand how this calculation is performed
+to match the underlying system of equations. 
 In matrix multiplication, the numbers in the resulting matrix are calculated as the *dot product* of the corresponding rows and columns of the matrices that are multiplied. 
 The calculation proceeds in the pattern shown in the following figure. 
 
@@ -297,11 +340,14 @@ Here, we are given the matrix ```A```, on the left, and the product ```b = c(29,
 The objective is to find the (unknown) vector ```x = c(4, 7)```, using only ```A``` and ```b```. 
 The most common such problem is when the matrix ```A``` is square, 
 that is, it has the same number of rows and columns.
+That is, the system of equations 
+contains the same number of equations as there are 
+unknown variables to solve for. 
 
 
 ### The Tools: Working with Matrices
 
-Some languages are designed for matrix algebra. 
+Some programming languages are designed for matrix algebra. 
 For example, when you use the statistical programming language ```R```,
 the matrix multiplication operator is the symbol ```%*%```. 
 In the first problem, it is used in the following ```R``` code.
@@ -322,7 +368,7 @@ b <- A %*% x
 [2,]  320  335
 ```
 
-Python operates vectors and matrices differently. 
+Python operates on vectors and matrices differently. 
 It thinks of them as parameters in a function, 
 such as the ```dot``` function in the ```numpy``` module. 
 
@@ -413,34 +459,59 @@ array([[1.00000000e+00, 1.11022302e-16],
 array([[1.0000000e+00, 4.4408921e-16],
        [0.0000000e+00, 1.0000000e+00]])
 ```
-Since both of these products equal the identity matrix, 
+Since both of these products (approximately) equal the identity matrix, 
 ```A_inv``` is the inverse of ```A```. 
-
 Notice that the off-diagonal elements are not exactly zero.
 Rounding errors occur when using numbers with finite precision. 
 
+You can use this inverse to find the solution by multiplying
+the vector ```b``` by the inverse of ```A```.
 
-This is useful if the user needs to solve a series of equations with the same matrix ```A``` but a set of different different vectors ```b```.
+```python
+>>> x_soln = A_inv.dot(b)
+>>> print(x_soln)
+[-1.  1.]
+```
+
+You can verify the solution by calculating the product of ```A``` 
+and the solution:
+
+```python
+>>> A.dot(x_soln)
+array([1., 1.])
+```
+which is the same as b.
+
+
+Although more expensive, 
+calculating the inverse is useful 
+if the user needs to solve a series of equations with the same matrix ```A```
+but a set of different vectors ```b```.
+
 
 ### Solve a linear system without the inverse
 
 In general, you would simply solve the system to obtain the solution. 
 This requires fewer calculations and is all that is needed when only the solution is required. 
 
+Use the ```np.linalg.solve``` method to find a solution ```x``` 
+to the system of the form ```A*x = b```.
 
 ```python
-# Use the np.linalg.solve method to find a solution x to the system
-# of the form A*x = b
 >>> soln = np.linalg.solve(A, b)
 >>> soln
 array([-1.,  1.])
+```
 
-# Check the solution
+As above, we can easily verify the solution
+
+```python
 >>> A.dot(soln)
 array([1., 1.])
 ```
-
-Since ```A.dot(soln)``` equals ```b```, ```soln``` is the solution. 
+which returns the value of ```b```.
+In matrix notation, 
+since ```A.dot(soln)``` equals ```b```, ```soln``` is the solution. 
 
 
 In the linear regression model, for example, 
@@ -454,22 +525,24 @@ To get there, we need a few more tools.
 ## Functions for creating arrays 
 
 
-There are a number of convenient functions
-for generating matrices of a specific form.
+There exist a number of convenient functions
+for generating matrices of specific forms.
 
 The ```zeros``` method creates an array of zeros.
 ```python
 a = np.zeros((2,2))   
 print(a)
 ```
-
-The ```ones``` method creates an array of ones.
+The argument is in the form of a *tuple*, 
+which is a kind of list that, in this case,
+specifies the number of rows and columns of the matrix of zeros. 
+Similarly, the ```ones``` method creates an array of ones.
 ```python
 b = np.ones((1,2))
 print(b)
 ```
 
-The ```full``` method creates a constant array. 
+More generally, the ```full``` method creates a constant array. 
 ```python
 c = np.full((2,2), 7)
 print(c)
@@ -481,7 +554,8 @@ d = np.eye(2)
 print(d)
 ```
 
-The ```random.random``` method creates an array filled with random values.
+The ```random.random``` method creates an array filled with random numbers,
+uniformly distributed between zero and one.
 ```python
 e = np.random.random((2,2))
 print(e)
@@ -507,16 +581,21 @@ A
 ```
 
 
-Calculate the inverse ```A^{-1}```.
-Roughly speaking, the inverse is defined as follows:
-```A^{-1}``` satisfies ```A^{-1}*A = A*A^{-1} = I```, the identity matrix.
-If ```x``` solves ```A*x = b```, then ```A^{-1}*b = x```.
+Now calculate the inverse ```A^{-1}``` with ```scipy```.
+As above, the inverse is defined as follows:
+```A^{-1}``` satisfies ```A^{-1}*A = A*A^{-1} = I```, 
+where ```I``` is called
+the identity matrix, 
+with ones on the diagonal and all other elements zero.
+If ```x``` solves ```A*x = b```, then ```A^{-1}*b = x```, 
+since the ```A^{-1}*A``` leaves ```x``` on the right side of the equation.
+
 
 ```python
 linalg.inv(A)
 ```
 
-Verify that ```A^{-1}``` is, in fact, the identity matrix.
+Again, verify that ```A^{-1}``` is, in fact, the identity matrix.
 
 
 ```python
@@ -524,9 +603,8 @@ A.dot(linalg.inv(A))
 ```
 Note again that the off-diagonals are very small numbers
 but not quite zero.
-Recall that computers store numbers up to finite precision.
-There are rounding errors.
-
+Recall that computers store numbers up to finite precision:
+rounding errors occur.
 
 
 Solve the above problem (in the numpy example) with the inverse.
@@ -557,14 +635,16 @@ Check the solution.
 A.dot(soln)
 ```
 
-Again, the product equals ```b```, so it's the solution.
+Again, the product equals ```b```, so the solution is correct.
 
 
 
 ## Solve the parameters in a nonlinear model.
 
+These tools can be used to solve for 
+parameters in a nonlinear statistical model. 
 
-This example uses the following modules.
+Let's consider an example that uses the following modules.
 
 ```python
 import numpy as np
@@ -572,7 +652,7 @@ from scipy import linalg
 import matplotlib.pyplot as plt
 ```
 
-We will generate an artificial dataset to show the fit of a model.
+We will generate an artificial dataset to show the fit of the model.
 
 First, set the parameters.
 
@@ -585,53 +665,75 @@ Next, create a row vector from the range 1 to 10
 ```python
 i = np.r_[1:11] 
 ```
-(this notation produces the same output as ```np.array(range(1, 11))```).
+(This notation produces the same output as ```np.array(range(1, 11))```
+but is more compact and creates a numpy array directly, 
+rather than translating a ```range``` object to an ```np.array```.)
 
-Then, generate the explanatory variable, x. 
+Then, generate the explanatory variable, ```xi```, 
+which, in this case, is an sequence of evenly-spaced values. 
 
 ```python
 xi = 0.1*i
 ```
 
-Next, generate the dependent variable, y, with a nonlinear model.
+Next, generate the dependent variable, ```yi_true```, 
+with a nonlinear model.
 
 
 ```python
 yi_true = beta_0*np.exp(-xi) + beta_1*xi
 ```
-
-Finally, add an error term for some random variation.
+The choice of name ```yi_true``` indicates that this
+vector represents the true but unknown value that we would like to predict. 
+In reality, our equation will have errors: not all predictions will fit perfectly. 
+To simulate this limitation, 
+we add an error term for some random variation
+that represents our imperfect observation of the equation in action.
 
 ```python
 yi = yi_true + 0.25 * np.random.randn(len(yi_true))
 ```
+In contrast to ```np.random.random```, 
+which generated uniform random variables, 
+```np.random.randn``` generates normally distributed
+random variables. 
 
-To solve this system, arrange it into matrix form. 
+To solve this system 
+for the unknown parameters ```beta_0``` and ```beta_1```, 
+arrange it into matrix form. 
 
 
 ```python
 A = np.c_[np.exp(-xi)[:, np.newaxis], xi[:, np.newaxis]]
 ```
 
-The ```newaxis``` argument increases the dimension of the array by one dimension
-This is useful for creating objects one dimension higher.
-This is used because we are binding column vectors together into
-a matrix.
+The ```newaxis``` argument increases the dimension of the array by one dimension. 
+This is useful for creating objects one dimension higher, 
+such as making a matrix from vectors.
+This is necessary because the column vectors are one-dimensional arrays.
 
-Solve the system by least squares (using the ```lstsq``` method).
+Finally, solve the system by least squares (using the ```lstsq``` method).
 
 
 ```python
 beta_hat, resid, rank, sigma = linalg.lstsq(A, yi)
 ```
+In one command, this calculates the values of the 
+parameters, the residual errors of the model, 
+among other parameters. 
 
-Calculate the fitted values on a grid of values, 
-to plot the observations and predictions.
+Next, to plot the observations and predictions, 
+calculate the fitted values on a grid of values.
 
 ```python
 xi_grid = np.r_[0.1:1.0:100j]
 yi_hat = beta_hat[0]*np.exp(-xi_grid) + beta_hat[1]*xi_grid
 ```
+```yi_hat``` is the vector of predictions of ```yi_true```
+for the values on ```xi_grid```
+using the parameter estimates
+for the unknown parameters ```beta_0``` and ```beta_1```. 
+
 
 Finally, plot the data and the fitted model
 
@@ -643,9 +745,12 @@ plt.title('Estimating a Nonlinear Model with linalg.lstsq')
 plt.show()
 ```
 
-And you will se a regression *curve*, along 
+This displays a regression *curve*, along 
 with points representing the observations. 
 
-We will see other examples of modules used to fit data in the next demonstration. 
-
+We will see other examples of modules used to fit data 
+in later demonstrations. 
+Regardless, these are the kinds of calculations
+that are performed within many modules
+that fit statistical models to data. 
 

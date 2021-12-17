@@ -45,7 +45,7 @@ import math
 type(math)
 # <class 'module'>
  
-# You can acces the help for all the functions in a module just as you
+# You can access the help for all the functions in a module just as you
 # would for a single function, with the help function. 
 
  
@@ -154,6 +154,14 @@ sqrt(9)
 # 3.0
  
 
+# You can name functions or constants with 
+# different names than they are called in the modules.
+# Use the "as" keyword to assign new names.
+from math import pi as other_pi
+print(other_pi)
+
+
+
 
 # A good practice is to select only the functions you need. 
 # Otherwise, if you select all the functions (using the *wildcard* *)
@@ -166,6 +174,10 @@ from math import *
 print(sqrt(8))
 # 2.8284271247461903
 
+# Now you can use all of the functions in module math.
+print(exp(0))
+
+print(exp(1))
  
 
 

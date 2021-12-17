@@ -129,6 +129,15 @@ A_inv.dot(A)
 # Notice that the off-diagonal elements are not exactly zero.
 # Rounding errors occur when using numbers with finite precision. 
 
+# Now use this inverse to find the solution by multiplying
+# the vector b by the inverse of A.
+x_soln = A_inv.dot(b)
+print(x_soln)
+
+# Verify the solution by calculating the multiplication with the solution:
+A.dot(x_soln)
+# which is the same as b.
+
 
 #--------------------------------------------------
 # Solve a linear system without the inverse
