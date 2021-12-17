@@ -40,7 +40,7 @@ import doctest # To test modules
 # Find out the current directory.
 os.getcwd()
 # Change to a new directory.
-os.chdir('C:\\Users\\le279259\\Documents\\Teaching\\ECP3004_Spring_2021\\GitRepo\\ECP3004S21\\demo_10_PP_Ch_06_Testing_Modules')
+os.chdir('C:\\Users\\le279259\\Documents\\Teaching\\ECP3004_Spring_2021\\GitRepo\\ECP3004S21\\demo_10_PP_Ch_06_Designing_Modules')
 # Check that the change was successful.
 os.getcwd()
 

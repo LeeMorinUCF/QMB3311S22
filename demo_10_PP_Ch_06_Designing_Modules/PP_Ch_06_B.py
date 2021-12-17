@@ -32,8 +32,7 @@ import os
 # Find out the current directory.
 os.getcwd()
 # Change to a new directory.
-# os.chdir('C:\\Users\\le279259\\Documents\\Teaching\\ECP3004_Spring_2021\\GitRepo\\ECP3004S21\\demo_09_Modules_for_Regression')
-os.chdir('C:\\Users\\le279259\\Documents\\Teaching\\ECP3004_Spring_2021\\GitRepo\\ECP3004S21\\demo_10_PP_Ch_06_Testing_Modules')
+os.chdir('C:\\Users\\le279259\\Documents\\Teaching\\ECP3004_Spring_2021\\GitRepo\\ECP3004S21\\demo_10_PP_Ch_06_Designing_Modules')
 # Check that the change was successful.
 os.getcwd()
 
@@ -277,7 +276,7 @@ else:
 
  
 
-# Try running this script by running the script and by importing the module. 
+# Try running this block of code by running the script and by importing the module. 
 
 
 exec(open("main_example.py").read())
@@ -285,7 +284,7 @@ exec(open("main_example.py").read())
 import main_example
 
 
-# Some modules contain only function modules but others contain programs. 
+# Some modules contain only function definitions but others contain programs. 
 # The file temperature_program.py contains a set of programs. 
 
  
@@ -408,18 +407,18 @@ doctest.testmod()
 # TestResults(failed=1, attempted=3)
  
 
-# This test failed. That is finds that the calculation returned an error.
+# This test failed. That is, it finds that the calculation returned an error.
 # When calculating convert_to_celsius(75), 
 # the expected answer is 23.88888888888889 
 # but instead the calculation returns 57.22222222222222. 
 
 
 
-# Then run the fixed script to see the result.
+# Then run the corrected script to see the result.
 exec(open("temperature_doctest_pass.py").read())
 doctest.testmod()
 
-# It say that three tests were run but none failed. 
+# It says that three tests were run but none failed. 
 # TestResults(failed=0, attempted=3)
 
 

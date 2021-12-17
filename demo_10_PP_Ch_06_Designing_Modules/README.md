@@ -193,10 +193,10 @@ else:
 
 ``` 
 
-Try running this script by running the script and by importing the module. 
+Try running this block of code by running the script and by importing the module. 
 
 
-Some modules contain only function modules but others contain programs. 
+Some modules contain only function definitions but others contain programs. 
 The file ```temperature_program.py``` contains the following. 
 
 ```python 
@@ -323,6 +323,12 @@ def convert_to_celsius(fahrenheit):
 
 ``` 
 
+and store it in the script named ```temperature_doctest_fail.py```. 
+
+Now, run the script to load that function definition. 
+```python
+>>> exec(open("temperature_doctest_fail.py").read())
+```
 
 Then, when we run ```doctest``` on that module.
 
@@ -345,10 +351,23 @@ Got:
 TestResults(failed=1, attempted=3)
 ``` 
 
-This test failed. That is finds that the calculation returned an error.
+This test failed. That is, it finds that the calculation returned an error.
 When calculating ```convert_to_celsius(75)```, 
 the expected answer is ```23.88888888888889``` 
 but instead the calculation returns ```57.22222222222222```. 
+
+
+Then run the corrected script to see the result.
+
+```python
+>>> exec(open("temperature_doctest_pass.py").read())
+>>> doctest.testmod()
+TestResults(failed=0, attempted=3)
+```
+
+It says that three tests were run but none failed, 
+so the function returns the expected vale for all three examples.
+
 
 
 ## Exercises
