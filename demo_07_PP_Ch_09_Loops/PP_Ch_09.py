@@ -167,6 +167,11 @@ for i in range(1, 101):
 
 total
 
+# Compare to:
+n = 100
+total_test = n*(n+1)/2
+total_test
+
 
 
 ##################################################
@@ -190,8 +195,10 @@ values
 
 values = [4, 10, 3, 8, -6]
 for num in values:
+    print(num)
     num = num * 2
     print(num)
+    print()
 
 print(values)
 
@@ -275,7 +282,7 @@ for metal in outer:
 def print_table(n: int) -> None:
     """Print the multiplication table for numbers 1 through n inclusive.
 
-    print_table(5)
+    >>> print_table(5)
         1       2       3       4       5
     1   1       2       3       4       5
     2   2       4       6       8       10
@@ -427,7 +434,19 @@ print("It took", time, "minutes for the bacteria to double.")
 
  
 
- 
+# Don't stop until we're exactly double the original size
+while population != 2000:
+    population = population + growth_rate * population
+    print(population)
+    time = time + 1
+
+
+print("It took", time, "minutes for the bacteria to double.")
+
+
+# inf represents an infinite value.
+population > 71546416486148614864
+
 
 # The value inf represents the symbol for infinity. 
 # It is reached when the number hits the largest possible value for that data type. 
@@ -534,6 +553,22 @@ for i in range(len(s)):
         break  # This exits the loop.
 
 digit_index
+
+# In this case, the initialization digit_index = -1
+# is not required for the operation of the loop. 
+# It is still good practice to assign it a default value
+# so that the variable still exists in memory in case a digit is not found. 
+
+s = 'ABCDE'
+digit_index = -1 # This will be -1 until we find a digit.
+for i in range(len(s)):
+    # If we find a digit
+    if s[i].isdigit():
+        digit_index = i
+        break  # This exits the loop.
+
+digit_index
+
 
 
 #-------------------------------------------------

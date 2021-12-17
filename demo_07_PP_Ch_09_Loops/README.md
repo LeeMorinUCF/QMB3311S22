@@ -9,21 +9,27 @@ There are two main kinds of repetition that differ in the way the user specifies
 
 #### ```for``` loops
 
-For loops are useful when you have to repeat a calculation for a 
+This type of loop is useful when you have to repeat a calculation for a 
 predetermined number of inputs. 
 These calculations follow this flow chart:
 
 <img src="Images/for_loop_C.jpg" width="500"/>
 
-After an *iteration* is performed, the interpreter automatically *increments* the *iterator* 
-to the next value to repeat the calculation, until all iterations are performed.  
-The syntax is:
+The execution of the statements in the block of code in the loop 
+is called an *iteration*. 
+After an *iteration* is performed, 
+the Python interpreter automatically *increments* the *iterator*
+(the index value for each iteration)
+to the next value to repeat the calculation.
+The repetition continues
+until all iterations are performed.  
+In Python, the syntax is:
 
 ```python
 for iterator in list_of_iterators:
     # Execute statements for each object in the list of iterators.
     # ...
-    # Don't forget the indenting. 
+    # Don't forget the indenting (in Python, especially). 
 
 ```
 
@@ -90,15 +96,22 @@ Metric: 29.43 m/sec
 Final: 29.43
 ``` 
 
-After the loop is executed, the iterator remains in memory
+In the example above, 
+the iterator ```speed``` is a variable in its own right, 
+and is assigned the first value of ```0.0``` 
+once the interpreter enters the loop.
+Similarly, after the loop is executed, the iterator remains in memory
 with the last value in the list that was executed. 
 This is useful information when the loop terminates early, 
-such as when an error occurs.
+such as when an error occurs:
+you can print the iterator to see which iteration threw an error
+and run blocks of code with the value of the iterator still in memory.
 
 
 ## Processing Characters in Strings
 
-You can loop over the characters in a string.
+Just about any collection of values can be used for an iterator. 
+For example, you can loop over the characters in a string.
 
 ```python 
 >>> country = 'United States of America'
@@ -115,14 +128,18 @@ A
 
 ## Looping Over a Range of Numbers
 
-The ```range``` function is useful for generating a sequence of integers. 
+The ```range``` function is useful for generating a sequence of integers, 
+which is a common design for for loops. 
 
 
 ```python 
 >>> range(10)
 range(0, 10)
 ``` 
-To see the individual elements, print them out one at a time. 
+
+
+In a for loop, you can perform operations on each element of the range.
+print out the elements one at a time. 
 
 ```python 
 >>> for num in range(10):
@@ -141,14 +158,20 @@ To see the individual elements, print them out one at a time.
 ``` 
 Notice that it stops at 9, so the index follows every element
 in a list with 10 elements. 
+This conforms to the indexing convention in Python,
+in which the number zero refers to the first element in an object, 
+so ```range(10)``` covers every element of an object of length 10. 
 
-```python 
+
+Notice that Python prints a ```range``` object in the most efficient notation. To see the individual elements, 
+you can convert it to a list, using the ```list``` function:
+
+```python
 >>> list(range(10))
 [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
-``` 
+```
 
-You can use the ```list``` function to convert the range to a list. 
-Some examples include:
+Some other examples include:
 
 ```python 
 >>> list(range(3))
@@ -187,7 +210,8 @@ With a negative step size, the range lists elements in reverse order.
 
 ``` 
 Notice that the list ended at the last element in the sequence before the ```stop``` value. 
-Similarly, if the step size goes in the opposite direction, 
+As a consequence, if the step size goes in a direction
+ opposite to that between the ```start``` and ```stop``` values, 
 the range will be empty. 
 
 ```python 
@@ -198,7 +222,8 @@ the range will be empty.
 
 ``` 
 
-You can use a range to direct a sequence of calculations in a ```for``` loop. 
+A range is an indispensable object 
+for directing sequences of calculations in ```for``` loops. 
 
 ```python 
 >>> total = 0
@@ -246,7 +271,8 @@ within the loop block of statements.
 
 ``` 
 
-It is generally bad form to change the iterator within a loop. 
+Although Python allows this, 
+it is generally bad form to change the iterator within a loop. 
 It can be confusing to other users of your code. 
 Instead, loop over the indices of the list. 
 First, create an appropriate range of values for the iterator. 
@@ -323,6 +349,17 @@ Na 22.98976928
 K 39.0983
 ``` 
 
+Note that the above code block is designed assuming that
+```metals``` and ```weights``` have the same length. 
+It will run until the last element of ```metals```, 
+even if ```weights``` has more elements, 
+however, it will only throw an error if 
+```metals``` is longer than ```weights```.
+As you gain more experience, you will
+design your code with these *corner cases* in mind
+but it is good practice to write the first draft of your code
+assuming the user is cooperating. 
+
 ## Nesting Loops in Loops
 
 Just like you can use nested ```if``` statements, you can use nested loops. 
@@ -367,10 +404,11 @@ def print_table(n: int) -> None:
 
     # Print the header row.
     for i in numbers:
+        # This inserts a tab between each value:
         print('\t' + str(i), end='')
 
     # End the header row.
-    print()
+    print() # An empty line with a newline by default. 
 
     # Print each row number and the contents of each row.
     for i in numbers:  #(1)
@@ -399,9 +437,11 @@ The outer loop iterates over the sublists.
 ... 
 ['Li', 'Na', 'K']
 ['F', 'Cl', 'Br']
-
 ``` 
-The inner loop iterates over the elements of the sublists. 
+
+Each element of the list called ```elements``` is
+itself a list.
+An inner loop iterates over the elements of the sublists. 
 ```python 
 >>> elements = [['Li', 'Na', 'K'], ['F', 'Cl', 'Br']]
 >>> for inner_list in elements:
@@ -469,7 +509,7 @@ so the times in the next day are listed on the next line.
 
 With a ```for``` loop, you need to know the list of iterators beforehand. 
 Sometimes, you know only a condition under which the calculation should be stopped. 
-The ```while``` loop executes the block of code until the condition is no longer satisfied. 
+A ```while``` loop executes the block of code until the condition is no longer satisfied. 
 
 
 
@@ -484,7 +524,7 @@ A ```while``` loop has the following flow chart:
 
 <img src="Images/while_loop_C.jpg" width="500"/>
 
-The commands follow a sequence of commands like this:
+The Python interpreter follows a sequence of commands like this:
 
 ```python
 
@@ -497,7 +537,7 @@ while <condition>:
     # to execute the code block again. 
     
     # Don't forget to indent consistently.
-    # The block of code ends when the last
+    # In Python, the block of code ends when the last
     # indented statements are executed. 
 
 ```
@@ -544,7 +584,8 @@ The final population was 2144 bacteria.
 ``` 
 Notice that the last instance of population was greater than the 
 stopping criterion, since Python executed one more loop after the 
-last value of ```1772 < 2000```. 
+last value of ```1772 < 2000```, 
+which evaluates to ```True``` at the beginning of the loop. 
 
 
 ### Infinite Loops
@@ -553,7 +594,7 @@ If we set the stopping condition to be *exactly* 2000,
 what happens?
 
 ```python 
-# Use multi-valued assignment to set up controls
+# Use multi-valued assignment to set up controls in one line.
 time, population, growth_rate = 0, 1000, 0.21
 
 # Don't stop until we're exactly double the original size
@@ -585,11 +626,34 @@ If you find that you have created an infinite loop,
 press ```Ctrl-C``` in most shells, or press the stop button
 in Anaconda, which is a square button in the console. 
 
+As an aside, the above loop used 
+multi-valued assignment to set up controls in one line, 
+which works in some languages, such as Python.
+
+```python 
+>>> time, population, growth_rate = 0, 1000, 0.21
+>>> print(time)
+>>> print(population)
+>>> print(growth_rate)
+0
+1000
+0.21
+```
+
+Different coders will disagree on whether this good form
+or simply showing off with *code golf* by minimizing lines of code. 
+You might want to keep each assignment on one line, 
+for the benefit of the reader. 
+It is easier for the user to notice assignments at the beginning of the line. 
+
 
 ## Repetition Based on User Input
 
+You might design a loop to run 
+based on information that is not supplied in the code
+nor determined from calculations within the loop. 
 You can use the ```input``` command to request user input from the keyboard
-and use this value to trigger the stopping condition. 
+and also use this value to trigger the stopping condition. 
 
 ```python 
 text = ""
@@ -647,16 +711,12 @@ while True:
         print("Unknown compound")
 
 ``` 
-Although this works, many programmers judge this to be bad form. 
-It is more clear to the user when the iterations and stopping conditions
-are explicitly stated after the ```for``` or ```while``` keywords. 
 
-
-Sometimes you will want to use the ```break``` command
+For example, you might want to use the ```break``` command
 when you are looking for something and want to stop looking after 
 you have found what you are looking for. 
 
-In this case, the loop wastefuly continues until the end of the range,
+In this case, the loop wastefully continues until the end of the range,
 regardless of when the digit is found. 
 
 ```python 
@@ -670,7 +730,12 @@ regardless of when the digit is found.
 >>> digit_index
 1
 ``` 
-With the ```break``` statement, the loop stops when the job is done. 
+The condition ```digit_index == -1``` tests whether
+a digit has been found, since the ```digit_index```
+would be assigned a different value in the code block. 
+
+In contrast, with the ```break``` statement, 
+the loop stops when the job is done. 
 
 ```python 
 >>> s = 'C3H7'
@@ -684,6 +749,27 @@ With the ```break``` statement, the loop stops when the job is done.
 >>> digit_index
 1
 ``` 
+
+In this case, the initialization ```digit_index = -1```
+is not required for the operation of the loop. 
+It is still good practice to assign it a default value
+so that the variable exists in memory in case a digit is not found. 
+
+```python 
+>>> s = 'ABCDE'
+>>> digit_index = -1 # This will be -1 until we find a digit.
+>>> for i in range(len(s)):
+...     # If we find a digit
+...     if s[i].isdigit():
+...         digit_index = i
+...         break  # This exits the loop.
+...
+>>> digit_index
+-1
+``` 
+Without the initial assignment of ```digit_index```,
+this variable might carry the value from a previous calculation, 
+which could make troubleshooting very difficult. 
 
 
 ### The ```continue``` Statement
@@ -711,7 +797,8 @@ that cannot be counted in the total.
 2
 
 ``` 
-This version stops the calculation in the loop 
+This version stops the calculation 
+in the ```if``` statement within the loop 
 if the character is not numeric and proceeds to the next 
 character. 
 ```python 
@@ -739,17 +826,24 @@ Although these are useful tools, they should be used sparingly
 (or never, according to many programmers) as they may unnecessarily 
 complicate the program.
 Many programmers will not notice the ```break``` and ```continue``` statements
-and will get confused after using the ```for``` and ```while```
+and will get confused after inspecting the ```for``` and ```while```
 statement to get an idea of what the program is doing. 
+This functionality is a relic of older programming languages such as Fortran, 
+which was more commonly used 
+in the days when computing time was very expensive
+and the loss of clarity was a worthwhile trade-off. 
 This advice is not only to help others:
-your program might make sense to you now
-but *future you* might not remember what you are doing. 
+your program might make sense to you now, as you code it today,
+but *future you* might not remember what you were thinking. 
+
 
 
 
 ## Exercises
 
 ### Exercise 12:
+
+Consider this code:
 
 ```python 
 from typing import List
@@ -761,6 +855,14 @@ def remove_neg(num_list: List[float]) -> None:
     >>> remove_neg(numbers)
     >>> numbers
     [1, 2]
+    >>> numbers = [-5, -3, 1, -3, 2]
+    >>> remove_neg(numbers)
+    >>> numbers
+    [1, 2]
+    >>> numbers = [-5, 1, -3, 2, -7, -10]
+    >>> remove_neg(numbers)
+    >>> numbers
+    [1, 2]
     """
 
     for item in num_list:
@@ -768,4 +870,7 @@ def remove_neg(num_list: List[float]) -> None:
             num_list.remove(item)
 
 ``` 
+Test the examples to see whether the code is correct.
+If not, where is the error?
+If necessary, revise the code to correct any problems. 
 
