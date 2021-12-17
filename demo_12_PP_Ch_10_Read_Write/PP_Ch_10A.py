@@ -38,7 +38,8 @@ import os # To set working directory
 # Find out the current directory.
 os.getcwd()
 # Change to a new directory.
-os.chdir('C:\\Users\\le279259\\Documents\\Teaching\\ECP3004_Spring_2021\\GitRepo\\ECP3004S21\\demo_12_PP_Ch_10_Read_Write\\file_examples')
+git_path = 'C:\\Users\\le279259\\Documents\\Teaching\\ECP3004_Spring_2021\\GitRepo\\ECP3004S21\\'
+os.chdir(git_path + 'demo_12_PP_Ch_10_Read_Write\\file_examples')
 # Check that the change was successful.
 os.getcwd()
 
@@ -94,7 +95,7 @@ print(contents)
 # To avoid this problem, use the with statement. 
 
 
-with open('file_example.txt', 'r') as file:
+with open('file_example.txt', 'r') as file: 
     contents = file.read()
 
 print(contents)
@@ -160,6 +161,8 @@ with open('file_example.txt', 'r') as example_file:
 
 print(lines)
 
+lines[0]
+
 
 # It gives a list of strings, each one containing a newline (\n) escape sequence. 
 
@@ -184,6 +187,11 @@ planets
 
 for planet in reversed(planets):
     print(planet.strip())
+
+
+
+for planet in reversed(planets):
+    print(planet)
 
 
 
@@ -360,7 +368,9 @@ with urllib.request.urlopen(url) as webpage:
 # The with statement can also be used for writing files. 
 # Let's move to another directory for writing. 
 
-os.chdir('C:\\Users\\le279259\\Documents\\Teaching\\ECP3004_Spring_2021\\GitRepo\\ECP3004S21\\demo_12_PP_Ch_10_Read_Write\\new_files')
+# git_path = 'C:\\Users\\le279259\\Documents\\Teaching\\ECP3004_Spring_2021\\GitRepo\\ECP3004S21\\'
+
+os.chdir(git_path + 'demo_12_PP_Ch_10_Read_Write\\new_files')
 # Check that the change was successful.
 os.getcwd()
 
@@ -368,6 +378,8 @@ os.getcwd()
 
 with open('topics.txt', 'w') as output_file:
     output_file.write('Computer Science')
+    
+
 
 # In the above example, the file topics.txt need not exist:
 # this file will be created if it does not exist
@@ -394,6 +406,12 @@ with open('topics.txt', 'a') as output_file:
 
 # Note that a new line was not automatically added;
 # you have to include it manually using \n. 
+
+
+with open('topics.txt', 'a') as output_file:
+    output_file.write('\nSoftware Engineering')
+
+
 
 
 # The next example is more complex: it both reads from and writes to a file.

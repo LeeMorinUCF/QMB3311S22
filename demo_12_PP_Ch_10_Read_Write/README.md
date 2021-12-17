@@ -11,12 +11,14 @@ they have very little overhead.
 Consider the following exercise.
 Open your favorite word processor, such as Microsoft Word, 
 and open a blank document and immediately save it with an appropriate extension, 
-such as ```empty.docx```.
+such as ```empty_document.docx```.
 Then open a spreadsheet program and save a blank spreadsheet with a name like
-```empty.xlsx``` in the same folder.
-Now save a blank file in a text editor such as Notepad and call it ```empty.txt```. 
+```empty_worksheet.xlsx``` in the same folder.
+Similarly, create an empty bitmap image with extension bmp. 
+Now save a blank file in a text editor such as Notepad and call it ```empty_text_ _file.txt```. 
 Now play a game that you might call "file storage golf."
-Which one is the winner? The one with the smallest size of an empty file. 
+Inspect the above files in the folder ```empty_files```. 
+Which one is the winner? The one(s) with the smallest size of an empty file. 
 
 Now, for round two, try it with the simplest possible nonempty document:
 put one character on the first line. 
@@ -34,10 +36,11 @@ which python can handle efficiently.
 This makes python a good choice for processing a large volume
 of data stored in text files. 
 
-Another type of file is a database, which we will cover in Chapter 17. 
+Another type of file is a database, 
+which is covered in Chapter 17 of *Practical Programming*. 
 Databases provide a very efficient way to not only store data
 but also to join data into new combinations. 
-First, we will start with the basic techniques of file handling. 
+For now, we will start with the basic techniques of file handling. 
 
 ## Opening a File
 
@@ -126,7 +129,7 @@ within the folder ```data```.
 In the second case, the file ```data2.txt``` is one folder up: 
 the folder containing the current folder. 
 In the third case, to access the file ```data3.txt```, you have to 
-move three folder up and then move into another folder called ```data``, 
+move three folders up and then move into another folder called ```data``, 
 which contains the file ```data3.txt```. 
 
 
@@ -320,11 +323,11 @@ Coloured fox fur production, HOPEDALE, Labrador, 1834-1842
 Notice that the first line is a description:
 it is a record of the number of fur pelts harvested 
 in a region of Canada over a period of several years during the 1800's. 
-The next two are preceeded by a ```#``` character
+The next two are preceded by a ```#``` character
 and the data begin on the fourth line.
-The following code block reads in the data
-and skips over the description in the header. 
-The following script calculates the total number of fur pelts. 
+The following code block reads in the data,
+skips over the description in the header, 
+and calculates the total number of fur pelts. 
 
 ```python 
 with open('hopedale.txt', 'r') as hopedale_file:
@@ -403,8 +406,8 @@ The above examples assume the file is located on our computer system.
 You can read file located on any computer that is available on the Internet.
 
 The ```urllib``` module has tools for reading files with a given URL.
-Note that the file can be encoded in a number of ways. 
-This example shows how to read a file encoded in UTF-8. 
+Note that the file can be encoded in a number of format. 
+This example shows how to read a file encoded in a format called UTF-8. 
 This uses a function called ```decode``` to decode the file content 
 in the form of bytes to obtain legible characters using UTF-8 encoding. 
 
@@ -460,7 +463,7 @@ you have to include it manually using ```\n```.
 
 The next example is more complex: it both reads from and writes to a file.
 It also uses the ```typing.TextIO``` type annotation for the file. 
-The acronym "IO" is short for "Input/Output"
+The acronym "IO" is short for "Input/Output". 
 
 This script defines a function that reads two numbers from an ```input_file```
 and writes those numbers, with their sum, in ```output_file```. 
@@ -492,8 +495,9 @@ if __name__ == '__main__':
 ``` 
 
 Notice that the files are already ```open``` in the main program. 
-This way, the open files are passed to the function 
-```sum_number_pairs``` and are ready to read and write. 
+The ```open``` procedure creates a function handles 
+that are then passed as arguments in the function 
+```sum_number_pairs``` and are ready to read and write to those files. 
 
 
 If the ```input_file``` called ```number_pairs.txt``` contains this content,
@@ -521,7 +525,7 @@ the ```output_file``` called ```number_pair_sums.txt``` will contain the followi
 
 So far, we have used the function design recipe to test our files as we write them.
 This can be problematic for functions that read and write files
-because the exampple files must be passed along with the scripts, 
+because the example files must be passed along with the scripts, 
 in order for your user to be able to learn from the examples. 
 
 Python provides a class called ```StringIO``` in module ```io``` that 
@@ -592,3 +596,5 @@ if __name__ == '__main__':
         sum_number_pairs(input_file, output_file)
 
 ``` 
+
+Now test the function to make sure the example functions as expected. 
