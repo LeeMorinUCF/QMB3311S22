@@ -32,7 +32,7 @@ who have access to the repository.
 
 GitHub Desktop software allows you to manage changes. 
 You can download a copy of GitHub Desktop here: 
-(Download GitHub Desktop)[https://desktop.github.com/]
+[Download GitHub Desktop](https://desktop.github.com/)
 The software is freely available for a variety of platforms and operating systems.
 Choose the one that is appropriate for your computer. 
 
