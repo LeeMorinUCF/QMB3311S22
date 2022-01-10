@@ -11,6 +11,7 @@ This is why it is called *version control software*.
 It is also useful to collaborate on software because multiple
 software developers will be able to modify the same online repository.
 
+
 The repository for this course can be viewed in a browser. 
 A folder in the repository for the course ECP3004 is shown here:
 
@@ -30,6 +31,11 @@ who have access to the repository.
 ### Open GitHub Desktop
 
 GitHub Desktop software allows you to manage changes. 
+You can download a copy of GitHub Desktop here: 
+(Download GitHub Desktop)[https://desktop.github.com/]
+The software is freely available for a variety of platforms and operating systems.
+Choose the one that is appropriate for your computer. 
+
 Open this program ...
 
 <img src="Images/GitHubOpen.png" width="750"/>
