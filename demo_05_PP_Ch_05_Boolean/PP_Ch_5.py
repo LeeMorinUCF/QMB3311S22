@@ -595,11 +595,14 @@ if ph < 7.0:
     print("It's acidic!")
 elif ph < 4.0:
     print("It's a strong acid!")
- 
+elif ph < 3.0:
+    print(ph, "is VERY acidic! Be careful.")
 
 # What happens when ph = 6.4?
 
 # What happens when ph = 3.6?
+
+# What happens when ph = 2.4?
 
 # Is this the intended result? If not, how could you fix it? 
 # Consider a different approach from the example above. 
