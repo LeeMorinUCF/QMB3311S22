@@ -607,7 +607,8 @@ elif ph < 3.0:
 # Is this the intended result? If not, how could you fix it? 
 # Consider a different approach from the example above. 
 
-# What change would you make to print both messages when they are true?
+# What change would you make to print all of the correct messages 
+# when they are true?
 
 
 
