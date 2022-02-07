@@ -49,7 +49,7 @@ import matplotlib.pyplot as plt
 os.getcwd()
 # Change to a new directory.
 # os.chdir('C:\\Users\\le279259\\Documents\\Teaching\\ECP3004_Spring_2021\\GitRepo\\ECP3004S21\\demo_08_PP_Ch_06_Using_Modules')
-os.chdir('C:\\Users\\le279259\\OneDrive - University of Central Florida\\Documents\\GitHub\\ECP3004S21\\demo_08_PP_Ch_06_Using_Modules')
+os.chdir('C:\\Users\\le279259\\OneDrive - University of Central Florida\\Documents\\GitHub\\QMB3311S22\\demo_08_PP_Ch_06_Using_Modules')
 # Check that the change was successful.
 os.getcwd()
 
@@ -208,10 +208,10 @@ z_out = np.sqrt(x_out*x_out + y_out*y_out)
 # element-by-element. 
 
 # Now bind these together into a 2-D array. 
-dataOut = np.column_stack((x_out, y_out, z_out))
+data_out = np.column_stack((x_out, y_out, z_out))
 
 # You can save the array into a csv file. 
-np.savetxt('PythagExample.dat', dataOut, 
+np.savetxt('PythagExample.dat', data_out, 
            fmt = ('%10.4f %10.4f %10.4f'), header = 'x, y, z')
 # This is a small dataset but it is complete with
 # column labels (headers) and formatted numbers (fmt). 
@@ -230,9 +230,9 @@ x, y, z = np.loadtxt('PythagExample.dat', unpack = True)
 # Repeat the calculation of z to verify accuracy. 
 d = np.sqrt(x*x + y*y)
 # Append d to the original column z.
-dataOut = np.column_stack((d, z))
+data_out = np.column_stack((d, z))
 # As above, save this to another csv file. 
-np.savetxt('PythagOutput.dat', dataOut, 
+np.savetxt('PythagOutput.dat', data_out, 
            fmt = ('%15.10f %10.4f'), header = 'd, z\n')
 
 
