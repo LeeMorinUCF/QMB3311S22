@@ -36,7 +36,7 @@ import numpy as np # For operations on numpy arrays.
 # Find out the current directory.
 os.getcwd()
 # Change to a new directory.
-os.chdir('C:\\Users\\le279259\\Documents\\Teaching\\ECP3004_Spring_2021\\GitRepo\\ECP3004S21\\demo_09_Modules_for_Regression')
+os.chdir('C:\\Users\\le279259\\OneDrive - University of Central Florida\\Documents\\GitHub\\QMB3311S22\\demo_09_Modules_for_Regression')
 # Check that the change was successful.
 os.getcwd()
 

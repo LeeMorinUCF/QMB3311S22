@@ -50,7 +50,7 @@ from sklearn.metrics import mean_squared_error, r2_score # For model performance
 # Find out the current directory.
 os.getcwd()
 # Change to a new directory.
-os.chdir('C:\\Users\\le279259\\Documents\\Teaching\\ECP3004_Spring_2021\\GitRepo\\ECP3004S21\\demo_09_Modules_for_Regression')
+os.chdir('C:\\Users\\le279259\\OneDrive - University of Central Florida\\Documents\\GitHub\\QMB3311S22\\demo_09_Modules_for_Regression')
 # Check that the change was successful.
 os.getcwd()
 
@@ -111,6 +111,7 @@ X_1 = housing[['income']]
 
 
 Y.describe()
+
 X_1.describe()
 
 
@@ -142,7 +143,12 @@ plt.title('Regression of House Price on Income')
 plt.show()
 
 # You can save the figure to place within a document.
-# plt.savefig('Reg_Example_1.pdf')
+plt.scatter(X_1, Y)
+plt.plot(X_1, Y_pred_1, color = 'red')
+plt.xlabel('Income')
+plt.ylabel('House Price')
+plt.title('Regression of House Price on Income')
+plt.savefig('Reg_Example_1.pdf')
 
 
 # Plot the target variable with the predictions.

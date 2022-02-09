@@ -567,7 +567,7 @@ on the blackboard.
 
 
 
-## Examples Using ```scipy'''.
+## Examples Using ```scipy```.
 
 
 We still need to import ```numpy``` to create arrays.
