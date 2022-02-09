@@ -110,7 +110,9 @@ housing.corr()
 #--------------------------------------------------
 
 # Fit the regression model.
-reg_model_full_sm = sm.ols(formula = "house_price ~ income + in_cali + earthquake", data = housing).fit()
+reg_model_full_sm = sm.ols(formula = 
+                           "house_price ~ income + in_cali + earthquake", 
+                           data = housing).fit()
 
 # Display the parameters.
 print(reg_model_full_sm.params)
