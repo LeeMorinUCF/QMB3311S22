@@ -310,8 +310,7 @@ exec(open("temperature_program.py").read())
  
 exec(open("baking.py").read())
  
-# Compare to importing the baking module:
-import baking
+
 
 
 
@@ -440,12 +439,32 @@ doctest.testmod()
 # Import those modules.
 import temperature_doctest_fail as t_fail
 import temperature_doctest_pass as t_pass
+# As with better_baking, the commands are not executed
+# since the variable __name__ is set equal to the 
+# name of the module and the condition 
+# in the if statement is False.
 
 
 ##################################################
 # Exercise
 ##################################################
 
+# Use the doctest module to test the functions
+# in your modules from the previous assignments.
+
+# Recall the examples of the birthday functions 
+# we covered to practice the function design recipe in Chapter 3.
+# We had to make some adjustments to the code 
+# to get all the examples to work.
+# These versions are stored in python modules birthday_v1.py, 
+# birthday_v2.py, and birthday_v3.py.
+
+# You will find them in the folder that contains this script.
+
+# Now we have the tools to test these examples automatically. 
+# Use the doctest.testmod() function in the doctest module 
+# to test these and observe the results. 
+# A sample script for these tests is provided in birthday_tests.py.
 
 
 ##################################################
