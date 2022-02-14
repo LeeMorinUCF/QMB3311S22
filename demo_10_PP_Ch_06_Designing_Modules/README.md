@@ -366,7 +366,7 @@ TestResults(failed=0, attempted=3)
 ```
 
 It says that three tests were run but none failed, 
-so the function returns the expected vale for all three examples.
+so the function returns the expected value for all three examples.
 
 
 
