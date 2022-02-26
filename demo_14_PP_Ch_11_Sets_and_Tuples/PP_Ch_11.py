@@ -176,7 +176,7 @@ vowels = {'a', 'e', 'i', 'o', 'u'}
 vowels
 # {'o', 'u', 'a', 'e', 'i'}
 
-
+# The syntax is the same as for a method:
 vowels.add('y')
 vowels
 # {'u', 'y', 'e', 'a', 'o', 'i'}
@@ -219,7 +219,7 @@ lows.issubset(ten)
 lows.issuperset(odds)
 # False
 
-but
+# but
 
 ten.issuperset(lows)
 # True
@@ -341,6 +341,12 @@ with open('observations.txt') as observations_file:
 
 # We can see the contents of the set by looping over the elements. 
 
+
+with open('observations.txt') as observations_file:
+    birds_observed = get_birds.observe_birds(observations_file)
+
+
+
 for species in birds_observed:
     print(species)
 
@@ -427,7 +433,7 @@ for base in bases:
 
 
 # But there's a catch: 
-# Although empty parentheses ()represent an empty tuple, 
+# Although empty parentheses () represent an empty tuple, 
 # a tuple with one element is not represented by (x)but rather (x,). 
 # The extra comma distinguishes the tuple (x,)from the bracketed operation
 # that might calculate an element, such as between (2+2,)and (2+2):
@@ -488,6 +494,8 @@ mexico = ['Mexico', 72.0]
 
 
 life = (canada, usa, mexico)
+life
+
 mexico = ['Mexico', 72.5]
 life
 # (['Canada', 76.5], ['United States', 75.5], ['Mexico', 72.0])
@@ -564,6 +572,13 @@ y
 z
 # 40
 
+# Compare to chaining indices:
+[[w, x], [[y], z]][0]
+[[w, x], [[y], z]][1]
+[[w, x], [[y], z]][1][0]
+[[w, x], [[y], z]][1][0][0]
+
+
 # One of the most common applications is that
 # you can swap assignments between two variables simultaneously.
 
@@ -584,7 +599,7 @@ s2
 
 
 ##################################################
-## Using the inOperator on Tuples and Sets
+## Using the in Operator on Tuples and Sets
 ##################################################
 
 # On a final note, let's revisit the in operator. 
