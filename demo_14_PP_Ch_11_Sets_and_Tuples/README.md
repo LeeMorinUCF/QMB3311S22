@@ -237,7 +237,7 @@ of both sets.
 {1, 2, 3, 4, 5, 7, 9}
 ```
 
-Finally, you can rest a set to the empty set with the ```clear``` method. 
+Finally, you can reset a set to the empty set with the ```clear``` method. 
 
 ```python 
 >>> lows.clear()
@@ -480,7 +480,8 @@ Now, assemble them into a tuple.
 ```
 
 When we tried to change one of the items, the change was ignored. 
-We can't switch the object that the list item refers to in memory, 
+We can change the object that the list item refers to in memory,
+however, we can't switch the object that the tuple refers to in memory, 
 when we change it after the tuple is formed. 
 When a tuple is created, it creates a copy of the items in a separate, 
 specifically-designed place in memory. 
@@ -494,7 +495,7 @@ by accessing it through the index numbers of the list items.
 >>> canada
 ['Canada', 80.0]
 ``` 
-Then the change was made to the opject in memory containing the list ```Canada```.
+Then the change was made to the object in memory containing the list ```Canada```.
 The rules are different for each type of collections of objects.
 This additional complexity pays off in the flexibility
 to choose python objects that are best suited to your application. 

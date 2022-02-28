@@ -8,9 +8,9 @@ Here, we will discuss the process of designing an algorithm,
 which is best done in a combination of English and mathematics
 before it is translated into Python. 
 
-The specific approach we will use is calle *top-down design*. 
+The specific approach we will use is called *top-down design*. 
 Start by describing the solution in English 
-and then mark staments that can be translated directly into Python.
+and then mark statements that can be translated directly into Python.
 Then rewrite the remaining statements until they can all be
 translated into Python. 
 
@@ -229,7 +229,7 @@ def find_two_smallest(L: List[float]) -> Tuple[int, int]:
 
 ``` 
 
-That seemed like a lot of thought and care, and it is, 
+This seems like a lot of thought and care, and it is, 
 but this process is necessary to avoid problems later. 
 The extra comments pay for themselves many times over. 
 The goal is not to minimize the number of keystrokes
@@ -400,7 +400,8 @@ With loops, there are three choices:
 
 Since our goal is to find indices, 
 and we are looking over the entire list, 
-we should use a ```for``` loop over the values. 
+we should use a ```for``` loop over the indices, 
+in which we check the values corresponding to those indices. 
 
 
 ```python 
@@ -552,10 +553,19 @@ print('The code took {:.2f}ms'.format((t2 - t1) * 1000.))
 
 Now, let's write a script that imports our three modules
 and runs the algorithms to time them. 
-The ```Callable[[List[float]], Any]``` part of the type contract
-allows any type to be returned:
-we only care about the time they take. 
-
+This function ```time_find_two_smallest``` 
+has two arguments: 
+1. The first is of type ```Callable[[List[float]], Any]```,
+    which means that it is the name of a function that we can call, 
+    which is a function of a list of floats.
+    The ```Any``` in the
+    ```Callable[[List[float]], Any]``` part of the type contract
+    allows any type to be returned by the function:
+    we only care about the time the function take to run. 
+1. The next argument is of type ```lst: List[float]```, 
+    which means that it is a list of floats
+    that we will pass to the function referred to in the
+    first argument. 
 
 ```python 
 import time
