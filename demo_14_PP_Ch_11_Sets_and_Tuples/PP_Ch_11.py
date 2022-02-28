@@ -286,7 +286,7 @@ lows ^ odds            # Equivalent to lows.symmetric_difference(odds)
 #--------------------------------------------------
 
 # In this example, we have a file of observations of birds in the Canadian Arctic. 
-# The file observations.txthas one species per line. 
+# The file observations.txt has one species per line. 
 
 
 # canada goose
