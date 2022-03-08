@@ -233,7 +233,7 @@ a_5 = m_4
 b_5 = b_4
 m_5 = (a_5 + b_5)/2
 print(f(m_5))
-# -0.08045182180248231
+# -0.005293741207889502
 
 a_6 = m_5
 b_6 = b_5
@@ -471,7 +471,7 @@ print(soln_m_22.fun)
 print(my_eqns_22(soln_m_22.x))
 
 
-# Nonlinear equations, 3 equations, 2 parameters.
+# Nonlinear equations, 3 equations, 3 parameters.
 
 
 def my_eqns_32(x):
