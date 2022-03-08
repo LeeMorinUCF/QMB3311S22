@@ -38,7 +38,8 @@ import os # To set working directory
 # Find out the current directory.
 os.getcwd()
 # Change to a new directory.
-git_path = 'C:\\Users\\le279259\\Documents\\Teaching\\ECP3004_Spring_2021\\GitRepo\\ECP3004S21\\'
+# os.chdir('demo_10_PP_Ch_06_Designing_Modules')
+git_path = 'C:\\Users\\le279259\\OneDrive - University of Central Florida\\Documents\\GitHub\\QMB3311S22\\'
 os.chdir(git_path + 'demo_12_PP_Ch_10_Read_Write\\file_examples')
 # Check that the change was successful.
 os.getcwd()
