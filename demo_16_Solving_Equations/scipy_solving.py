@@ -12,7 +12,7 @@
 # College of Business
 # University of Central Florida
 # 
-# March 9, 2021
+# March 8, 2022
 # 
 # This program provides introductory examples of 
 # numerical methods for finding roots of single equations
@@ -53,20 +53,23 @@ from scipy import optimize
 # The parameter ```x``` can be a vector 
 # and there can be multiple solutions, depending on the function. 
 # The quadratic formula is the closed-form solution
-# to the problem of finding a root of ```f(x, a, b, c) = a*x**2 + b*x + c == 0```.
+# to the problem of finding a root of 
+# ```f(x, a, b, c) = a*x**2 + b*x + c == 0```.
 # Solving linear equations, however, is a much more simple problem
 # because the slope of the function is constant. 
-# There is one more element of complexity when the function is nonlinear:
+# This creates one more element of complexity when the function is nonlinear:
 # the behavior of the function at one location does not necessarily
 # describe the properties at other locations. 
 # You may have to try several approaches to find the solution. 
+
 
 #--------------------------------------------------
 ### The solution
 #--------------------------------------------------
 
 # There are several algorithms for finding the root of a function 
-# and the following selection illustrates the nature of the solution and the type of situation in which it applies. 
+# and the following selection illustrates the nature of the solution 
+# and the type of situation in which it applies. 
 
 #--------------------------------------------------
 #### Grid Search
@@ -102,11 +105,11 @@ plt.ylabel('f(x)')
 plt.show()
 
 
-# From the plot, we can see that there are two roots, one near -5 and the other near 1 and 2. 
-# We can select the value of ```x``` such that the absolute value of ```f(x)``` is minimized, using the ```which.min()``` and ```abs()``` functions in ```R```. 
-
-
-
+# From the plot, we can see that there are two roots, 
+# one near -5 and the other near 1 and 2. 
+# We can select the value of ```x``` such that 
+# the absolute value of ```f(x)``` is minimized, 
+# using the ```np.argmin()``` method and the ```abs()``` function. 
 # The closest to zero has the lowest abosolute value.
 
 # The argmin() numpy method finds the index number of the minimal value.
@@ -313,7 +316,8 @@ x_root = secant_root_f(1, 2, 10**(-7), 100)
 print(x_root)
 # 1.3097995826147546
 
-# Now test it at that candidate value for the root, to make sure.
+# Now test it at that candidate value for the root, 
+# to make sure.
 
 print(f(x_root))
 # -3.295761330512903e-09
@@ -474,7 +478,7 @@ print(my_eqns_22(soln_m_22.x))
 # Nonlinear equations, 3 equations, 3 parameters.
 
 
-def my_eqns_32(x):
+def my_eqns_33(x):
     F1 = x[0] + x[1] + x[2]**2 - 12
     F2 = x[0]**2 - x[1] + x[2] - 2
     F3 = 2 * x[0] - x[1]**2 + x[2] - 1
@@ -483,32 +487,32 @@ def my_eqns_32(x):
 
 
 # Test it for a few inputs (potential starting values).
-my_eqns_32([1, 1, 1])
+my_eqns_33([1, 1, 1])
 
-my_eqns_32([0, 0, 0])
+my_eqns_33([0, 0, 0])
 
 x0 = [1, 1, 1]
 
-soln_m32_1 = optimize.root(my_eqns_32, x0)
+soln_m33_1 = optimize.root(my_eqns_33, x0)
 
 
 # The root:
-print(soln_m32_1.x)
+print(soln_m33_1.x)
 # The objective function:
-print(soln_m32_1.fun)
-print(my_eqns_32(soln_m32_1.x))
+print(soln_m33_1.fun)
+print(my_eqns_33(soln_m33_1.x))
 
 
 # Try the other starting value, just to compare.
 x0 = [0, 0, 0]
 
-soln_m32_2 = optimize.root(my_eqns_32, x0)
+soln_m33_2 = optimize.root(my_eqns_33, x0)
 
 # The root:
-print(soln_m32_2.x)
+print(soln_m33_2.x)
 # The objective function:
-print(soln_m32_2.fun)
-print(my_eqns_32(soln_m32_2.x))
+print(soln_m33_2.fun)
+print(my_eqns_33(soln_m33_2.x))
 
 
 #--------------------------------------------------
