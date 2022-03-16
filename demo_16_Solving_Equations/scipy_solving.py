@@ -283,6 +283,9 @@ def secant_root_f(x0, x1, tol, num_iter):
         x0 = x1
         x1 = x2
         
+        # print("x2 = ", x2)
+        # print("f(x2) = ", f(x2))
+        
     # If it reaches the end of the loop, it has
     # exceeded the maximum number of iterations.
     print("Exceeded allowed number of iterations")
