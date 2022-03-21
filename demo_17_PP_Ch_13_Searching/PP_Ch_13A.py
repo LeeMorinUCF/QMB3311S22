@@ -220,6 +220,14 @@ from typing import Any
 
 def linear_search(lst: list, value: Any) -> int:
     """... Exactly the same docstring goes here ...
+    >>> linear_search([2, 5, 1, -3], 5)
+    1
+    >>> linear_search([2, 4, 2], 2)
+    0
+    >>> linear_search([2, 5, 1, -3], 4)
+    -1
+    >>> linear_search([], 5)
+    -1
     """
 
     for i in range(len(lst)):
@@ -283,6 +291,14 @@ from typing import Any
 
 def linear_search(lst: list, value: Any) -> int:
     """... Exactly the same docstring goes here ...
+    >>> linear_search([2, 5, 1, -3], 5)
+    1
+    >>> linear_search([2, 4, 2], 2)
+    0
+    >>> linear_search([2, 5, 1, -3], 4)
+    -1
+    >>> linear_search([], 5)
+    -1
     """
 
     # Add the sentinel.

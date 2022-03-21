@@ -515,7 +515,7 @@ On my machine, it returned:
 | 10000000	| 148.2985	| 0.0109	| 13566.79 |
 
 The results are impressive. 
-Binary search is much faster and is equally fast regrdless of the 
+Binary search is much faster and is equally fast regardless of the 
 location of the value in the list. 
 
 
