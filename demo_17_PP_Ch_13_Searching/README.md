@@ -331,12 +331,11 @@ with the various linear search functions and prints those search times.
 
 On my machine, it returned:
 
-| Default Header | Left Align | Right Align | Center Align |
+|  Length   |  while    |  for      | sentinel  |  index     |
 | --------: | --------: | --------: | --------: | --------: |
-|  Length   |  while    |  for      | sentinel  | index     |
-|       10	   0.00	  0.00	 39.67	  0.00
-|  5000000	 869.59	344.43	449.31	 79.38
-| 10000000	1704.08	711.43	906.12	148.91
+|       10	|   0.00	|  0.00	    | 39.67	    |  0.00 |
+|  5000000	|  869.59	| 344.43	| 449.31	|  79.38 |
+| 10000000	| 1704.08	| 711.43	| 906.12	| 148.91 |
 
 
 You'll see that, when the value is early in the list, they all run quickly.
