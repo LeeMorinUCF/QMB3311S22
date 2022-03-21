@@ -331,14 +331,14 @@ with the various linear search functions and prints those search times.
 
 On my machine, it returned:
 
-|  Length   |  while    |  for      | sentinel  |  index     |
+|  Length   |  while    |  for      | sentinel  |  index    |
 | --------: | --------: | --------: | --------: | --------: |
-|       10	|   0.00	|  0.00	    | 39.67	    |  0.00 |
-|  5000000	|  869.59	| 344.43	| 449.31	|  79.38 |
-| 10000000	| 1704.08	| 711.43	| 906.12	| 148.91 |
+|       10	|   0.00	|  0.00	    | 39.67	    |  0.00     |
+|  5000000	|  869.59	| 344.43	| 449.31	|  79.38    |
+| 10000000	| 1704.08	| 711.43	| 906.12	| 148.91    |
 
 
-You'll see that, when the value is early in the list, they all run quickly.
+You can see that, when the value is early in the list, they all run quickly.
 They differ in terms of the amount of time it takes to complete searches
 for values later in the list. 
 The ```while``` loop search takes much longer than the others. 
@@ -505,6 +505,14 @@ print_times(10000000, L)  # How fast is it to search near the end?
 
 ``` 
 
+
+On my machine, it returned:
+
+|  Length   |  index    |  binary   | ratio    |
+| --------: | --------: | --------: | -------: |
+|       10	|   0.0014	| 0.0328	|     0.04 |
+|  5000000	|  74.6748	| 0.0120	|  6228.61 |
+| 10000000	| 148.2985	| 0.0109	| 13566.79 |
 
 The results are impressive. 
 Binary search is much faster and is equally fast regrdless of the 
