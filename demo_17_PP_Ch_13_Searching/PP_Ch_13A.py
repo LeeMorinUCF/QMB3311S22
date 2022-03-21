@@ -38,7 +38,7 @@ import doctest
 # Find out the current directory.
 os.getcwd()
 # Change to a new directory.
-git_path = 'C:\\Users\\le279259\\Documents\\Teaching\\ECP3004_Spring_2021\\GitRepo\\ECP3004S21\\'
+git_path = 'C:\\Users\\le279259\\OneDrive - University of Central Florida\\Documents\\GitHub\\QMB3311S22\\'
 os.chdir(git_path + 'demo_17_PP_Ch_13_Searching')
 # Check that the change was successful.
 os.getcwd()
@@ -176,7 +176,7 @@ def linear_search(lst: list, value: Any) -> int:
         return i
 
 
-
+# Test the function with the examples.
 doctest.testmod()
 
 # The extra code block is needed because the function terminates
@@ -228,6 +228,8 @@ def linear_search(lst: list, value: Any) -> int:
 
     return -1
 
+# Test the function with the examples.
+doctest.testmod()
 
 
 # With the ```for``` loop, we no longer need the first ```while``` condition
@@ -272,7 +274,7 @@ def linear_search(lst: list, value: Any) -> int:
 
 
 # We also want to make sure that we clean up our mess:
-# we alterest the list by ```append```ing a ```value```, 
+# we alter the list by ```append```ing a ```value```, 
 # so we need to remove it to preserve the contents of the original list.
 # In Python, the finished algorithm is: 
 
@@ -301,11 +303,13 @@ def linear_search(lst: list, value: Any) -> int:
     else:
         return i
 
+# Test the function with the examples.
+doctest.testmod()
 
 
 # Note that all three of our searches are correct. 
 # Which one you prefer is largely a matter of taste. 
-# Some programmers dislike multiple return staements, with some buried
+# Some programmers dislike multiple return statements, with some buried
 # in the middle of the function. 
 # Others dislike modifying the inputs, for fear of introducing an error. 
 # Still, others dislike the added ```while``` condition that is rarely used. 
