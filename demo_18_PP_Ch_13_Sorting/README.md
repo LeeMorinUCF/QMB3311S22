@@ -577,7 +577,7 @@ Instead, we'll keep track of the next lists to merge.
 
 Here is a revised algorithm:
 - Take list ```L``` and make a list of 1-item lists from it. 
-- Start index ```i``` of at 0.
+- Start index ```i``` of ```L``` at 0.
 - As long as there are two lists (at indices ```i``` and ```i+1```), 
 merge them, append the new list to the list of lists, 
 and increment ```i``` by 2. 

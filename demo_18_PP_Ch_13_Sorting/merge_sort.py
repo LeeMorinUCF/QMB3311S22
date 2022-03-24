@@ -63,5 +63,5 @@ def merge(L1: list, L2: list) -> list:
 
 if __name__ == '__main__':
     import doctest
-    doctest.testmod()
+    print(doctest.testmod())
 

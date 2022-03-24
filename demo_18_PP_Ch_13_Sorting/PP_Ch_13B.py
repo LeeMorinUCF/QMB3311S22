@@ -15,7 +15,7 @@
 ##################################################
 #
 # Demo for Chapter 13: Searching and Sorting
-# Part A: Sorting
+# Part B: Sorting
 #
 ##################################################
 """
@@ -38,7 +38,7 @@ import doctest
 # Find out the current directory.
 os.getcwd()
 # Change to a new directory.
-git_path = 'C:\\Users\\le279259\\Documents\\Teaching\\ECP3004_Spring_2021\\GitRepo\\ECP3004S21\\'
+git_path = 'C:\\Users\\le279259\\OneDrive - University of Central Florida\\Documents\\GitHub\\QMB3311S22\\'
 os.chdir(git_path + 'demo_18_PP_Ch_13_Sorting')
 # Check that the change was successful.
 os.getcwd()
@@ -259,6 +259,7 @@ find_min([3, -1, 7, 5], 2)
 
 L = [3, 4, 7, -1, 2, 5]
 selection_sort(L)
+print(L)
 
 
 # Function find_min examines each item in L[b:], 

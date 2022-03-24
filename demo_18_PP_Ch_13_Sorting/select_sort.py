@@ -70,4 +70,4 @@ def selection_sort(L: list) -> None:
 
 if __name__ == '__main__':
     import doctest
-    doctest.testmod()
+    print(doctest.testmod())
