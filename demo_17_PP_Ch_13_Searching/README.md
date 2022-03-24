@@ -6,7 +6,7 @@ While this choice of example was somewhat arbitrary, the problem
 of organizing, storing and retrieving data is central to computer science. 
 
 Searching and sorting data are two fundamental operations
-and there are several ways to perform these functions. 
+and there exist several ways to perform these operations. 
 We will compare several approaches, not only to show many solutions to
 these particular problems, but to develop intuition for 
 the way each computing approach uses memory and computing time. 
@@ -233,7 +233,7 @@ def linear_search(lst: list, value: Any) -> int:
 ``` 
 
 We also want to make sure that we clean up our mess:
-we alterest the list by ```append```ing a ```value```, 
+we alter the list by ```append```ing a ```value```, 
 so we need to remove it to preserve the contents of the original list.
 In Python, the finished algorithm is: 
 
@@ -266,7 +266,7 @@ def linear_search(lst: list, value: Any) -> int:
 
 Note that all three of our searches are correct. 
 Which one you prefer is largely a matter of taste. 
-Some programmers dislike multiple return staements, with some buried
+Some programmers dislike multiple return statements, with some buried
 in the middle of the function. 
 Others dislike modifying the inputs, for fear of introducing an error. 
 Still, others dislike the added ```while``` condition that is rarely used. 
@@ -329,7 +329,16 @@ on ```v``` and ```L``` and return the time it took to complete the search.
 Function ```print_times``` calls ```time_it``` 
 with the various linear search functions and prints those search times.
 
-You'll see that, when the value is early in the list, they all run quickly.
+On my machine, it returned:
+
+|  Length   |  while    |  for      | sentinel  |  index    |
+| --------: | --------: | --------: | --------: | --------: |
+|       10	|   0.00	|  0.00	    | 39.67	    |  0.00     |
+|  5000000	|  869.59	| 344.43	| 449.31	|  79.38    |
+| 10000000	| 1704.08	| 711.43	| 906.12	| 148.91    |
+
+
+You can see that, when the value is early in the list, they all run quickly.
 They differ in terms of the amount of time it takes to complete searches
 for values later in the list. 
 The ```while``` loop search takes much longer than the others. 
@@ -497,8 +506,16 @@ print_times(10000000, L)  # How fast is it to search near the end?
 ``` 
 
 
+On my machine, it returned:
+
+|  Length   |  index    |  binary   | ratio    |
+| --------: | --------: | --------: | -------: |
+|       10	|   0.0014	| 0.0328	|     0.04 |
+|  5000000	|  74.6748	| 0.0120	|  6228.61 |
+| 10000000	| 148.2985	| 0.0109	| 13566.79 |
+
 The results are impressive. 
-Binary search is much faster and is equally fast regrdless of the 
+Binary search is much faster and is equally fast regardless of the 
 location of the value in the list. 
 
 

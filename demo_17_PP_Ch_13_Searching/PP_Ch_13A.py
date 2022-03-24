@@ -176,7 +176,7 @@ def linear_search(lst: list, value: Any) -> int:
         return i
 
 
-
+# Test the function with the examples.
 doctest.testmod()
 
 # The extra code block is needed because the function terminates
@@ -220,6 +220,14 @@ from typing import Any
 
 def linear_search(lst: list, value: Any) -> int:
     """... Exactly the same docstring goes here ...
+    >>> linear_search([2, 5, 1, -3], 5)
+    1
+    >>> linear_search([2, 4, 2], 2)
+    0
+    >>> linear_search([2, 5, 1, -3], 4)
+    -1
+    >>> linear_search([], 5)
+    -1
     """
 
     for i in range(len(lst)):
@@ -228,6 +236,8 @@ def linear_search(lst: list, value: Any) -> int:
 
     return -1
 
+# Test the function with the examples.
+doctest.testmod()
 
 
 # With the ```for``` loop, we no longer need the first ```while``` condition
@@ -272,7 +282,7 @@ def linear_search(lst: list, value: Any) -> int:
 
 
 # We also want to make sure that we clean up our mess:
-# we alterest the list by ```append```ing a ```value```, 
+# we alter the list by ```append```ing a ```value```, 
 # so we need to remove it to preserve the contents of the original list.
 # In Python, the finished algorithm is: 
 
@@ -281,6 +291,14 @@ from typing import Any
 
 def linear_search(lst: list, value: Any) -> int:
     """... Exactly the same docstring goes here ...
+    >>> linear_search([2, 5, 1, -3], 5)
+    1
+    >>> linear_search([2, 4, 2], 2)
+    0
+    >>> linear_search([2, 5, 1, -3], 4)
+    -1
+    >>> linear_search([], 5)
+    -1
     """
 
     # Add the sentinel.
@@ -301,11 +319,13 @@ def linear_search(lst: list, value: Any) -> int:
     else:
         return i
 
+# Test the function with the examples.
+doctest.testmod()
 
 
 # Note that all three of our searches are correct. 
 # Which one you prefer is largely a matter of taste. 
-# Some programmers dislike multiple return staements, with some buried
+# Some programmers dislike multiple return statements, with some buried
 # in the middle of the function. 
 # Others dislike modifying the inputs, for fear of introducing an error. 
 # Still, others dislike the added ```while``` condition that is rarely used. 
