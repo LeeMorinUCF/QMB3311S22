@@ -4,12 +4,18 @@ Recall the quick introduction to the concept of regression analysis
 in a previous demonstration. 
 We will extend it by considering the problem of classifying observations, 
 that is, sorting observations into categories. 
+Before we move in that direction, 
+let's review some of the main concepts of linear regression. 
+After all, the problem is similar in that the goal is to make a prediction from a statistical model based on observed data. 
+Both approaches involve reading in data and 
+obtaining estimates of parameters that are the values
+that optimize some sort of objective function. 
 
 ## Linear Regression 
 
 Linear regression is a statistical method for obtaining a prediction of an outcome 
 <img src="https://render.githubusercontent.com/render/math?math=Y_i"> 
-from an observed variable.
+from one or more observed variable.
 
 ### The Regression Equation
 
@@ -151,22 +157,22 @@ and (1-P) if
 <img src="https://render.githubusercontent.com/render/math?math=Y_i = 0">. 
 To consolidate the parameters into a single vector, 
 we will use a vector 
-<img src="https://render.githubusercontent.com/render/math?math=\theta">, 
+<img src="https://render.githubusercontent.com/render/math?math=\beta">, 
 which contains the intercept ```a``` and slope ```b```, now called
-<img src="https://render.githubusercontent.com/render/math?math=\theta_0"> 
+<img src="https://render.githubusercontent.com/render/math?math=\beta_0"> 
 and
-<img src="https://render.githubusercontent.com/render/math?math=\theta_1">
+<img src="https://render.githubusercontent.com/render/math?math=\beta_1">
 in what follows. 
 
 The parameters 
-<img src="https://render.githubusercontent.com/render/math?math=\theta_0"> 
+<img src="https://render.githubusercontent.com/render/math?math=\beta_0"> 
 and
-<img src="https://render.githubusercontent.com/render/math?math=\theta_1">
+<img src="https://render.githubusercontent.com/render/math?math=\beta_1">
 are estimated by *maximizing* the likelihood function 
 from the logistic transformation of the regression line defined by
-<img src="https://render.githubusercontent.com/render/math?math=\theta_0"> 
+<img src="https://render.githubusercontent.com/render/math?math=\beta_0"> 
 and
-<img src="https://render.githubusercontent.com/render/math?math=\theta_1">.
+<img src="https://render.githubusercontent.com/render/math?math=\beta_1">.
 
 In this more general form, the value P is represented by the 
 Cumulative Density Function (CDF), denoted ```F()```:
