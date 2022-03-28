@@ -183,9 +183,13 @@ Cumulative Density Function (CDF), denoted ```F()```:
 
 We take the logarithmic transformation above 
 because it does not change the maximum, 
-since it is a monotonic transformation, 
-but it helps us rearrange the likelihood function 
-into a simpler form. 
+since it is a monotonic transformation.
+It also helps us rearrange the likelihood function 
+into a simpler form
+because the log of a product of terms is the 
+sum of the logs of the terms
+and these sums are better behaved both on paper
+and in the computer. 
 
 
 ### Comparison with Linear Probability Model
@@ -251,7 +255,8 @@ print(logit_model_fit_sm.summary())
 
 ### The Fit of a Logistic Regression Model
 
-Another method is used to measure the quality of fit of a logistic regression model. 
+Since the R-squared statistic is not appropriate for binary outcomes,
+another statistic is often used to measure the quality of fit of a logistic regression model. 
 A statistic called the *Area under the ROC Curve* is appropriate for this. 
 The *AUROC* is interpreted as the probability that any pair of predictions is correctly ordered, when one observation is drawn from 
 <img src="https://render.githubusercontent.com/render/math?math=Y_i = 0">
@@ -284,7 +289,7 @@ An example of the ROC curve is shown here:
 <img src="Images/ROC_Curve.png">
 
 The higher the curve, the higher the area, the better the predictive model. 
-Aline near the 45 degree line indicates a poor fit, 
+A line near the 45-degree line indicates a poor fit, 
 with a prediction about as good as guessing randomly. 
 
 In reality, the curve will be more noisy.
@@ -296,9 +301,9 @@ the ROC curve looks like this:
 
 This result is somewhat disappointing but
 it shows where the model works and where it doesn't. 
-There is an increase over the left part of the curve, 
+We observe an increase over the left part of the curve, 
 for the customers with high probabilities of default. 
-For those less likely to default, the curve is near the 45 degree line. 
+For those less likely to default, the curve is near the 45-degree line. 
 This indicates that the model is better able to distinguish 
 between risky borrowers but not so good at separating less risky borrowers.
 
