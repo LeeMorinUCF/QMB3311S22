@@ -223,7 +223,7 @@ def max_logit(y: List[float], x: List[float],
     beta_0_list = np.arange(beta_0_min, beta_0_max, step)
     beta_1_list = np.arange(beta_1_min, beta_1_max, step)
     
-    # Initialize SSR and 
+    # Initialize logit and index numbers. 
     max_logit_sum = float("-inf")
     i_max = None
     j_max = None
