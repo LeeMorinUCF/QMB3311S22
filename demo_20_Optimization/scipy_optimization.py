@@ -49,7 +49,7 @@ from scipy.optimize import minimize
 # Newton's Method
 #--------------------------------------------------
 
-# Consider the following quadratic function:
+# Consider the following cubic function:
 def f(x):
     return x**3-6*x**2+4*x+2
 
@@ -85,7 +85,7 @@ def newton_f_opt(x0, f_prime, f_2prime,
     x = x0
     for i in range(maxiter):
         x_next = x - f_prime(x)/f_2prime(x)
-        if x_next - x < tol:
+        if abs(x_next - x) < tol:
             print('Optimization terminated successfully.')
             print('Current parameter value: ' + str(x))
             print('Iterations: ' + str(i))
@@ -94,7 +94,7 @@ def newton_f_opt(x0, f_prime, f_2prime,
         x = x_next
         
         
-    if i == maxiter - 1 and x_next - x > tol:
+    if i == maxiter - 1 and abs(x_next - x) > tol:
         print('Optimization terminated after maximum number of iterations.')
         
     return x
@@ -104,7 +104,11 @@ def newton_f_opt(x0, f_prime, f_2prime,
 x_star = newton_f_opt(0, f_prime, f_2prime)
 print(x_star)
 
+
 print(f(x_star))
+
+
+print(f_prime(x_star))
 
 
 # Set the tolerance lower (more accuracy):
@@ -116,15 +120,30 @@ print(x_star)
 print(f(x_star))
 
 
+print(f_prime(x_star))
+
 
 # Start from a different point:
-x_star = newton_f_opt(1.5, f_prime, f_2prime, 
+x_star = newton_f_opt(3.5, f_prime, f_2prime, 
                       maxiter = 100, 
                       tol = 0.00001)
 print(x_star)
 
 print(f(x_star))
-# It broke. 
+
+print(f_prime(x_star))
+# Seems like an optimum but it's lower.
+
+
+# Calculate the graph on a wider grid of values.
+x_grid = np.arange(-1.0, 5, 0.01)
+f_grid = f(x_grid)
+
+plt.figure()
+plt.plot(x_grid, f_grid, label='f(x)' )
+plt.xlabel('x')
+plt.ylabel('f(x)')
+plt.show()
 
 
 
