@@ -145,7 +145,7 @@ plt.grid(axis='y', alpha=0.75)
 plt.xlabel('Sale Price')
 plt.ylabel('Frequency')
 plt.title('Histogram of Tractor Sales Prices')
-plt.savefig('Images//price_hist.pdf')
+plt.savefig('Images//price_hist.png')
 plt.show()
 
 
@@ -165,7 +165,7 @@ plt.grid(axis='y', alpha=0.75)
 plt.xlabel('Sale Price')
 plt.ylabel('Frequency')
 plt.title('Histogram of Tractor Sales Prices')
-plt.savefig('Images//price_hist_b10.pdf')
+plt.savefig('Images//price_hist_b10.png')
 plt.show()
 
 # With 10 bins it appears to have a smoothly declining density.
@@ -182,7 +182,7 @@ plt.grid(axis='y', alpha=0.75)
 plt.xlabel('Sale Price')
 plt.ylabel('Frequency')
 plt.title('Histogram of Tractor Sales Prices')
-plt.savefig('Images//price_hist_b100.pdf')
+plt.savefig('Images//price_hist_b100.png')
 plt.show()
 
 # Now it looks very choppy with too many 
@@ -215,7 +215,7 @@ dist.plot.hist(density = True, ax = ax)
 ax.set_ylabel('Probability')
 ax.grid(axis = 'y')
 ax.set_facecolor('#d8dcd6')
-plt.savefig('Images//price_density.pdf')
+plt.savefig('Images//price_density.png')
 plt.show()
 
 
@@ -244,7 +244,7 @@ dist.plot.hist(density = True, ax = ax)
 ax.set_ylabel('Probability')
 ax.grid(axis = 'y')
 ax.set_facecolor('#d8dcd6')
-plt.savefig('Images//price_density_bw100.pdf')
+plt.savefig('Images//price_density_bw100.png')
 plt.show()
 
 
@@ -265,7 +265,7 @@ dist.plot.hist(density = True, ax = ax)
 ax.set_ylabel('Probability')
 ax.grid(axis = 'y')
 ax.set_facecolor('#d8dcd6')
-plt.savefig('Images//price_density_bw010.pdf')
+plt.savefig('Images//price_density_bw010.png')
 plt.show()
 
 # This is better but now the density is very jagged.
@@ -296,7 +296,7 @@ plt.grid(axis='y', alpha=0.75)
 plt.xlabel('Sale Price')
 plt.ylabel('Frequency')
 plt.title('Histogram of Log of Tractor Sales Prices')
-plt.savefig('Images//log_price_hist_b20.pdf')
+plt.savefig('Images//log_price_hist_b20.png')
 plt.show()
 
 # This histogram looks almost symmetric.
@@ -314,7 +314,7 @@ dist_log.plot.hist(density = True, ax = ax)
 ax.set_ylabel('Probability')
 ax.grid(axis = 'y')
 ax.set_facecolor('#d8dcd6')
-plt.savefig('Images//log_price_density_bw050.pdf')
+plt.savefig('Images//log_price_density_bw050.png')
 plt.show()
 
 # This looks very smooth but also plausible. 
@@ -459,7 +459,7 @@ fig, ax = plt.subplots()
 ax.plot(tractors['horsepower'], tractors['log_saleprice'], 
         '.', alpha = 0.5)
 ax.plot(X_grid, kde_pred[0], '-', color='tab:blue', alpha = 0.9)
-plt.savefig('Images//log_price_hp_nonpar.pdf')
+plt.savefig('Images//log_price_hp_nonpar.png')
 plt.show()
 
 
@@ -488,7 +488,7 @@ fig, ax = plt.subplots()
 ax.plot(tractors['horsepower'], tractors['log_saleprice'], 
         '.', alpha = 0.5)
 ax.plot(X_grid, kde_pred[0], '-', color='tab:blue', alpha = 0.9)
-plt.savefig('Images//log_price_hp_nonpar_bw10.pdf')
+plt.savefig('Images//log_price_hp_nonpar_bw10.png')
 plt.show()
 
 # You can see it is more variable and, 
