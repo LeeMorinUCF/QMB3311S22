@@ -67,7 +67,7 @@ import matplotlib.pyplot as plt  # To plot regression results
 # Find out the current directory.
 os.getcwd()
 # Change to a new directory.
-git_path = 'C:\\Users\\le279259\\Documents\\Teaching\\ECP3004_Spring_2021\\GitRepo\\ECP3004S21\\'
+git_path = 'C:\\Users\\le279259\\OneDrive - University of Central Florida\\Documents\\GitHub\\QMB3311S22\\'
 os.chdir(git_path + 'demo_21_nonparametrics')
 # Check that the change was successful.
 os.getcwd()
@@ -145,6 +145,7 @@ plt.grid(axis='y', alpha=0.75)
 plt.xlabel('Sale Price')
 plt.ylabel('Frequency')
 plt.title('Histogram of Tractor Sales Prices')
+plt.savefig('Images//price_hist.pdf')
 plt.show()
 
 
@@ -164,6 +165,7 @@ plt.grid(axis='y', alpha=0.75)
 plt.xlabel('Sale Price')
 plt.ylabel('Frequency')
 plt.title('Histogram of Tractor Sales Prices')
+plt.savefig('Images//price_hist_b10.pdf')
 plt.show()
 
 # With 10 bins it appears to have a smoothly declining density.
@@ -180,6 +182,7 @@ plt.grid(axis='y', alpha=0.75)
 plt.xlabel('Sale Price')
 plt.ylabel('Frequency')
 plt.title('Histogram of Tractor Sales Prices')
+plt.savefig('Images//price_hist_b100.pdf')
 plt.show()
 
 # Now it looks very choppy with too many 
@@ -191,7 +194,7 @@ plt.show()
 # to investigate the data. 
 
 #--------------------------------------------------
-# Kernel density somoothing
+# Kernel density smoothing
 #--------------------------------------------------
 
 # Another way to visualize the density is by
@@ -212,6 +215,8 @@ dist.plot.hist(density = True, ax = ax)
 ax.set_ylabel('Probability')
 ax.grid(axis = 'y')
 ax.set_facecolor('#d8dcd6')
+plt.savefig('Images//price_density.pdf')
+plt.show()
 
 
 
@@ -239,6 +244,8 @@ dist.plot.hist(density = True, ax = ax)
 ax.set_ylabel('Probability')
 ax.grid(axis = 'y')
 ax.set_facecolor('#d8dcd6')
+plt.savefig('Images//price_density_bw100.pdf')
+plt.show()
 
 
 
@@ -258,6 +265,8 @@ dist.plot.hist(density = True, ax = ax)
 ax.set_ylabel('Probability')
 ax.grid(axis = 'y')
 ax.set_facecolor('#d8dcd6')
+plt.savefig('Images//price_density_bw010.pdf')
+plt.show()
 
 # This is better but now the density is very jagged.
 # There are peaks on the prices that happened to occur
@@ -287,6 +296,7 @@ plt.grid(axis='y', alpha=0.75)
 plt.xlabel('Sale Price')
 plt.ylabel('Frequency')
 plt.title('Histogram of Log of Tractor Sales Prices')
+plt.savefig('Images//log_price_hist_b20.pdf')
 plt.show()
 
 # This histogram looks almost symmetric.
@@ -304,6 +314,8 @@ dist_log.plot.hist(density = True, ax = ax)
 ax.set_ylabel('Probability')
 ax.grid(axis = 'y')
 ax.set_facecolor('#d8dcd6')
+plt.savefig('Images//log_price_density_bw050.pdf')
+plt.show()
 
 # This looks very smooth but also plausible. 
 # We should build a model to predict the
@@ -334,7 +346,31 @@ ax.set_facecolor('#d8dcd6')
 
 
 
-# Initialize and specify the logistic model.
+# Just to compare, we'll run the linear model first:
+
+# Initialize and specify the linear model.
+
+sm_fmla = "saleprice ~ \
+    horsepower + \
+    age + enghours + \
+    diesel + fwd + manual + johndeere + cab + \
+    spring + summer + winter"
+
+reg_model_sm = sm.ols(formula = sm_fmla, 
+                      data = tractors)
+
+
+# Fit the model.
+reg_model_fit_sm = reg_model_sm.fit()
+
+# Display a summary table of regression results.
+print(reg_model_fit_sm.summary())
+
+
+# Compare this to the log-linear model.
+
+
+# Initialize and specify the log-linear model.
 
 sm_fmla = "log_saleprice ~ \
     horsepower + \
@@ -351,6 +387,8 @@ reg_model_fit_sm = reg_model_sm.fit()
 
 # Display a summary table of regression results.
 print(reg_model_fit_sm.summary())
+
+
 
 # You can see statistically significant relationships
 # with these variables.
@@ -397,7 +435,7 @@ print(reg_model_fit_sm.summary())
 ##################################################
 
 # Now consider that the quadratic model may not be quite right. 
-# Maybe it is some other nonlinear function. 
+# Maybe some other nonlinear function is appropriate. 
 
 # A nonparametric approach can estimate the relationship
 # flexibly to determine what functional form should be used. 
@@ -421,6 +459,7 @@ fig, ax = plt.subplots()
 ax.plot(tractors['horsepower'], tractors['log_saleprice'], 
         '.', alpha = 0.5)
 ax.plot(X_grid, kde_pred[0], '-', color='tab:blue', alpha = 0.9)
+plt.savefig('Images//log_price_hp_nonpar.pdf')
 plt.show()
 
 
@@ -440,7 +479,7 @@ kde_reg = npreg.KernelReg(endog = y, exog = X, var_type = 'c',
                           bw = np.array([10]))
 
 # Fit the predictions to a grid of values. 
-X_grid = np.arange(0, 500, 10)
+X_grid = np.arange(0, 535, 10)
 kde_pred = kde_reg.fit(data_predict = X_grid)
 
 
@@ -449,6 +488,7 @@ fig, ax = plt.subplots()
 ax.plot(tractors['horsepower'], tractors['log_saleprice'], 
         '.', alpha = 0.5)
 ax.plot(X_grid, kde_pred[0], '-', color='tab:blue', alpha = 0.9)
+plt.savefig('Images//log_price_hp_nonpar_bw10.pdf')
 plt.show()
 
 # You can see it is more variable and, 
@@ -470,6 +510,8 @@ kde_pred = kde_reg.fit() # default fits to observations in dataset.
 
 # Create a variable with this predicted curve.
 tractors['horsepower_np'] = kde_pred[0]
+
+tractors['horsepower_np'].describe()
 
 # Now fit a regression model with this extra variable.
 sm_fmla = "log_saleprice ~ \
