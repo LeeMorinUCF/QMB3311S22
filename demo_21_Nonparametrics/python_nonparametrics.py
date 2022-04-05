@@ -145,6 +145,9 @@ plt.grid(axis='y', alpha=0.75)
 plt.xlabel('Sale Price')
 plt.ylabel('Frequency')
 plt.title('Histogram of Tractor Sales Prices')
+# Create the plot in pdf.
+# plt.savefig('Images//price_hist.pdf')
+# But png will plot in the README file.
 plt.savefig('Images//price_hist.png')
 plt.show()
 
@@ -293,7 +296,7 @@ n, bins, patches = plt.hist(x = tractors['log_saleprice'],
                             color = '#0504aa',
                             alpha = 0.7, rwidth = 0.85)
 plt.grid(axis='y', alpha=0.75)
-plt.xlabel('Sale Price')
+plt.xlabel('Logarithm of Sale Price')
 plt.ylabel('Frequency')
 plt.title('Histogram of Log of Tractor Sales Prices')
 plt.savefig('Images//log_price_hist_b20.png')
@@ -493,6 +496,25 @@ plt.show()
 
 # You can see it is more variable and, 
 # similarly, could be made smoother. 
+
+
+# Initialize the model object.
+kde_reg = npreg.KernelReg(endog = y, exog = X, var_type = 'c', 
+                          bw = np.array([50]))
+
+# Fit the predictions to a grid of values. 
+X_grid = np.arange(0, 535, 10)
+kde_pred = kde_reg.fit(data_predict = X_grid)
+
+
+# Plot the fitted curve with a scattergraph of the data. 
+fig, ax = plt.subplots()
+ax.plot(tractors['horsepower'], tractors['log_saleprice'], 
+        '.', alpha = 0.5)
+ax.plot(X_grid, kde_pred[0], '-', color='tab:blue', alpha = 0.9)
+plt.savefig('Images//log_price_hp_nonpar_bw50.png')
+plt.show()
+
 
 
 ##################################################
