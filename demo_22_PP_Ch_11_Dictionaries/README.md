@@ -12,15 +12,15 @@ for each entry in a list.
 The term *dictionary* is an appropriate name because the organization
 of records surrounds a *key*: in a dictionary (the book type), 
 the entries are organized by words, which are listed in order. 
-The remaining entries show a list of values incuding the part of speech, 
+The remaining entries show a list of values including the part of speech, 
 the pronunciation, the definition, examples of usage, and so on. 
 
 The primary motivation behind our postponement of this data type
 is that it resembles the organization of databases, 
-the topic in chapter 17, which we will study next week.
+the topic in Chapter 17, which we will study next week.
 You already have some familiarity with databases:
 your very own information is entered into several databases. 
-For example, the IRS keeps a record of your tax imformation by 
+For example, the IRS keeps a record of your tax information by 
 recording amounts in the fields of your tax return, 
 your vital statistics, and the primary key is your social security number. 
 If you have a driver's license, the DMV keeps a record of your vehicles, 
@@ -123,7 +123,7 @@ The keys form a set: any key can appear at most once in the dictionary.
 Like the elements in sets, the keys are immutable,
 although the values that are associated with the keys don't have to be. 
 
-In Python, you define a dictionary by putting key:value pairs inside braces, 
+In Python, you define a dictionary by putting ```key:value``` pairs inside braces, 
 with the pairs separated by a comma. 
 
 ```python
@@ -138,6 +138,9 @@ It is common to use a name of the form ```keyname_to_valuename```.
 To get the value associated with a key, 
 we put the key in square brackets, 
 much like indexing into a list. 
+There is no meaningful element number to a dictionary 
+as there is for a list:
+only the name (key) of the element is important. 
 
 ```
 >>> bird_to_observations['northern fulmar']
@@ -174,7 +177,8 @@ True
 
 ```
 
-Dictionaries can be compared much like any other pair of data types. 
+Notice that dictionaries can be compared 
+much like any other pair of data types. 
 
 
 ### Updating and Checking Membership
@@ -391,7 +395,7 @@ to troubleshoot a problem based on a surprise change in ordering.
 ### Dictionary Example
 
 We started this section with a crude approach
-to cataloguing our bird-watching research using lists.
+to cataloging our bird-watching research using lists.
 Now let's revisit this example using a dictionary. 
 
 We start with an empty dictionary. 
@@ -558,6 +562,10 @@ The outer loop passes over each key in the inverted dictionary
 and the inner loop passes over the list of the items in the values list 
 associated with that key. 
 
+Interesting as this example may be, 
+much more powerful tools exist to perform such calculations
+using databases instead of dictionaries. 
+We will study databases in detail over the next several lectures. 
 
 
 

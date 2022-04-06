@@ -35,8 +35,9 @@ import os # To set working directory
 # Find out the current directory.
 os.getcwd()
 # Change to a new directory.
-git_path = 'C:\\Users\\le279259\\Documents\\Teaching\\ECP3004_Spring_2021\\GitRepo\\ECP3004S21\\'
-os.chdir(git_path + 'demo_22_PP_Ch_11_Dictionaries')
+drive_path = 'C:\\Users\\le279259\\OneDrive - University of Central Florida\\Documents\\'
+git_path = 'GitHub\\QMB3311S22\\'
+os.chdir(drive_path + git_path + 'demo_22_PP_Ch_11_Dictionaries')
 # Check that the change was successful.
 os.getcwd()
 
@@ -164,6 +165,9 @@ bird_to_observations['northern fulmar']
 # 1
 
 
+bird_to_observations['canada goose']
+
+
 
 # You might remember this sort of notation when referring 
 # to columns of data in a data frame. 
@@ -179,6 +183,12 @@ bird_to_observations['long-tailed jaeger']
 # Traceback (most recent call last):
 #   File "<stdin>", line 1, in <module>
 # KeyError: 'long-tailed jaeger'
+
+# This is just like referring to an element
+# out of range in, say, a list. 
+bird_counts[2]
+# vs:
+bird_counts[5]
 
 
 # The empty dictionary is written {}
@@ -338,17 +348,23 @@ scientist_to_birthdate.items()
 scientist_to_birthdate.get('Newton')
 # 1642
 
+scientist_to_birthdate['Newton']
+# 1642
+
+
+# What happens if you attempt to get a nonexistent key
+# but provide the value.
 scientist_to_birthdate.get('Curie', 1867)
 # 1867
 
 scientist_to_birthdate
 # {'Darwin': 1809, 'Newton': 1642, 'Turing': 1912}
+# It didn't add the new entry.
 
 
 
 
-
-
+# Create another dictionary and append them to the original. 
 researcher_to_birthdate = {'Curie' : 1867, 'Hopper' : 1906,
                            'Franklin' : 1920}
 scientist_to_birthdate.update(researcher_to_birthdate)
@@ -356,13 +372,23 @@ scientist_to_birthdate
 # {'Hopper': 1906, 'Darwin': 1809, 'Turing': 1912, 'Newton': 1642,
 #  'Franklin': 1920, 'Curie': 1867}
 
+# The second dictionary is unchanged. 
 researcher_to_birthdate
 # {'Franklin': 1920, 'Hopper': 1906, 'Curie': 1867}
 
+# We can clear that dictionary. 
 researcher_to_birthdate.clear()
 researcher_to_birthdate
 # {}
 
+# But the new dictionary retains the updates.
+scientist_to_birthdate
+# {'Newton': 1642,
+#  'Darwin': 1809,
+#  'Turing': 1912,
+#  'Curie': 1867,
+#  'Hopper': 1906,
+#  'Franklin': 1920}
 
 # See Table 16 on page 219 of *Practical Programming*
 # for more options. 
