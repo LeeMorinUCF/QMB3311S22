@@ -166,7 +166,7 @@ bird_to_observations['northern fulmar']
 
 
 bird_to_observations['canada goose']
-
+# 3
 
 
 # You might remember this sort of notation when referring 
@@ -353,7 +353,15 @@ scientist_to_birthdate['Newton']
 
 
 # What happens if you attempt to get a nonexistent key
-# but provide the value.
+# but provide the value?
+scientist_to_birthdate['Curie']
+
+# marie Curie is not in the dictionary so get() returns nothing. 
+scientist_to_birthdate.get('Curie')
+
+
+# An additional argument can pass a default value in the event that
+# the key is not in the dictionary. 
 scientist_to_birthdate.get('Curie', 1867)
 # 1867
 
@@ -366,7 +374,8 @@ scientist_to_birthdate
 
 # Create another dictionary and append them to the original. 
 researcher_to_birthdate = {'Curie' : 1867, 'Hopper' : 1906,
-                           'Franklin' : 1920}
+                           'Franklin' : 1920, 
+                           'Newton': 1642}
 scientist_to_birthdate.update(researcher_to_birthdate)
 scientist_to_birthdate
 # {'Hopper': 1906, 'Darwin': 1809, 'Turing': 1912, 'Newton': 1642,
