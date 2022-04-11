@@ -29,7 +29,7 @@
 # Names of Tables, Columns And Variables
 # Are Usually In "CamelCase". 
 
-# In contrast, Python is usuall written in "snake_case".
+# In contrast, Python is usually written in "snake_case".
 
 ##################################################
 # Import Modules.
@@ -49,8 +49,9 @@ import sqlite3
 # Find out the current directory.
 os.getcwd()
 # Change to a new directory.
-git_path = 'C:\\Users\\le279259\\Documents\\Teaching\\ECP3004_Spring_2021\\GitRepo\\ECP3004S21\\'
-os.chdir(git_path + 'demo_23_PP_Ch_17_Databases')
+drive_path = 'C:\\Users\\le279259\\OneDrive - University of Central Florida\\Documents\\'
+git_path = 'GitHub\\QMB3311S22\\'
+os.chdir(drive_path + git_path + 'demo_23_PP_Ch_17_Databases')
 # Check that the change was successful.
 os.getcwd()
 
@@ -93,11 +94,18 @@ con.commit()
 con.close()
 
 
+# Closing the connection here makes sense
+# because it separates the roles of the producers
+# and consumers of the database, which are typically
+# carried out by different employees, in different job families. 
 
 
 ##################################################
 # Retrieving Data
 ##################################################
+
+# Now let's pivot to the user's side, in which
+# the business analyst usually resides.
 
 
 # First, reopen the database (we just closed it).
@@ -115,12 +123,16 @@ cur.execute('SELECT Region FROM PopByRegion')
 # Fetch one line at a time:
 cur.fetchone()
 
+# Fetch the next line:
+cur.fetchone()
+
 # Fetch all the rest:
 cur.fetchall()
-# Note that the first line was already fetched above.
+# Note that the first two lines were already fetched above.
 
 # Further fetches have nothing to fetch.
 cur.fetchone()
+
 cur.fetchall()
 
 
@@ -153,6 +165,20 @@ cur.execute('''SELECT Region FROM PopByRegion
                    WHERE Population > 1000000 AND Region < "L"''')
 cur.fetchall()
 # Notice how the < operator works on strings.
+# Also, be careful with your use of quotes when the 
+# query contains a string. 
+# Follow the usual rules for rendering quotes within strings in Python.
+
+
+##################################################
+# Updating and Deleting
+##################################################
+
+# These operations are not performed by all users
+# but you should understand that these are possibilities.
+# Typically, business analysts will not have access to
+# perform these operations.
+# Refer to the README for a description. 
 
 
 ##################################################
@@ -170,7 +196,17 @@ cur.execute('''CREATE TABLE PopByCountry(Region TEXT, Country TEXT,
 
 
 # It is easier if we pull the values from a list of tuples.
-countries = [("Eastern Asia", "China", 1285238), ("Eastern Asia", "DPR Korea", 24056), ("Eastern Asia", "Hong Kong (China)", 8764), ("Eastern Asia", "Mongolia", 3407), ("Eastern Asia", "Republic of Korea", 41491), ("Eastern Asia", "Taiwan", 1433), ("North America", "Bahamas", 368), ("North America", "Canada", 40876), ("North America", "Greenland", 43), ("North America", "Mexico", 126875), ("North America", "United States", 493038)]
+countries = [("Eastern Asia", "China", 1285238), 
+             ("Eastern Asia", "DPR Korea", 24056), 
+             ("Eastern Asia", "Hong Kong (China)", 8764), 
+             ("Eastern Asia", "Mongolia", 3407), 
+             ("Eastern Asia", "Republic of Korea", 41491), 
+             ("Eastern Asia", "Taiwan", 1433), 
+             ("North America", "Bahamas", 368), 
+             ("North America", "Canada", 40876), 
+             ("North America", "Greenland", 43), 
+             ("North America", "Mexico", 126875), 
+             ("North America", "United States", 493038)]
 
 # Now loop through those entries and INSERT the VALUES.
 for c in countries:
@@ -248,7 +284,7 @@ con.commit()
 # Close the connection when finished. 
 con.close()
 
-# Then we can continue with this file on the next lecture.
+# Then we can continue with this file in the next lecture.
 
 
 ##################################################

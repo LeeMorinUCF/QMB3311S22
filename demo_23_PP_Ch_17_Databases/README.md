@@ -75,7 +75,7 @@ First, we tell Python that we want to use ```sqlite3```.
 
 Next, we must make a connection to our database. 
 Databases can be stored in a file with extension ```db```. 
-Often the database sits on a sever that can hold large amounts of data. 
+Often the database sits on a server that can hold large amounts of data. 
 In that case, you will need access to that computer and will have to pass login credentials (username and password) to open the connection. 
 For our purposes, we will assume that the ```db``` file is located on your computer. 
 To make the connection, we call the ```sqlite3``` method ```connect```
@@ -169,7 +169,12 @@ of field values to fill in the ```?``` places in the string ```'(?, ?)'```.
 >>> cur.execute('INSERT INTO PopByRegion VALUES (?, ?)', ("Japan", 100562))
 
 ``` 
+We have seen a similar construction for strings:
 
+```python
+>>> 'Recall the {0} {1} for {2}.'.format('format', 'method','strings')
+'Recall the format method for strings.'
+```
 
 
 ### Saving Changes
@@ -182,7 +187,7 @@ The commit method saves the changes.
 >>> con.commit()
 
 ``` 
-Use the commit command like you would the ````Ctrl-S``` command. 
+Use the commit command like you would the ```Ctrl-S``` command. 
 (You are doing this, aren't you? 
 You know what they say: "Save early. Save often.")
 
@@ -209,7 +214,15 @@ The main purpose of closing the connection is to free up resources,
 such as the memory required to store a database. 
 
 
+Closing the connection at this point makes sense
+because it separates the roles of the producers
+and consumers of the database, which are typically
+carried out by different employees, in different job families. 
+
 ## Retrieving Data
+
+Let's pivot to the user's side, in which
+the business analyst usually resides.
 
 Now that we have a database that contains some data, 
 how do we access the data?
@@ -261,19 +274,27 @@ fetch one line at a time.
 ('Central Africa', 330993)
 ``` 
 
-If thst is not enough for you, you can use the ```fetchone``` method, 
+When you ```fetchone``` more line, you get the next line in the table:
+
+```python 
+>>> cur.fetchone()
+('Southeastern Africa', 743112)
+``` 
+
+
+If that is not enough for you, you can use the ```fetchall``` method, 
 to fetch all the rest.
 
 
 ```python 
 >>> cur.fetchall()
-[('Southeastern Africa', 743112), ('Northern Africa', 1037463), ('Southern
+[('Northern Africa', 1037463), ('Southern
 Asia', 2051941), ('Asia Pacific', 785468), ('Middle East', 687630), 
 ('Eastern Asia', 1362955), ('South America', 593121), ('Eastern Europe',
 223427), ('North America', 661157), ('Western Europe', 387933), ('Japan',
 100562)]
 ``` 
-Notice that the first line was already fetched above. 
+Notice that the first two lines were already fetched above. 
 The subsequent fetches start from the location of the cursor. 
 Since we have fetched all that the query has returned, 
 further fetches have nothing more to fetch.
@@ -352,28 +373,11 @@ Europe', 223427), ('Japan', 100562)]
 ``` 
 ...or in ```ASC```ending order, if that is what you need. 
 
-```python 
->>> cur.execute('SELECT Region FROM PopByRegion')
-<sqlite3.Cursor object at 0x102e3e490>
->>> cur.fetchall()
-[('Central Africa',), ('Southeastern Africa',), ('Northern Africa',),
- ('Southern Asia',), ('Asia Pacific',), ('Middle East',), ('Eastern
- Asia',), ('South America',), ('Eastern Europe',), ('North America',),
- ('Western Europe',), ('Japan',)]
->>> cur.execute('SELECT * FROM PopByRegion')
-<sqlite3.Cursor object at 0x102e3e490>
->>> cur.fetchall()
-[('Central Africa', 330993), ('Southeastern Africa', 743112), 
- ('Northern Africa', 1037463), ('Southern Asia', 2051941), ('Asia
- Pacific', 785468), ('Middle East', 687630), ('Eastern Asia', 1362955),
- ('South America', 593121), ('Eastern Europe', 223427), ('North America',
- 661157), ('Western Europe', 387933), ('Japan', 100562)]
 
-``` 
 Since we have all studied sorting algorithms, 
 we might be tempted to sort the returned list in Python. 
 Instead, sorting it within your SQL query takes advantage of the fact that
-entries in the databased are stored in a particular order that makes it easier to sort. 
+entries in the database are stored in a particular order that makes it easier to sort. 
 Also, in practice, the database is usually housed on much more powerful computing system, 
 which is especially useful if you have large tables 
 that need to be sorted within intermediate calculations. 
@@ -395,8 +399,7 @@ the following relational operators:
 All but the first have the same meaning as they do in Python. 
 There is no assignment operator ```=``` in SQL 
 (we did that with ```CREATE TABLE```, in some sense), 
-so the equals symbol is unambiguously a test of equality,  
-meaning the same as ```==``` in a Boolean expression in Python. 
+so the equals symbol is unambiguously a test of equality,  meaning the same as ```==``` in a Boolean expression in Python. 
 You might find that, in SQL, the meaning is easy to derive from the context, 
 since the commands are stated the way you would instruct someone to perform tasks, 
 much like you would in the English language. 
@@ -426,15 +429,21 @@ These are used the same way one would use them in Python.
 Notice how the ```<``` operator works on strings.
 Also note that we had to use two kinds of quotes
 in the above command:
-the query was passed in double quotes, 
-while the string ```'L'``` in the Boolean expression
-was passed in single quotes within the larger string. 
+the query was passed in triple quotes, 
+while the string ```"L"``` in the Boolean expression
+was passed in double quotes within the larger string. 
+Since, with the ```sqlite3``` module, 
+the queries are passed as Python strings,
+you follow the same rules as you would for rendering 
+quotes within strings, 
+whenever the query contains strings. 
+
 
 
 ## Updating and Deleting
 
 Databases change over time. 
-We laerned how to ```INSERT VALUES``` in our database
+We learned how to ```INSERT VALUES``` in our database
 but that only operates one row at a time. 
 If we want to make larger changes, 
 we can use the ```UPDATE``` command to take advantage of
@@ -494,6 +503,17 @@ Be careful with this one! There is no "Undo" button.
 
 <img src="Images/little_bobby_tables.png" width="500">
 
+Can you understand what happened at the school?
+To understand why this is funny (if it is funny at all),
+imagine creating a string for a query to pull little Bobby's grades.
+```python
+student_names = "Robert'; DROP TABLE Students;"
+my_query_str = "SELECT grades FROM Students WHERE StudentName = '{0}';".format(student_name)
+cur.execute(my_query_str)
+```
+
+
+
 
 ## Using ```NULL``` for Missing Data
 
@@ -533,14 +553,14 @@ sqlite3.IntegrityError: Test.Region may not be NULL
 This is fine because SQL gives you a precise error message
 but this may not be ideal because the entry is blocked. 
 In some cases, you might want to insert a particular value 
-such as ```0```, an empty string```''``` or ```false```, 
+such as ```0```, an empty string ```''``` or ```false```, 
 which could be used to represent different kinds of missing data. 
 Some databases use default codes, such as negative integers or 
 an unlikely value, such as ```-999990```. 
 Then it is up to the programmer 
 to handle the default or missing values downstream. 
 
-The tretment of ```NULL``` variables in SQL differs from 
+The treatment of ```NULL``` variables in SQL differs from 
 those in other languages, such as ```None``` in Python. 
 Of course, many operations involving ```NULL``` produce ```NULL```
 because if the input value is missing or unknown, 
@@ -552,8 +572,9 @@ for the following reasons:
 - If the first argument were true or one, then the full expression would also evaluate to 1. 
 The technical term for this is *three-valued logic*. 
 In SQL, statements are not only true or false, they can be true, false or unknown. 
-Note also that different database formats might handle this sort of logic, 
-so the best practice is to test it on your infrastructure. 
+Note also that different database formats might 
+have different ways of handling this sort of logic, 
+so the best practice is to test it on your particular infrastructure. 
 
 
 
@@ -753,12 +774,12 @@ To appreciate the difference between the two forms of joins,
 let's reconsider the steps that SQL executes under these two types of joins. 
 An ```INNER JOIN``` comprises the following three steps. 
 1. Construct the cross product of the tables
-1. Discard rows that *do not have matching keys from both tables*
-1. Select columns satisfying the ```WHERE``` clause* from the remaining rows
+1. Discard rows that *are missing matching keys from both tables*
+1. Select columns satisfying the ```WHERE``` clause from the remaining rows
 
 In contrast, a ```LEFT JOIN``` comprises the following three steps. 
 1. Construct the cross product of the tables
-1. Discard rows that *do not have matching keys in the RIGHT table*
+1. Discard rows that *are missing matching keys in the RIGHT table*
 1. Select columns from the remaining rows
 
 
@@ -803,10 +824,10 @@ Now, only the unique values remain.
 Our query in the previous section relied on the fact that our regions and countries
 were uniquely identified by their names. 
 A column in a table that is used this way is called a *key*. 
-Your social security number, driver's license number and variaous customer numbers
+Your social security number, driver's license number and various customer numbers
 are all keys within databases. 
 Ideally, the values of the keys should be unique, 
-just liek the words in a dictionary. 
+just like the words in a dictionary. 
 
 To tell the database to enforce this constraint, 
 we can use a ```PRIMARY KEY``` clause when we create the table. 
@@ -841,5 +862,5 @@ will ever have tha same values for region *and* country.
 ``` 
 
 In practice, databases are often designed to use integers as keys. 
-This way, they can be generated to satisfy the uniqueness constraints
+This way, the integers can be generated to satisfy the uniqueness constraints
 and it avoids any complications from having two entries with, say, the same name. 

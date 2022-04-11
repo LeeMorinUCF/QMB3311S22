@@ -43,8 +43,9 @@ import sqlite3
 # Find out the current directory.
 os.getcwd()
 # Change to a new directory.
-git_path = 'C:\\Users\\le279259\\Documents\\Teaching\\ECP3004_Spring_2021\\GitRepo\\ECP3004S21\\'
-os.chdir(git_path + 'demo_24_PP_Ch_17_Databases')
+drive_path = 'C:\\Users\\le279259\\OneDrive - University of Central Florida\\Documents\\'
+git_path = 'GitHub\\QMB3311S22\\'
+os.chdir(drive_path + git_path + 'demo_24_PP_Ch_17_Databases')
 # Check that the change was successful.
 os.getcwd()
 
@@ -137,6 +138,27 @@ AND    (A.Country != B.Country)''')
 cur.fetchall()
 # [('Republic of Korea', 'Canada'), ('Bahamas', 'Greenland'), ('Canada',
 # 'Republic of Korea'), ('Greenland', 'Bahamas')]
+
+
+
+# It is often more clear if you use the AS keyword
+# when defining an alias for a table. 
+
+cur.execute('''
+SELECT 
+    pop1.Country AS Country1, 
+    pop2.Country AS Country2
+FROM   
+    PopByCountry AS pop1 
+    INNER JOIN 
+        PopByCountry AS pop2
+WHERE  
+    (ABS(pop1.Population - pop2.Population) <= 1000)
+    AND    
+        (pop1.Country != pop2.Country)''')
+# <sqlite3.Cursor object at 0x102e3e490>
+cur.fetchall()
+
 
 
 # Notice that we used the absolute value function ```ABS()```. 
@@ -371,6 +393,8 @@ for row in cur.fetchall():
 cur.execute('''CREATE TABLE Capitals(Province TEXT,
  Capital TEXT, Population INTEGER)''')
 con.commit()
+
+
 table = [
  ('Newfoundland and Labrador', "St. John's", 172918),
  ('Prince Edward Island', 'Charlottetown', 58358),
@@ -468,12 +492,13 @@ cur.execute('SELECT MAX(Population) FROM Density')
 print(cur.fetchone())
 
 
-# i. Retrieve the provinces that have land densities within 0.5 persons per square kilometer of one another. 
+# i. Retrieve the provinces that have land densities within 0.5 persons 
+# per square kilometer of one another. 
 # Have each pair of provinces reported only once. 
 
 
 cur.execute('''SELECT A.Province, B.Province
- FROM Density A INNER JOIN Density B
+ FROM Density AS A INNER JOIN Density AS B
  WHERE A.Province < B.Province
  AND ABS(A.Population / A.Area - B.Population / B.Area) <
 0.5''')
