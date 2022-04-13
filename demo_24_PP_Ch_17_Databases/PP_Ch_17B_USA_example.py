@@ -79,7 +79,7 @@ os.getcwd()
 # to interact with the database
 # We will continue using sqlite3
 import sqlite3 as dbapi
-con = dbapi.connect('population.db')
+con = dbapi.connect('US_population.db')
 
 
 
