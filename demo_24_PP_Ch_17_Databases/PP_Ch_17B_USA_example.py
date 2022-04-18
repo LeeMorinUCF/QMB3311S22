@@ -133,10 +133,11 @@ density_df.columns
 
 # Loop through the rows of the dataframe to INSERT the VALUES.
 for row in density_df.index:
-   cur.execute('INSERT INTO Density VALUES (?, ?, ?)', 
+    # print(density_df['state_terr', 'population', 'area']][row])
+    cur.execute('INSERT INTO Density VALUES (?, ?, ?)', 
                (str(density_df['state_terr'][row]), 
-                int(density_df['population'][row]), 
-                float(density_df['area'][row]) ))
+                int(str(density_df['population'][row]).replace(',', '')), 
+                float(str(density_df['area'][row]).replace(',', '')) ))
 con.commit()
 
 

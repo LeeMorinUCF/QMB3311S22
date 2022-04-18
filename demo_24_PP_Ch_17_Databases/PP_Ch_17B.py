@@ -77,6 +77,13 @@ cur.execute('''SELECT Region, SUM (Population) FROM PopByCountry
 cur.fetchall()
 
 
+# Compare this to the Un-aggregated query:
+cur.execute('''SELECT Region, Population FROM PopByCountry''')
+
+cur.fetchall()
+
+
+
 # Now restrict the calculation to North America.
 cur.execute('''SELECT SUM (Population) FROM PopByCountry
                    WHERE Region = "North America"''')
@@ -89,6 +96,14 @@ cur.execute('''SELECT SUM (Population) FROM PopByCountry
 
 cur.fetchall()
 
+
+
+
+# Calculate the sum of the population, tabulated by Region.
+cur.execute('''SELECT Region, SUM(1) FROM PopByCountry
+                   GROUP BY Region''')
+
+cur.fetchall()
 
 
 ##################################################
@@ -115,6 +130,13 @@ cur.fetchall()
 # [('China',), ('DPR Korea',), ('Hong Kong (China)',), ('Mongolia',),
 # ('Republic of Korea',), ('Taiwan',), ('Bahamas',), ('Canada',),
 # ('Greenland',), ('Mexico',), ('United States',)]
+
+# Compare to the query without the where clause.
+cur.execute('''SELECT Country FROM PopByCountry
+            WHERE 1''')
+cur.fetchall()
+
+
 
 
 # This is not what was wanted, for two reasons: 
@@ -150,6 +172,23 @@ SELECT
     pop2.Country AS Country2
 FROM   
     PopByCountry AS pop1 
+    INNER JOIN 
+        PopByCountry AS pop2
+WHERE  
+    (ABS(pop1.Population - pop2.Population) <= 1000)
+    AND    
+        (pop1.Country != pop2.Country)''')
+# <sqlite3.Cursor object at 0x102e3e490>
+cur.fetchall()
+
+
+# But SQL is flexible and is not case-sensitive.
+cur.execute('''
+SeLEct 
+    poP1.Country AS Country1, 
+    pop2.Country AS Country2
+FROM   
+    popbycountry AS pop1 
     INNER JOIN 
         PopByCountry AS pop2
 WHERE  
@@ -244,8 +283,8 @@ cur.fetchall()
 # If you want to save that progress, 
 # make sure to commit before closing the connection.
 
-# con.commit()
-# con.close()
+con.commit()
+con.close()
 
 
 ##################################################
