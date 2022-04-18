@@ -46,7 +46,8 @@ import csv # To import tables from csv files
 os.getcwd()
 # Change to a new directory.
 drive_path = 'C:\\Users\\le279259\\OneDrive - University of Central Florida\\Documents\\'
-git_path = 'Teaching\\ECP3004_Spring_2021\\GitRepo\\ECP3004S21\\'
+# git_path = 'Teaching\\ECP3004_Spring_2021\\GitRepo\\ECP3004S21\\'
+git_path = 'GitHub\\ECP3004S21\\'
 os.chdir(drive_path + git_path + 'demo_25_Databases')
 # Check that the change was successful.
 os.getcwd()
@@ -195,7 +196,7 @@ cur.fetchall()
 cur.execute(
     "SELECT \
         Name ,\
-        SUBSTR(Date, 1, 4) as Year \
+        SUBSTR(Date, 1, 4) AS Year \
     FROM FirstTable"
 )
 cur.fetchall()
@@ -542,6 +543,26 @@ cur.fetchall()
 # It is not much of a loss, however, 
 # because a ```RIGHT JOIN``` can be done with a ```LEFT JOIN```, 
 # with the tables A and B switched. 
+
+
+
+cur.execute(
+            "SELECT \
+                bidders.BidderID, \
+                bidders.FirstName, \
+                bidders.LastName, \
+                AVG(bids.Bid) AS AverageBid \
+            FROM \
+                Bidders AS bidders \
+            LEFT JOIN (SELECT * FROM Bids WHERE BidderID > 2) AS bids \
+                ON bids.BidderID = bidders.BidderID \
+            GROUP BY \
+                bidders.BidderID, \
+                bidders.FirstName, \
+                bidders.LastName \
+            ;"
+            )
+cur.fetchall()
 
 
 
