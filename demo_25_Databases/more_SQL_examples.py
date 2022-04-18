@@ -46,8 +46,7 @@ import csv # To import tables from csv files
 os.getcwd()
 # Change to a new directory.
 drive_path = 'C:\\Users\\le279259\\OneDrive - University of Central Florida\\Documents\\'
-# git_path = 'Teaching\\ECP3004_Spring_2021\\GitRepo\\ECP3004S21\\'
-git_path = 'GitHub\\ECP3004S21\\'
+git_path = 'GitHub\\QMB3311S22\\'
 os.chdir(drive_path + git_path + 'demo_25_Databases')
 # Check that the change was successful.
 os.getcwd()
@@ -254,10 +253,10 @@ cur.fetchall()
 
 
 # In this case, we simply list the tables
-# and select out he non-matching pairs of entries 
+# and select out the non-matching pairs of entries 
 # with a WHERE clause. 
 
-# We will explore this further in a richer exampe below. 
+# We will explore this further in a richer example below. 
 
 
 #--------------------------------------------------
@@ -267,11 +266,11 @@ cur.fetchall()
 # Before we move on, you might want to: 
 
 # Use the commit method to save the changes. 
-# con.commit()
+con.commit()
 
 
 # Close the connection when finished. 
-# con.close()
+con.close()
 
 # Then you can continue with this file when you have time
 # to work on it later.
@@ -648,6 +647,20 @@ cur.fetchall()
 # See the script ComputeBidSummariesAndFilter.sql 
 # to see such an example using a WHERE clause. 
 
+
+
+#--------------------------------------------------
+# Commit changes and close the connection
+#--------------------------------------------------
+
+# Before we move on, you might want to: 
+
+# Use the commit method to save the changes. 
+con.commit()
+
+
+# Close the connection when finished. 
+con.close()
 
 
 ##################################################

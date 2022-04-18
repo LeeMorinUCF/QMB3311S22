@@ -5,7 +5,8 @@
     Note that the slash-star symbol creates comments for a header.
     It doesn't count as a first command.
     Also, the semicolon is also used in SQL to denote end of line.
-    Also, note that sqlite3 in Python can only execute one SQL command
+    Also, note that the cur.execute() command from sqlite3
+    in Python can only execute one SQL command
     at a time.
 
 */;

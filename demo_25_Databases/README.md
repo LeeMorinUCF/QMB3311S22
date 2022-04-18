@@ -3,13 +3,13 @@
 Now that we know how to interact with a database, 
 we will consider a few more examples. 
 This time, we will progress toward a more generalized method of interacting
-with databases: will will write SQL scripts. 
+with databases: we will write SQL scripts. 
 SQL is a language in its own right, so it makes sense 
 to write your queries in dedicated SQL scripts. 
 This way, the same operations can be used on a number of different platforms:
 you could run them in the GUI of a database manager, 
 you could submit them through a terminal window 
-(such as when I run your my_module.py scripts), 
+(such as when I run your ```my_module.py``` scripts), 
 and you can read the text of the SQL query in Python 
 and use the ```sqlite3``` module.
 
@@ -68,7 +68,7 @@ The most important parameters at this stage are the names of the fields
 and the data types. 
 Aside from checking for mistakes made on input, this is especially useful for understanding a database created by someone else. 
 
-You can then populate ```FirstTable``` with a few entries as follows
+You can then populate ```FirstTable``` with a few entries as follows.
 
 ```
 INSERT INTO FirstTable(KeyID, Date, Name)
@@ -119,7 +119,7 @@ To see the table entered above, you can execute the simplest SQL query
 ```
 which will return the entire table. 
 
-You can execute a query with a restriction by adding a ```WHERE``` clause
+You can execute a query with a restriction by adding a ```WHERE``` clause.
 
 ```python
 >>> cur.execute("SELECT * FROM FirstTable WHERE KeyID > 1")
@@ -127,7 +127,7 @@ You can execute a query with a restriction by adding a ```WHERE``` clause
 [(2, '20131204', 'Konstantin Golyaev'), (3, '20131204', 'Alberto M. Segre')]
 ```
 
-Alternatively, you can execute a query with a projection by specifying the fields
+Alternatively, you can execute a query with a projection by specifying the fields.
 ```python
 >>> cur.execute("SELECT Name, Date FROM FirstTable")
 >>> cur.fetchall()
@@ -136,7 +136,7 @@ Alternatively, you can execute a query with a projection by specifying the field
  ('Alberto M. Segre', '20131204')]
 ```
 
-If you prefer variables that are functions of the fields in the table, you can specify them with additional functions
+If you prefer variables that are functions of the fields in the table, you can specify them with additional functions.
 ```python
 >>> cur.execute(
     "SELECT \
@@ -153,7 +153,7 @@ If you prefer variables that are functions of the fields in the table, you can s
 Notice that the backslash ```\```
 allows a string to continue to the next line.
 
-Finally, you can combine these operations in a more complex query
+Finally, you can combine these operations in a more complex query.
 
 ```python
 >>> cur.execute(
@@ -171,7 +171,7 @@ Finally, you can combine these operations in a more complex query
 
 ### Combining more than one table
 
-Again, first specify the schema of this table
+Again, first specify the schema of this table:
 
 ```
 CREATE TABLE SecondTable(
@@ -184,7 +184,7 @@ PRIMARY KEY    (KeyID)
 ```
 
 
-Next populate ```SecondTable``` with a few entries as follows
+Next populate ```SecondTable``` with a few entries as follows.
 
 ```
 INSERT INTO SecondTable(KeyID, OtherID, Name)
@@ -203,7 +203,7 @@ cur.executescript(sql_str)
 
 Now you can verify the contents of the database by executing 
 ```PRAGMA table_info('SecondTable')``` or, 
-for a small example such as this, you can output the table to screen
+for a small example such as this, you can output the table to screen.
 
 ```python
 >>> cur.execute('''SELECT * FROM SecondTable''')
@@ -234,6 +234,14 @@ of combining tables.
 [(1, 101, 'Harry J. Paarsch'), (2, 102, 'Konstantin Golyaev')]
 ```
 
+In this case, we did not specify the type of join. 
+Instead, we simply listed the tables
+and selected out the non-matching pairs of entries
+with a WHERE clause.
+We will explore joining methods further in a richer example below.
+
+
+
 ### Using Command Files
 
 One of the benefits of writing your queries in separate files is *portability*: 
@@ -246,7 +254,7 @@ enabling someone else to build upon your work in the future.
 
 See the scripts ```FirstTable.sql```, ```SecondTable.sql``` and ```ExampleThetaJoin.sql``` above.
 
-One way of inplementing this is by installing the program sqlite3
+One way of inplementing this is by installing the program ```sqlite3```
 on your operating system. 
 Then you can open it in a terminal window and write short commands to run the scripts. 
 These SQL scripts typically have other commands above and below the queries
@@ -340,7 +348,7 @@ You can still verify the contents of the tables with the query
 SELECT * FROM Auctions;
 ```
 and so on but we will move on to running the queries instead.
-Now let's execute a query: `ComputeBidSummariesByBidder.sql```.
+Now let's execute a query: ```ComputeBidSummariesByBidder.sql```.
 The above query performs two main actions.
 First, it aggregates data by bidder.
 Second, it calculates values for each bidder.
@@ -447,7 +455,7 @@ You can add unique variables by the grouping variable.
 
 ### Joins
 
-An intermediate step is to join together two tables by the join key BidderID. 
+An intermediate step is to join together two tables by the join key ```BidderID```. 
 
 ```python
 >>> cur.execute(
@@ -525,7 +533,7 @@ in which a set of entries are contained in any of two tables A and B.
 
 Perhaps a better way of representing the join is by
 picturing two simple databases in the rectangular form of the data. 
-Assume that the vertical position represents entries with the same key. 
+Assume that the vertical position (and color) represents entries with the same key. 
 Then the two databases will be joined in the following ways.
 
 <img src="Images/join_tables.png" width="500">
@@ -688,8 +696,9 @@ so sqlite3 is not as light as it may seem.
 
 As in many of the examples we have studied use ```WHERE``` clause, 
 one can select a subset of rows satisfying certain criteria. 
-In the same sense that the ```SELECT``` keyword selects columns of data, the vertical dimension,
-the ```WHERE``` keyword is used to select rows, the horizontal dimension. 
+In the same sense that the ```SELECT``` keyword selects columns of data, in the horizontal dimension,
+the ```WHERE``` keyword is used to select rows, 
+in the vertical dimension. 
 
 Run the script ```ComputeBidSummariesAndFilter.sql``` to see such an example using a ```WHERE``` clause. 
 In the textbook, *A Gentle Introduction to Effective Computing in 
