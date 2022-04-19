@@ -175,7 +175,7 @@ cur.fetchall()
 
 # which will return the entire table.
 
-# You can execute a query with a restriction by adding a WHERE clause.
+# You can execute a query with a *restriction* by adding a WHERE clause.
 
 cur.execute("SELECT * FROM FirstTable WHERE KeyID > 1")
 cur.fetchall()
@@ -294,7 +294,7 @@ con.close()
 # Connect to the database (open a new database)
 #--------------------------------------------------
 
-con = sqlite3. connect("AuctionsDataBase.db")
+con = sqlite3.connect("AuctionsDataBase.db")
 cur = con. cursor()
 
 
@@ -337,7 +337,7 @@ rows = csv.reader(table_file)
 
 # In this case, we use the executemany() method
 # to execute a list of queries.
-cur. executemany("INSERT INTO Auctions VALUES (?, ?, ?, ?)", rows)
+cur.executemany("INSERT INTO Auctions VALUES (?, ?, ?, ?)", rows)
 
 # Verify that it worked.
 cur.execute("SELECT * FROM Auctions")
@@ -348,7 +348,7 @@ cur.fetchall()
 table_file = open("BiddersTable.csv")
 rows = csv.reader(table_file)
 
-cur. executemany("INSERT INTO Bidders VALUES \
+cur.executemany("INSERT INTO Bidders VALUES \
                  (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", rows)
 
 # Verify that it worked.
@@ -360,7 +360,7 @@ cur.fetchall()
 table_file = open("BidsTable.csv")
 rows = csv.reader(table_file)
 
-cur. executemany("INSERT INTO Bids VALUES \
+cur.executemany("INSERT INTO Bids VALUES \
                  (?, ?, ?, ?)", rows)
 
 # Verify that it worked.
