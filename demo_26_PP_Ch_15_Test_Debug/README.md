@@ -756,7 +756,7 @@ Explain what the bug in this function is and fix it.
 
 ### Exercise 5
 
-The following function is broke. 
+The following function is broken. 
 The docstring describes what it is supposed to do. 
 
 ```python 

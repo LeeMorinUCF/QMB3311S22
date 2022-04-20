@@ -297,7 +297,7 @@ L
 # Following these steps, we created the variable, ```L```, 
 # that refers to the list ```[4, 0, 2, -5, 0]```, 
 # we called ```running_sum(L)```, 
-# and confirmaed that ```L``` now refers to ```[4, 4, 6, 1, 1]```. 
+# and confirmed that ```L``` now refers to ```[4, 4, 6, 1, 1]```. 
 
 # Although this test case passes, 
 # it doesn't guarantee that this function always works--in fact, 
@@ -470,7 +470,7 @@ unittest.main()
 
 # In the report card, we find that the three tests that passed
 # include the case with the empty list, the list with several zeros
-# and the list with a mixture of values, positive, nagative or zero. 
+# and the list with a mixture of values, positive, negative or zero. 
 
 
 # To find the bug, let's start with the simplest case that failed:
@@ -506,15 +506,16 @@ unittest.main()
 # the running sum of ```L[0]``` is simply ```L[0]```. 
 
 # So then, if the function is wrong, how did the other test cases pass?
-# In each of those cases, ```L[-1] + L[0]``` produced the same value as ```L[0]```.
-# Look at those test cases: in each one that passed `L[-1]```
-# was either missing or zero.
+# In each of those cases, it must be true that 
+# ```L[-1] + L[0]``` produced the same value as ```L[0]```.
+# Look at those test cases: in each one that passed, 
+# ```L[-1]``` was either missing or zero.
 # Interestingly, the error was hidden in one of the more complex test cases, 
-# while it was exposed with one of the simoplest.
+# while it was exposed with one of the simplest.
 
 # To fix the problem, we can adjust the loop
 # to start at element 1, 
-# leaving element zero unchanged. 
+# leaving element 0 unchanged. 
 # The script ```sums_v2.py``` implements this correction.
 
 

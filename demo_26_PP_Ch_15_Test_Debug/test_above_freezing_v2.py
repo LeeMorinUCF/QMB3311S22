@@ -6,7 +6,7 @@ Created on Tue Apr 13 13:45:11 2021
 """
 
 import unittest
-import temperature_v2
+import temperature_v2 as temperature
 
 
 class TestAboveFreezing(unittest.TestCase):
