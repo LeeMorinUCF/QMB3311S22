@@ -39,8 +39,9 @@ import os # To set working directory
 # Find out the current directory.
 os.getcwd()
 # Change to a new directory.
-git_path = 'C:\\Users\\le279259\\Documents\\Teaching\\ECP3004_Spring_2021\\GitRepo\\ECP3004S21\\'
-os.chdir(git_path + 'demo_26_PP_Ch_15_Test_Debug')
+drive_path = 'C:\\Users\\le279259\\OneDrive - University of Central Florida\\Documents\\'
+git_path = 'GitHub\\QMB3311S22\\'
+os.chdir(drive_path + git_path + 'demo_26_PP_Ch_15_Test_Debug')
 # Check that the change was successful.
 os.getcwd()
 
@@ -275,6 +276,10 @@ def running_sum(L: List[float]) -> None:
         L[i] = L[i - 1] + L[i]
 
 
+# Test it the old fashioned way.
+L = [4, 0, 2, -5, 0]
+running_sum(L)
+L
 
 # The structure of the function is unusual:
 # Because there is no return statement, the function ```running_sum```

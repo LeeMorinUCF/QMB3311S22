@@ -3,6 +3,8 @@
 
 Once you gain enough skill to make programs run without error, 
 how do you know that the program is correct? 
+Note the difference between *running without error*
+and *performing the calculation correctly*.
 In the *Function Design Recipe*, we make sure to provide examples
 to test a function. 
 Finding good test cases is a skill that you will develop over time. 
@@ -21,33 +23,37 @@ as it might be in the manufacturing of physical goods.
 In software development, tests are built into the production of the product. 
 
 There are several stages of a software development project. 
-1. *Requirements* The customer specifies what the program needs to do and 
+1. *Requirements:* The customer specifies what the program needs to do and 
 any constraints or deadlines. 
-1. *Design* The software developers make a high-level plan for the software, 
+1. *Design:* The software developers make a high-level plan for the software, 
 which involves splitting the problem into smaller well-defined problems. 
-1. *Coding* This is the most glamorous part but often takes less time than you might imagine. 
-1. *Testing* This is the real work of making sure the program does what it is supposed to, 
+1. *Coding:* This is the most glamorous part but often takes less time than you might imagine. 
+1. *Testing:* This is the real work of making sure the program does what it is supposed to, 
 in a variety of cases. 
-1. *Deployment* This is when the software is released to customers
+1. *Deployment:* This is when the software is released to customers
 or used in a business process. 
 
 You might notice that your computer occasionally needs to download and install upgrades. 
-This means that the software is released with bugs or security vulnerabilities 
-that are discovered through use. 
+This means that the software was released with bugs or security vulnerabilities 
+that were discovered through use. 
+As frustrating as this may appear to the user, 
+the need for updates is the result of a deliberate choice by 
+software developers. 
 Some of these bugs are known about before the product is deployed
 but might only inconvenience a small number of users,
 so a manager makes a cost-benefit decision to release the software anyway. 
-It'll never be perfect but if it were, it would be released long after the competition. 
+The software will never be perfect but if it were, 
+it would be released long after the competition. 
 
-The thing is, the later that problems are found, 
+The problem is that the later that problems are found, 
 the more difficult or expensive it is to fix them. 
 What is a developer to do? 
 Provide test cases. 
-This ensures that downstream users can detect problem, 
-including new problems are created by the inevitable updates. 
+This ensures that downstream users can detect problems, 
+including new problems that are created by the inevitable updates. 
 
 Testing is one more job to do, 
-that you may not think you have time for, but *testing saves time*. 
+one that you may not think you have time for, but *testing saves time*. 
 Without tests, you will waste many more hours attempting to track down
 bugs that you should have tested out earlier. 
 
@@ -114,7 +120,7 @@ Both of these functions produce the same value for all of the examples given.
 How do we settle a tie-breaker? 
 We can find test cases for which each function produces different values. 
 
-The temperature zero degrees celcius provides such a test case. 
+The temperature zero degrees celsius provides such a test case. 
 
 ```python 
 >>> above_freezing(0)
@@ -139,7 +145,7 @@ One way is to call the functions yourself
 and we have already used ```doctest``` to do this semi-automatically. 
 The latter approach is preferred because it does not have as much potential for human error. 
 An even better way is to use formal *unit testing* with the ```unittest``` module. 
-A *unit test* exercises just one isolated component of a program. 
+A *unit test* evaluates just one isolated component of a program. 
 
 With the ```unittest``` module, we write what are called *test classes*
 from the class ```unittest.TestCase```. 
@@ -194,12 +200,13 @@ self.assertEqual(expected, actual,
 ```
 
 To *assert* something is to claim that a statement is true;
-in this case, we assert that the value ``expected``` equals ```actual```. 
+in this case, we assert that the value 
+```expected``` equals ```actual```. 
 At the bottom of the file, the command ```unittest.main()```
 executes every function with a name beginning with ```test```. 
 
 When the program above is executed, called ```test_above_freezing.py```, 
-the following output.
+it produces the following output.
 
 ```python 
 ...
@@ -244,11 +251,11 @@ and exactly what values triggered the failure.
 Let's compare ```unittest``` with ```doctest```. 
 
 - For large suites of tests, which are useful for complex programs, 
-it is nice to have the tesing code in a separate file, 
+it is nice to have the testing code in a separate file, 
 instead of an excessively long docstring. 
 - In ```unittest```, each test case can be in a separate method, 
 making the test cases independent of each other. 
-In cotrast, the test cases in docstrings retain values in memory
+In contrast, the test cases in docstrings retain values in memory
 from the previous function calls. 
 - With each test case in a separate method, rather than in a docstring, 
 we can instead write a docstring for each test case, 
@@ -313,7 +320,7 @@ was mutated correctly.
 Following these steps, we created the variable, ```L```, 
 that refers to the list ```[4, 0, 2, -5, 0]```, 
 we called ```running_sum(L)```, 
-and confirmaed that ```L``` now refers to ```[4, 4, 6, 1, 1]```. 
+and confirmed that ```L``` now refers to ```[4, 4, 6, 1, 1]```. 
 
 Although this test case passes, 
 it doesn't guarantee that this function always works--in fact, 
@@ -514,7 +521,7 @@ FAILED (failures=4)
 
 In the report card, we find that the three tests that passed
 include the case with the empty list, the list with several zeros
-and the list with a mixture of values, positive, nagative or zero. 
+and the list with a mixture of values, positive, negative or zero. 
 
 
 To find the bug, let's start with the simplest case that failed:
@@ -550,15 +557,16 @@ The 5 was counted twice.
 the running sum of ```L[0]``` is simply ```L[0]```. 
 
 So then, if the function is wrong, how did the other test cases pass?
-In each of those cases, ```L[-1] + L[0]``` produced the same value as ```L[0]```.
-Look at those test cases: in each one that passed `L[-1]```
+In each of those cases, it must be true that 
+```L[-1] + L[0]``` produced the same value as ```L[0]```.
+Look at those test cases: in each one that passed ```L[-1]```
 was either missing or zero.
 Interestingly, the error was hidden in one of the more complex test cases, 
-while it was exposed with one of the simoplest.
+while it was exposed with one of the simplest.
 
 To fix the problem, we can adjust the loop
 to start at element 1, 
-leaving element zero unchanged. 
+leaving element 0 unchanged. 
 The script ```sums_v2.py``` implements this correction.
 
 ```python 
@@ -609,7 +617,7 @@ It is important to make sure you have good *test coverage*.
 Here are some guidelines that you can follow
 to come up with a thorough set of test cases. 
 
-- *Think about size*
+- *Think about size:*
 When a test involves a collection, such as a list, string, dictionary or file, 
 do the following:
   - Test the empty collection
@@ -618,18 +626,18 @@ do the following:
   - Test the smallest interesting cases, 
   such as sorting a list containing two values. 
 
-- *Think about dichotomies*
+- *Think about dichotomies:*
 A *dichotomy* is a contrast between two things. 
 Examples of dichotomies are empty/full, even/odd, 
 positive/negative, and alphabetic/nonalphabetic. 
 If a function deals with two or more different categories or situations, 
 test all of them. 
 
-- *Think about boundaries*
+- *Think about boundaries:*
 If a function behaves differently around a boundary or threshold, 
 test exactly on that boundary. 
 
-- *Think about order* 
+- *Think about order:* 
 If a function behaves differently when the same elements are used 
 in a different order, identify those orders and test each one of them. 
 For the sorting example mentioned in an earlier chapter, 
@@ -639,15 +647,16 @@ you will want one list in order and another unordered.
 Following these guidelines, 
 you will get better and better at detecting errors and
 will commit fewer and fewer errors over time. 
-You will become more conscious of the errors that can occur
-and that is the whole point of focusing on quality.
-The more you do it, 
-the less likely it becomes for problems to arise. 
+You will become more conscious of the errors that can occur.
+After all, that is the whole point of focusing on quality:
+the more you focus on what can go wrong, 
+the less likely those problems arise. 
+
 
 ## Hunting Bugs
 
 Bugs are discovered through testing or through program use, 
-although the later is what good testing can avoid. 
+although the latter is what good testing can avoid. 
 Regardless of how they are discovered, 
 tracking down and eliminating bugs is part of life for every programmer. 
 
@@ -659,7 +668,7 @@ it solves the problem.
 At least that is how it is supposed to work. 
 Many novice programmers attempt to debug their code 
 by making arbitrary changes. 
-Auto mechanics have a term for someone who makes similar changes: *parts changers*
+Auto mechanics have a term for someone who makes similar changes: *parts changers*. 
 These novice mechanics will order and change car parts in an attempt to solve a problem,
 which often results in replacing working parts and revisiting the same problem. 
 Programmers, on the other hand, do not have to order and pay for parts, 
@@ -710,6 +719,13 @@ Sometimes a fresh set of eyes can catch something you missed.
 
 ### Exercise 1
 
+An analyst on your team claims to have written a function
+that replaces each value in a list with twice the preceding value
+(and the first value with 0).
+For example, if the list ```[1, 2, 3]```
+is passed as an argument, the function is supposed to 
+turn it into ```[0, 2, 4]```. 
+Here is the code:
 
 ```python 
 from typing import List
@@ -733,9 +749,15 @@ def double_preceding(values: List[float]) -> None:
             temp = values[i]
 
 ``` 
+Although the example test passes, this code contains a bug. 
+Write a set of ```unittest``` tests to identify the bug. 
+Explain what the bug in this function is and fix it. 
 
 
 ### Exercise 5
+
+The following function is broke. 
+The docstring describes what it is supposed to do. 
 
 ```python 
 def find_min_max(values: list):
@@ -755,9 +777,15 @@ def find_min_max(values: list):
 
 ``` 
 
+What does it actually do?
+What line(s) do you need to to change to fix it?
 
 ### Exercise 6
 
+Suppose you have a data set from a survey 
+in which respondents have the option to report their age.
+Missing values are read in as ```None```.
+Here is a function that computes the average age from that list:
 
 ```python 
 from typing import List
@@ -787,7 +815,7 @@ if __name__ == '__main__':
     doctest.testmod()
 
 ``` 
-
+Unfortunately, it does not work as expected:
 
 
 ```python 
@@ -796,3 +824,11 @@ if __name__ == '__main__':
 16.666666666666668
 
 ``` 
+
+a.  Using ```unittest```, write a set of tests 
+for function ```average``` in a module called ```test_average.py```. 
+The tests should cover cases involving lists
+with and without missing values. 
+
+a.  Modify function ```average``` so it correctly handles missing values
+and passes all of your tests. 
