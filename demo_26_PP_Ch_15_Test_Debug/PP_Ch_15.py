@@ -9,7 +9,7 @@
 # Lealand Morin, Ph.D.
 # Assistant Professor
 # Department of Economics
-# College of Business Administration
+# College of Business
 # University of Central Florida
 # 
 # April 13, 2021
