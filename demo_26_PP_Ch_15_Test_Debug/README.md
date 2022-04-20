@@ -356,9 +356,9 @@ and a mix of negative, zero and positive values.
 
 Test Case Description         |         List before       |      List After
 ------------------------------|---------------------------|-------------------------|
-Empty list                    |     ```[1]```             |  ```[1]```              |
+Empty list                    |     ```[]```             |  ```[]```              |
 One-item list                 |     ```[5]```             |  ```[5]```              |
-Two-item list                 |    ```[2.5]```            | ```[2.5]```             |
+Two-item list                 |    ```[2, 5]```            | ```[2, 7]```             |
 Multiple items, all negative  |    ```[-1,-5,-3,-4]```    | ```[-1, -6, -9, -13]``` |
 Multiple items, all zero      |    ```[0,0,0,0]```        | ```[0,0,0,0]```         | 
 Multiple items, all positive  |    ```[4,2,3,6]```        | ```[4, 6, 9, 15]```     |
