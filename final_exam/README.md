@@ -5,7 +5,7 @@
 
 ## Instructions
 
-Please see the document ```QMB3311_final_exam.pdf``` in this folder.
+Please see the document ```QMB3311_final_exam.png``` in this folder.
 Instructions for submission of the relevant website URL are included in the document
 (and are part of the content of the course).
 
