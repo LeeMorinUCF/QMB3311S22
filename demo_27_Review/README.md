@@ -15,7 +15,7 @@ We used a few ways of packaging software.
 [The Function Design Recipe](https://github.com/LeeMorinUCF/QMB3311S22/tree/main/demo_03_PP_Ch_03_Function_Design)
 
 
-[Defining Your Own Modules](https://github.com/LeeMorinUCF/QMB3311S22/tree/main/demo_10_PP_Ch_06_Testing_Modules#defining-your-own-modules)
+[Defining Your Own Modules](https://github.com/LeeMorinUCF/QMB3311S22/tree/main/demo_10_PP_Ch_06_Designing_Modules#defining-your-own-modules)
 
 Example: [Midterm Exam](https://github.com/LeeMorinUCF/QMB3311S22/tree/main/midterm_exam)
 
@@ -40,10 +40,10 @@ We also discussed a few specific numerical calculations for which you can design
 
 ### Multi-parameter Optimization with multiple loops 
 
-See Exercise 6 in the 
+See Exercises 3, 4 and 5 in the 
 [Midterm Exam](https://github.com/LeeMorinUCF/QMB3311S22/tree/main/midterm_exam)
 and 
-Exercise 5 and 6 of 
+Exercises 3 and 4 of 
 [Assignment 5](https://github.com/LeeMorinUCF/QMB3311S22/tree/main/assignment_05)
 
 
@@ -58,9 +58,7 @@ we concentrated out one of the parameters.
 
 See [Optimization](https://github.com/LeeMorinUCF/QMB3311S22/tree/main/demo_20_Optimization)
 and 
-[Question 1 of Assignment 7](https://github.com/LeeMorinUCF/QMB3311S22/blob/main/assignment_07/my_A7_module_soln.py)
-and, if you prefer to let ```scipy``` do the work, 
-[Question 2 of Assignment 7](https://github.com/LeeMorinUCF/QMB3311S22/blob/main/assignment_07/my_A7_module_soln.py).
+[Questions 1 to 3 of Assignment 7](https://github.com/LeeMorinUCF/QMB3311S22/blob/main/assignment_07), in which we let ```scipy``` do the work, 
 
 
 
@@ -69,7 +67,7 @@ and, if you prefer to let ```scipy``` do the work,
 
 [Solving for Roots of Equations](https://github.com/LeeMorinUCF/QMB3311S22/tree/main/demo_16_Solving_Equations#solving-for-roots-of-equations)
 
-Questions in [Assignment 6](https://github.com/LeeMorinUCF/QMB3311S22/blob/main/assignment_06/my_A6_module_soln.py)
+Questions in [Assignment 6](https://github.com/LeeMorinUCF/QMB3311S22/blob/main/assignment_06)
 
 
 
@@ -124,7 +122,7 @@ We have discussed concepts for developing reliable software throughout the cours
 
 ## Testing Your Code Semiautomatically
 
-[Testing with ```doctest```](https://github.com/LeeMorinUCF/QMB3311S22/tree/main/demo_10_PP_Ch_06_Testing_Modules#testing-your-code-semiautomatically)
+[Testing with ```doctest```](https://github.com/LeeMorinUCF/QMB3311S22/tree/main/demo_10_PP_Ch_06_Designing_Modules#testing-your-code-semiautomatically)
 
 
 
@@ -143,7 +141,7 @@ We have discussed concepts for developing reliable software throughout the cours
 
 The format will be similar to that for the midterm exam, 
 except it will be three hours in length, 
-from 4:00 PM to 6:50 PM on Monday, May 3, 2021. 
+from 4:00 PM to 6:50 PM on Monday, May 2, 2022. 
 
 - Computer-based, live programming exercise. 
 - Some questions will be answered in the form of functions submitted within a module.
